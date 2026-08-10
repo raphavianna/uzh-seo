@@ -14,15 +14,31 @@ Gemini, AI Overviews).
 
 | Pasta | Conteúdo |
 |---|---|
-| `analysis/` | Análises de território de marca/produto e keyword research |
-| `pautas/` | Backlog de pautas de conteúdo, um arquivo Markdown por pauta |
+| `analysis/` | Territórios, keyword research, editorias e definição do ciclo |
+| `ciclos/` | Um diretório por ciclo: sinal, seleção e medição |
+| `pautas/` | Backlog priorizado (`00-backlog.md`) e um arquivo por pauta |
 | `content/` | HTML final pronto para publicar no CMS |
 | `reports/` | Snapshots datados de dados Semrush/Similarweb e medições |
 
-## Pipeline
+## Fundação
 
 0. **Territórios** — divisão de esforço marca × produto, decidida com dados
-1. **Oportunidades** — keyword research, clusters, gaps vs. concorrentes
-2. **Pautas** — backlog priorizado de conteúdos
-3. **Produção** — criação/revisão de conteúdos (HTML publicável)
-4. **Medição** — indexação, posições, tráfego, ajuste do backlog
+   → [`analysis/00-territorios.md`](analysis/00-territorios.md)
+1. **Oportunidades** — clusters de keyword priorizados e seleção de produtos
+   → [`analysis/01-oportunidades.md`](analysis/01-oportunidades.md)
+2. **Editorias** — o que cobrimos, para que intenção e com que destino
+   → [`analysis/02-editorias.md`](analysis/02-editorias.md)
+
+Revisadas por dado novo, não repetidas do zero.
+
+## Ciclo editorial
+
+Definido em [`analysis/03-ciclo-editorial.md`](analysis/03-ciclo-editorial.md).
+Quinzenal, duas peças por ciclo — uma de fundo de funil e uma de autoridade:
+
+**Sinal** (venda, posições, mercado) → **Seleção** (categoria e página de
+destino) → **Keyword e pauta** → **Produção** → **Publicação e amarração de
+links** → **Medição** em D+30 e D+60, que reordena o backlog.
+
+Nenhuma etapa trava por ferramenta fora do ar: cada fonte tem caminho
+degradado declarado. Estimar número de memória continua proibido.

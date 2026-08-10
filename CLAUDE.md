@@ -90,6 +90,13 @@ O projeto avança por fases; cada fase gera artefatos commitados no repositório
 
 Execute uma fase por vez e apresente o resultado antes de avançar, salvo
 instrução explícita para encadear fases.
+
+Concluídas as fases 0 a 2, o projeto passa a rodar em **ciclo editorial
+quinzenal** — sinal → seleção → keyword e pauta → produção → publicação →
+medição — descrito em `analysis/03-ciclo-editorial.md`. As fases 0 a 2 viram
+fundação revisável por dado, não etapas a repetir do zero; as fases 3 e 4
+viram etapas de dentro do ciclo. Cada ciclo tem um diretório em `ciclos/`
+com o rastro da decisão.
 </pipeline_do_projeto>
 
 <padrao_de_conteudo_html>
@@ -152,9 +159,13 @@ Regras para todo texto entregue, nos dois modos:
 
 <repositorio>
 Estrutura de trabalho:
-- `analysis/` — análises de território e keyword research;
-- `pautas/` — backlog de pautas, um arquivo Markdown por pauta;
-- `content/` — HTML final pronto para publicar;
+- `analysis/` — análises de território, keyword research, editorias e a
+  definição do ciclo editorial;
+- `ciclos/` — um diretório por ciclo (`ciclo-NN-AAAA-MM`) com sinal, seleção
+  e medição; template em `ciclos/TEMPLATE.md`;
+- `pautas/` — backlog priorizado (`00-backlog.md`) e um arquivo por pauta;
+- `content/` — HTML final pronto para publicar (mais a versão editor-safe,
+  sem `<script>` no corpo, quando o editor da Nuvemshop exigir);
 - `reports/` — snapshots datados de dados Semrush/Similarweb e medições.
 
 Commits pequenos e descritivos em português, um por artefato ou grupo coeso de
