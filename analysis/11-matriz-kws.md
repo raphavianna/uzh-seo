@@ -99,14 +99,16 @@ páginas publicadas devolverem posição real.
 
 Volume único exclui as variantes gráficas (mesma keyword sem acento, mesma SERP).
 
+Já com as decisões de escopo aplicadas (ver seção seguinte).
+
 | # | Cluster | KWs | Volume único | Sessões/mês | Score | PAA | AIO |
 |---|---|---:|---:|---:|---:|---:|---:|
 | 1 | Sunga, bermuda e short | 48 | 74.720 | 2.530 | 1.633 | 13 | 1 |
 | 2 | Saída de praia e resort | 49 | 87.400 | 3.061 | 1.459 | 26 | 1 |
 | 3 | Lycra, camiseta UV e rash guard | 106 | 55.740 | 2.186 | 1.345 | 29 | 4 |
-| 4 | *Natação e mergulho (adjacente)* | 129 | 43.280 | 1.670 | 1.088 | 81 | 16 |
-| 5 | Biquíni e top | 55 | 41.020 | 1.487 | 1.036 | 12 | 0 |
-| 6 | Maiô | 70 | 42.420 | 1.404 | 1.016 | 5 | 0 |
+| 4 | Biquíni, top e sunkini | 55 | 41.020 | 1.487 | 1.036 | 12 | 0 |
+| 5 | Maiô | 70 | 42.420 | 1.404 | 1.016 | 5 | 0 |
+| 6 | Natação (recorte no escopo) | 92 | 30.120 | 1.343 | 877 | — | — |
 | 7 | Calçado aquático | 61 | 36.160 | 1.227 | 846 | 35 | 1 |
 | 8 | Neoprene | 121 | 18.500 | 799 | 547 | 37 | 3 |
 | 9 | Moda praia e surfwear | 58 | 21.900 | 512 | 356 | 23 | 9 |
@@ -115,10 +117,15 @@ Volume único exclui as variantes gráficas (mesma keyword sem acento, mesma SER
 | 12 | Informacional / GEO | 59 | 590 | 29 | 12 | 2 | 2 |
 | 13 | Marca Use Zero Hora | 34 | 70 | 4 | 1 | 0 | 0 |
 
-**Teto teórico**: 15.596 sessões orgânicas/mês se todos os clusters atingissem a
-posição assumida. O site faz 138 hoje. Este número é um teto de mercado, não uma
-projeção: ele pressupõe página publicada e ranqueada para as 655 keywords, o que
-levaria anos. Serve para dimensionar o mercado, não para prometer resultado.
+Fora do escopo: **37 keywords, 13.160 buscas/mês** de mergulho, varejo
+especializado de natação e marca de terceiro. Ficam registradas no CSV com
+`escopo = fora` e o motivo, para não voltarem à mesa a cada ciclo.
+
+**Teto teórico**: 15.158 sessões orgânicas/mês, já descontado o que saiu do
+escopo, se todos os clusters atingissem a posição assumida. O site faz 138 hoje.
+Este número é um teto de mercado, não uma projeção: ele pressupõe página
+publicada e ranqueada para 823 keywords, o que levaria anos. Serve para
+dimensionar o mercado, não para prometer resultado.
 
 ### Leitura de cada cluster
 
@@ -237,27 +244,71 @@ Os cinco com AI Overview e maior volume, que são a prioridade de citação:
 PAA e AI Overview presentes, e o projeto já tem conteúdo de lycra publicado que
 pode ser estendido para responder o termo.
 
-## Decisões abertas
+## Decisões de escopo
 
-**1. Natação e mergulho entra no escopo?** São 43.280 buscas/mês, 129 keywords,
-81 com PAA e 16 com AI Overview — a maior densidade de AEO da base. Entrar
-significa alargar a entidade da marca para além de surf e beachwear, o que
-conflita com a regra de consistência de entidade do `CLAUDE.md`. A favor: os
-produtos de neoprene e lycra servem a natação sem nenhuma adaptação, e o CPC de
-$0,08 torna o território barato também no pago. Minha recomendação é entrar
-apenas com as keywords que um produto atual atende de fato — "maiô natação
-feminino" (5.400), "bermuda natação" (1.000) — e não construir território
-editorial de natação. Precisa da sua decisão.
+### 1. Natação — entra pelo produto, não pelo território (decidido em 2026-08-10)
 
-**2. "sunkini" é categoria ou marca de terceiro?** 1.600 buscas/mês, KD 13, e o
-site já ranqueia "subikini" na posição 8. Se for marca de terceiro, sai do
-escopo. Pergunta pendente desde a lista-semente.
+Das 129 keywords de natação e mergulho que o export trouxe, entram as **92 que um
+produto atual da marca atende de fato**; ficam de fora as **37** restantes.
 
-**3. Calçado aquático é linha de produto ou termo adjacente?** 36.160 de volume,
-puxado por "sapatilha aquática" (12.100). O `search-mkt` registra uma sapatilha
-esportiva de neoprene no catálogo. Se o produto existe e tem estoque, o cluster
-vale uma categoria própria; se é SKU único, vira página de produto otimizada.
-Depende do catálogo do Nuvemshop.
+| | KWs | Volume | Score |
+|---|---:|---:|---:|
+| Dentro | 92 | 30.120 | 877 |
+| Fora | 37 | 13.160 | 211 |
+
+**Dentro**: maiô natação feminino (5.400), roupa de natação (1.900), maiô para
+hidroginástica (1.600), maiô para natação (1.600), bermuda natação (1.000),
+bermuda natação masculina (1.000), e a cauda de camiseta, lycra, neoprene,
+sapatilha e poncho aplicados a natação. São buscas que o maiô, a bermuda de
+neoprene, a lycra UV e a sapatilha já resolvem sem nenhuma adaptação de produto.
+
+**Fora**, com o motivo registrado no CSV:
+- **Mergulho** — roupa de mergulho (6.600), roupas de mergulho feminina (1.000),
+  traje de mergulho (590), roupas de mergulho 5mm. A marca faz neoprene de surf,
+  não roupa de mergulho autônomo. Prometer isso quebraria a regra de que o
+  conteúdo só afirma atributo que o produto tem.
+- **Varejo especializado** — loja de natação, loja de natação perto de mim, loja
+  de roupa de natação. Intenção navegacional para loja física de esporte.
+- **Equipamento e acessório** — acessórios de natação, equipamentos de natação,
+  material de natação, artigos de natação. São óculos, touca e nadadeira, que a
+  marca não fabrica.
+- **Marca de terceiro** — traje arena feminino.
+
+Consequência editorial: **não se cria território de conteúdo de natação.** As
+keywords que entraram viram variação de atributo dentro das páginas de maiô,
+bermuda de neoprene e lycra que já existem no plano, e não pautas próprias. A
+entidade da marca segue sendo "Use Zero Hora, marca brasileira de surf e
+beachwear", sem alargamento.
+
+### 2. Sunkini é categoria (decidido em 2026-08-10)
+
+Confirmado como termo de categoria, não marca de terceiro. Entra no escopo com
+URL dona própria, `/feminino/biquini/sunkini/`, que já existe.
+
+| Keyword | Volume | KD | Intenção |
+|---|---:|---:|---|
+| sunkini | 1.600 | 13 | Informacional + Comercial |
+| sunkini feminino | 720 | 21 | Comercial |
+| subikini | 210 | 7 | Comercial |
+| biquini sunkini | 90 | 13 | Comercial |
+| sunkini biquini | 20 | 0 | — |
+
+Total do sub-cluster: **2.640 buscas/mês**.
+
+**Achado acionável**: pelo baseline de 2026-08-09, o site ranqueia **"subikini"
+na posição 8** e **"sunkini" na posição 24**. Está em top 10 para a grafia errada
+de 210 buscas e em página 3 para a grafia certa de 1.600. É um problema de
+otimização on-page da categoria — title, H1 e primeiro parágrafo priorizando a
+grafia errada —, não de autoridade. KD 13 e a URL já existe. É a correção de
+maior retorno por hora de trabalho de toda a matriz.
+
+### 3. Calçado aquático — segue aberta
+
+36.160 de volume, puxado por "sapatilha aquática" (12.100, KD 20, PAA e AI
+Overview). O `search-mkt` registra uma sapatilha esportiva de neoprene no
+catálogo. Se houver mais de um SKU, o cluster vale categoria própria; se for SKU
+único, vira página de produto otimizada. **Depende do catálogo do Nuvemshop** —
+não é pergunta para você responder de cabeça, é dado que o export resolve.
 
 ## O que esta matriz ainda não resolve
 
