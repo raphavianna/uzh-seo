@@ -4,52 +4,64 @@
 
 ## Escolhido
 
-- **Categoria**: lycra surf — masculina e feminina
-- **Cluster**: C2 (motor de autoridade)
-- **Editoria**: E1 — Escolha e caimento
-- **Página de destino**: `/masculino/lycra-surf/` (confirmada, indexada) e a
-  categoria feminina equivalente (**slug a confirmar no CMS**)
-- **Entregável do ciclo**: publicação, não produção de texto novo
+**Conteúdo: rash guard / camiseta UV** — `pautas/2026-08-10-rash-guard.md`
+
+| Filtro | Resposta |
+|---|---|
+| Posição na fila da F3 | 1º, prioridade 585 |
+| Calendário sazonal autoriza publicar agora? | Sim. Índice entre 0,44 e 1,00 o ano inteiro — único cluster relevante sem vale sazonal |
+| URL dona sem canibalização aberta? | Parcial. `/masculino/lycra-surf/` é dona de "lycra surf"; "rash guard" não tem dona. Definir com o time se estende a categoria ou vira URL própria |
+| Produto com estoque? | 26 SKUs, o maior sortimento do catálogo — fator de catálogo 1,0 |
+
+**Onda 0, em paralelo** — `pautas/2026-08-10-onda-0-higiene.md`, executada
+pelo time de desenvolvimento e operação. Não compete por recurso de redação,
+então não disputa lugar na fila: roda junto.
 
 ## O número que sustenta a escolha
 
 | Fator | Número | Fonte |
 |---|---|---|
-| KW primária masculina | lycra surf masculina — 260/mês, KD 7 | Semrush BR, 2026-08-08 |
-| KW primária feminina | lycra surf feminina — 170/mês, KD 7 | Semrush BR, 2026-08-08 |
-| Head term contido | lycra surf — 880/mês, KD 9 | Semrush BR, 2026-08-08 |
-| Cluster feminino somado | ~680/mês, KD 7–9 | Semrush BR, 2026-08-08 |
-| Custo de produção | zero — textos já escritos e commitados | `content/` |
-
-O KD 7 é o mais baixo entre todos os clusters medidos, o texto já existe, e a
-página masculina já está indexada. Custo marginal próximo de zero para o
-primeiro resultado mensurável do projeto.
+| KW primária | rash guard — 18.100/mês, KD 10 | Semrush BR, 2026-08-09 |
+| Melhor par volume/dificuldade | da base inteira de 860 keywords | `analysis/11-matriz-kws.md` |
+| Sortimento | 26 SKUs, o maior do catálogo | `analysis/10-catalogo.md` |
+| Lacuna de vocabulário | os dois textos de lycra publicados nunca usam o termo "rash guard" | `content/*-lycra-surf.html` |
+| Sazonalidade | 0,44 a 1,00 o ano todo, contra 0,10 a 0,16 do resto em agosto | `analysis/12-priorizacao.md` |
 
 ## Descartados neste ciclo e por quê
 
-- **C1 — saída de praia** (14.800/KD 18): maior oportunidade do mapa, mas
-  exige texto novo e a canônica da categoria ainda não está resolvida.
-  Escrever antes de definir a URL é arriscar dividir sinal com uma URL
-  concorrente da própria loja. Vai para o ciclo 02.
-- **C4 — biquíni** (hot pant 5.400/KD 17): cluster mais disputado e mais
-  distante do diferencial da marca. Depende de autoridade acumulada.
-- **C3 — poncho** (170/KD n/d): melhor aposta de AEO do backlog, mas precisa
-  de recoleta de perguntas reais para o bloco de FAQ, hoje travada por falta
-  de unidades no Semrush.
-
-## Pautas geradas
-
-Nenhuma pauta nova. As duas peças deste ciclo já têm pauta e conteúdo:
-
-- `pautas/2026-08-08-lycra-surf-feminina.md` → `content/feminino-lycra-surf.html`
-  e `content/feminino-lycra-surf-editor.html`
-- categoria masculina → `content/masculino-lycra-surf.html` e
-  `content/masculino-lycra-surf-editor.html`
+- **Saída de praia** (fila nº 2, prioridade 365): publicar até setembro para
+  chegar ranqueado no pico de fevereiro. Entra no ciclo 02. Pauta já aberta
+  em `pautas/2026-08-10-saida-de-praia.md`.
+- **Sunga masculina** (nº 3, prioridade 327): mesma janela, setembro. Pauta
+  já aberta.
+- **Neoprene** (nº 7): único cluster no pico agora, em agosto. Conteúdo
+  orgânico publicado hoje ranqueia em janeiro, quando long john cai para
+  0,29. É território de mídia paga agora e de orgânico em março — o que
+  valida a linha neoprene como campanha inaugural no repositório `search-mkt`.
+- **Maiô** (nº 5): converte a 0,9%. Mandar mais tráfego antes de corrigir a
+  conversão amplifica o vazamento. Volta quando a CVR for corrigida.
 
 ## Bloqueios que precisam de resposta do time
 
-1. Slug real da categoria feminina de lycra no CMS.
-2. URL canônica de `conjunto-atoalhado` e de `poncho` — cada um responde hoje
-   por mais de uma trilha de categoria.
-3. A linha feminina tem certificação UV50 como a masculina? O texto assume
-   que sim.
+Herdados da estratégia mestre, seção 7, mais o que este ciclo acrescenta:
+
+1. "sunkini" (1.600 buscas/mês) é termo genérico de categoria ou nome de
+   outra marca? Trava H1 da Onda 0.
+2. O CMS permite `noindex` na busca interna e canonical em variação de
+   produto? Trava H4 e o S1 inteiro.
+3. Existe categoria infantil no catálogo? O mapa de URLs não achou nenhuma, e
+   "poncho toalha infantil" tem 590 buscas/mês. Trava H3.
+4. Qual o slug correto da categoria feminina de poncho, hoje
+   `/feminino/poncho1/`? Trava H2 — que agora envolve **três** URLs, não
+   duas: a terceira é `/roupas-e-acessorios/linha-surf/poncho/`.
+5. **Novo (H6)**: `conjunto-atoalhado` também responde por duas trilhas.
+   Mesma natureza de H2.
+6. "rash guard" estende `/masculino/lycra-surf/` ou vira URL própria?
+   Trava a produção deste ciclo.
+7. Quem publica no CMS e em quanto tempo um texto entra no ar? Define se a
+   cadência é de duas peças por ciclo ou de uma.
+
+## Pautas do ciclo
+
+- `pautas/2026-08-10-rash-guard.md` — produção
+- `pautas/2026-08-10-onda-0-higiene.md` — higiene técnica, em paralelo

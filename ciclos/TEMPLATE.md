@@ -1,8 +1,7 @@
 # Template de ciclo
 
-Copie este arquivo para `ciclos/ciclo-NN-AAAA-MM/` como três arquivos
-(`00-sinal.md`, `01-selecao.md`, `02-medicao.md`). O ciclo completo está
-descrito em `analysis/03-ciclo-editorial.md`.
+Copie para `ciclos/ciclo-NN-AAAA-MM/` como três arquivos. O ciclo está
+descrito em `analysis/20-ciclo-operacional.md`.
 
 ---
 
@@ -13,23 +12,23 @@ descrito em `analysis/03-ciclo-editorial.md`.
 
 - Data: AAAA-MM-DD
 
-## Nuvemshop (venda e estoque)
-- Fonte: MCP `nuvemshop_query` / `data/exports` — data do sync:
-- Categorias com mais receita no período:
+## Venda e estoque (Nuvemshop / BaseLinker)
+- Fonte, período e data de recebimento:
+- Receita e CVR por cluster:
 - Estoque das peças candidatas:
-- (Se indisponível: "dado indisponível via Nuvemshop" + resposta do time.)
+- (Indisponível: "dado indisponível via [ferramenta]" + o que foi pedido ao time.)
 
-## Desempenho do que está no ar
-- Fonte / data:
-- URLs com sessões orgânicas:
-- Posições das KWs já trabalhadas:
+## Desempenho do que está no ar (Search Console / Position Tracking)
+- Fonte e data:
+- Keywords que entraram na faixa 11–30 no período → fila de colheita do S3:
+- Posição das KWs alvo dos ciclos anteriores:
 
-## Mercado (Semrush / Planejador de KW)
+## Mercado (Semrush / Keyword Planner)
 - Fonte, base e data:
-- Números novos:
+- Números novos ou recoletas:
 
 ## Leitura
-- O que os três blocos, juntos, dizem sobre onde escrever agora.
+- O que as três fontes, juntas, dizem sobre onde publicar agora.
 ```
 
 ---
@@ -42,15 +41,18 @@ descrito em `analysis/03-ciclo-editorial.md`.
 - Data: AAAA-MM-DD
 
 ## Escolhido
-- Categoria/produto:
-- Cluster (de `analysis/01-oportunidades.md`):
-- Editoria (de `analysis/02-editorias.md`):
-- Página de destino (URL canônica confirmada? sim/não):
+- Cluster e posição na fila da F3 (`analysis/12-priorizacao.md`):
+- O calendário sazonal autoriza publicar agora? (índice de tendência, pico)
+- URL dona declarada e sem canibalização aberta? (sim/não)
+- Produto em catálogo com estoque? (SKUs, fator de catálogo)
 
 ## O número que sustenta a escolha
-- (volume, KD, venda, estoque — com fonte e data de cada um)
+- (prioridade, volume, KD, CVR, receita — fonte e data de cada um)
 
 ## Descartados neste ciclo e por quê
+
+## Onda 0 em paralelo
+- Itens de higiene em execução e responsável
 
 ## Pautas geradas
 - `pautas/AAAA-MM-DD-<slug>.md`
@@ -63,18 +65,19 @@ descrito em `analysis/03-ciclo-editorial.md`.
 ```markdown
 # Ciclo NN — Medição
 
-- D+30: AAAA-MM-DD
-- D+60: AAAA-MM-DD
+- D+30: AAAA-MM-DD · D+60: AAAA-MM-DD
 
-| Métrica | D+30 | D+60 |
-|---|---|---|
-| Indexada (sim/não) | | |
-| Posição — KW primária | | |
-| Posição — KWs secundárias | | |
-| Sessões orgânicas na URL | | |
-| Pedidos atribuídos (Nuvemshop) | | |
+| Métrica | Partida | D+30 | D+60 |
+|---|---|---|---|
+| Receita orgânica do cluster | | | |
+| Posição — KW primária | | | |
+| Posição — KWs secundárias | | | |
+| Sessões orgânicas na URL | | | |
+| Featured snippet / citação em IA | | | |
 
-## Decisão
-- Expandir cauda / manter / despriorizar cluster — e o que muda em
-  `pautas/00-backlog.md`.
+## Realimentação
+- CVR medida que substitui o fator neutro de 1,00 na F3:
+- Recalibração de KD → posição:
+- Keywords novas na faixa 11–30 → colheita do próximo ciclo:
+- Pautas podadas (sem movimento em 90 dias):
 ```
