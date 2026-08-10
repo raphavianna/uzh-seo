@@ -65,3 +65,54 @@ Herdados da estratégia mestre, seção 7, mais o que este ciclo acrescenta:
 
 - `pautas/2026-08-10-rash-guard.md` — produção
 - `pautas/2026-08-10-onda-0-higiene.md` — higiene técnica, em paralelo
+
+## Produção entregue
+
+- `content/rash-guard.html` — versão completa, com `BreadcrumbList` e
+  `FAQPage`
+- `content/rash-guard-editor.html` — versão editor-safe, sem `<script>` e sem
+  `<h1>`, para colar no editor da Nuvemshop
+
+O bloqueio nº 1 da pauta ("sem ficha técnica, a página vira genérica") **caiu**:
+`data/2026-08-10-ficha-tecnica-26-skus.csv` traz descrição completa de quatro
+peças do cluster, cobrindo os três recortes de gênero que a pauta pedia.
+
+Atributos usados no texto, todos dessa base:
+
+| Atributo | Valor | SKU |
+|---|---|---|
+| Composição | 88% poliamida, 12% elastano | Pipeline, Itamambuca, manga curta masculina |
+| Proteção | UV50+ permanente, bloqueia até 98% dos raios UV | as quatro peças |
+| Manga longa masculina | R$ 299,99, gola anatômica, costuras fora das áreas de atrito | Pipeline |
+| Manga curta masculina | R$ 299,00 | SKU "Backdoor" |
+| Feminina manga longa | R$ 299,00, punho com abertura para o polegar, recortes ergonômicos | Itamambuca |
+| Infantil | R$ 149,00, tamanhos P/M/G, azul claro, azul turquesa e rosa | UV Infantil Neon |
+| Maiô UV50+ (link interno) | resiste ao cloro e à água salgada | Storm |
+
+Preços coletados em 2026-08-10 e marcados com a data no texto, pela regra 7 de
+`<regras_de_dados>`.
+
+### Decisões tomadas na produção
+
+1. **URL própria `/rash-guard/`, e não extensão de `/masculino/lycra-surf/`.**
+   O conteúdo cobre masculino, feminino e infantil com um H3 cada; pendurar um
+   hub de gênero neutro dentro da árvore masculina contradiz a própria
+   estrutura. **É premissa, não decisão fechada** — depende da resposta do
+   time (bloqueio nº 6). Se o time preferir estender a página masculina, mudam
+   a canônica, o H1 e o breadcrumb, e os blocos feminino e infantil saem para
+   as categorias correspondentes.
+2. **Anticanibalização respeitada.** O texto não disputa "lycra surf", "lycra
+   surf masculina", "lycra surf feminina" nem "camiseta lycra surf": esses
+   termos aparecem só como âncora de link apontando para as páginas donas. A
+   página é dona de "rash guard" e da família "uv".
+3. **Seção de lavagem e conservação escrita a partir da composição do tecido**
+   (poliamida com elastano), porque a base não traz instrução de cuidado.
+   **Validar contra a etiqueta antes de publicar.**
+
+### Achado para o time
+
+O SKU **"CAMISETA BACKDOOR"** tem descrição de produto intitulada "Camiseta
+Lycra Masculina Manga Curta **Maresias**". Nome de SKU e nome na descrição não
+batem. O texto se refere à peça como "manga curta masculina", sem nome de
+coleção, até o time resolver. Vale checar se a divergência também está na
+página do produto no site.
