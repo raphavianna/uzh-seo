@@ -8,8 +8,7 @@
   de 2026-08-09) · ficha técnica: `data/2026-08-10-ficha-tecnica-26-skus.csv`
   (BaseLinker, coleta de 2026-08-10)
 - **URL prevista**: `https://usezerohora.com.br/blog/blusa-com-protecao-uv/`
-  (PREMISSA: o caminho do blog da Nuvemshop não está confirmado em nenhum
-  arquivo do repositório. Confirmar com o time antes de E5.)
+  (confirmado pelo usuário em 2026-08-11: a raiz do blog é https://usezerohora.com.br/blog/)
 
 ## Oportunidade
 
@@ -180,8 +179,10 @@ comentário, conforme E3.
 
 ## Checagens antes de publicar
 
-1. Confirmar o caminho do blog na Nuvemshop e corrigir canonical, og:url e
-   `BreadcrumbList` se não for `/blog/`.
+1. ~~Confirmar o caminho do blog na Nuvemshop.~~ **Resolvido em
+   2026-08-11**: a raiz do blog é `https://usezerohora.com.br/blog/`, informada
+   pelo usuário. Canonical, `og:url` e `BreadcrumbList` já batem. Falta só
+   garantir que o slug criado no CMS seja `blusa-com-protecao-uv`.
 2. Resolver o conflito de nome do SKU BACKDOOR / Maresias antes de citar
    coleção.
 3. Pedir ao time a composição da CAMISETA UV INFANTIL NEON e a gramatura das

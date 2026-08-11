@@ -8,7 +8,7 @@
   de 2026-08-09) · ficha técnica: `data/2026-08-10-ficha-tecnica-26-skus.csv`
   (BaseLinker, coleta de 2026-08-10)
 - **URL prevista**: `https://usezerohora.com.br/blog/camisa-de-praia-feminina/`
-  (PREMISSA: caminho do blog da Nuvemshop não confirmado no repositório)
+  (confirmado pelo usuário em 2026-08-11: a raiz do blog é https://usezerohora.com.br/blog/)
 
 ## Oportunidade
 
@@ -175,6 +175,8 @@ Citáveis como contexto, sem virar alvo de keyword:
 1. Pedir ao time a grade de tamanhos e as cores da Itamambuca. Sem elas, a
    seção de escolha perde o dado que motor de resposta cita.
 2. Separar as fichas de MAIO BELLS e MAIO MOANA, hoje idênticas na base.
-3. Confirmar o caminho do blog e os slugs de produto.
+3. ~~Confirmar o caminho do blog.~~ **Resolvido em 2026-08-11**: a raiz é
+   `https://usezerohora.com.br/blog/`. Falta garantir que o slug criado no CMS
+   seja `camisa-de-praia-feminina`, e confirmar os slugs de produto.
 4. Em E4, checar que nenhum termo de maiô vazou para esta página, porque
    `/feminino/maio/` responde por 42% do orgânico do domínio.

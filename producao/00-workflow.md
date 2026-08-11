@@ -142,6 +142,13 @@ Um artigo reprovado volta para `rascunho` com o motivo registrado na pauta.
 
 ### E5 — Publicação
 
+**Raiz pública do blog**: `https://usezerohora.com.br/blog/`, informada pelo
+usuário em 2026-08-11. Toda URL canônica de artigo segue
+`https://usezerohora.com.br/blog/<slug>/`, e o `<slug>` do CMS precisa bater
+com o nome do arquivo em `content/`. Antes dessa confirmação, os artigos de
+T1 do lote de agosto traziam o caminho como premissa declarada; hoje ele é
+fato registrado e não volta a entrar como premissa.
+
 **A Blog API da Nuvemshop existe** e cobre criar, ler, atualizar e apagar
 post, mais upload de imagem de conteúdo e de capa, e o endpoint que devolve o
 blog ID. Base: `https://api.nuvemshop.com.br/2025-03/{store_id}`.

@@ -8,7 +8,7 @@
   de 2026-08-09) · ficha técnica: `data/2026-08-10-ficha-tecnica-26-skus.csv`
   (BaseLinker, coleta de 2026-08-10)
 - **URL prevista**: `https://usezerohora.com.br/blog/camiseta-com-protecao-uv/`
-  (PREMISSA: caminho do blog da Nuvemshop não confirmado no repositório)
+  (confirmado pelo usuário em 2026-08-11: a raiz do blog é https://usezerohora.com.br/blog/)
 
 ## Nota de ordem na fila
 
@@ -185,6 +185,8 @@ Citável como contexto:
 1. Pedir ao time as instruções de lavagem das três lycras. Sem elas, a seção
    de cuidado fica presa ao neoprene.
 2. Resolver o conflito BACKDOOR / Maresias.
-3. Confirmar o caminho do blog e os slugs de produto.
+3. ~~Confirmar o caminho do blog.~~ **Resolvido em 2026-08-11**: a raiz é
+   `https://usezerohora.com.br/blog/`. Falta garantir que o slug criado no CMS
+   seja `camiseta-com-protecao-uv`, e confirmar os slugs de produto.
 4. Em E4, checar que esta página e T1-01 não repetem a explicação do UV50+
    além do resumo de uma frase.

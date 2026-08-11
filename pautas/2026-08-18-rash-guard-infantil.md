@@ -8,7 +8,7 @@
   de 2026-08-09) · ficha técnica: `data/2026-08-10-ficha-tecnica-26-skus.csv`
   (BaseLinker, coleta de 2026-08-10)
 - **URL prevista**: `https://usezerohora.com.br/blog/rash-guard-infantil/`
-  (PREMISSA: caminho do blog da Nuvemshop não confirmado no repositório)
+  (confirmado pelo usuário em 2026-08-11: a raiz do blog é https://usezerohora.com.br/blog/)
 
 ## Oportunidade
 
