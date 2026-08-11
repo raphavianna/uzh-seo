@@ -1,4 +1,4 @@
-# Pauta — O que é rash guard e qual é o seu
+# Pauta — Rash guard: o hub do território T1
 
 - **ID na grade**: T1-06 (linha acrescentada ao lote de agosto a pedido do
   usuário em 2026-08-11) · **Território**: T1
@@ -31,25 +31,72 @@ As cabeças estão todas tomadas: `rash guard` (18.100), `camisa uv` (8.100),
 `/rash-guard/`. O que sobra é pulverizado, com uma exceção que justifica o
 artigo sozinha.
 
+## Promoção a hub, decidida em 2026-08-11
+
+O usuário pediu para perseguir também os termos de alto volume que já constam
+com dono, para construir autoridade always-on. A checagem que fiz antes de
+aceitar mudou o desenho desta peça.
+
+**`/rash-guard/` não aparece em nenhuma linha de
+`reports/2026-08-09-semrush-baseline-dominio.md`.** A URL não ranqueia para
+nada e entrou em `content/rash-guard.html` marcada como PREMISSA, nunca
+confirmada. As URLs que de fato ranqueiam no baseline são `/feminino/maio/`
+(11 linhas), `/masculino/poncho/` (4), `/masculino/lycra-surf/` (4),
+`/feminino/poncho1/` (2) e `/feminino/biquini/sunkini/` (2).
+
+Ou seja: **42.410 buscas/mês estavam reservadas a uma URL que pode não
+existir**, segurando um rascunho não publicado.
+
+**O corte aplicado, por intenção medida.** Das 9 keywords reservadas àquela
+URL, `rash guard` é a única com intenção Informacional e a única com AI
+Overview:
+
+| Keyword | Volume | Intenção | AIO | Destino |
+|---|---:|---|:--:|---|
+| **rash guard** | **18.100** | **Informacional + Comercial** | **sim** | **este artigo** |
+| camisa uv | 8.100 | Comercial | não | segue na página de produto |
+| camiseta uv | 3.600 | Comercial | não | segue na página de produto |
+| blusa uv feminina | 3.600 | Comercial | não | segue na página de produto |
+| blusa uv | 2.900 | Comercial | não | segue na página de produto |
+| camiseta uv masculina | 2.900 | Comercial | não | segue na página de produto |
+| camiseta uv feminina | 1.900 | Comercial | não | segue na página de produto |
+| camiseta uv infantil | 720 | Comercial | não | segue na página de produto |
+| camiseta uv masculina manga longa | 590 | Comercial | não | segue na página de produto |
+
+Guia de blog não serve intenção comercial melhor que categoria, então os
+24.310 comerciais não vêm. Vem a metade informacional do termo-cabeça, que é
+onde o AI Overview está.
+
+**Pendência que isso abre**: se `/rash-guard/` não existir, essas 8 keywords
+não têm destino nenhum, e isso é problema de arquitetura de catálogo, maior
+que conteúdo. Confirmar com o time.
+
 ## Oportunidade
 
-`o que é rash guard` traz **260 buscas/mês, KD 5, intenção Informacional, com
-People Also Ask E AI Overview** (Semrush BR, 2026-08-09).
+`rash guard` traz **18.100 buscas/mês, KD 10, intenção Informacional e
+Comercial, com People Also Ask E AI Overview** (Semrush BR, 2026-08-09). É o
+maior termo do território T1 e o único com AI Overview.
+
+`o que é rash guard` entra como secundária com **260 buscas/mês, KD 5, também
+com PAA e AIO**.
 
 É um dos poucos termos da base de 860 que tem as duas SERP features ao mesmo
 tempo, com o KD mais baixo do território. O projeto tem **zero featured
 snippet em 860 keywords** (`analysis/21-editorias.md`), e consulta definicional
 com KD 5 é o snippet mais ganhável do inventário.
 
-**O valor desta peça é AEO, não volume.** O conjunto soma 770 buscas/mês
-medidas, contra 2.480 de T1-01. Ela entra pela chance de virar a fonte da
-resposta, não pelo tráfego direto.
+**O conjunto soma 18.870 buscas/mês medidas, o maior do lote.** E as duas
+keywords com AI Overview do território estão aqui. Esta peça é o hub: ela
+linka para os quatro spokes (T1-01 mecanismo, T1-03 feminino, T1-04 uso,
+T1-05 infantil), e por isso é a **última a subir** — precisa do hash dos
+quatro.
 
 ## Keywords
 
 | Papel | Keyword | Volume | KD | Intenção | PAA | AIO |
 |---|---|---:|---:|---|:--:|:--:|
-| **Primária** | o que é rash guard | 260 | 5 | Informacional | **sim** | **sim** |
+| **Primária** | rash guard | 18.100 | 10 | Inform. + Comercial | **sim** | **sim** |
+| Secundária | o que é rash guard | 260 | 5 | Informacional | **sim** | **sim** |
 | Secundária | rash guard feminino | 140 | 6 | Comercial | sim | não |
 | Secundária | camisa uv surf | 140 | 8 | Informacional | não | não |
 | Secundária | camisa de lycra surf | 90 | 7 | Inform. + Comercial | não | não |
@@ -58,7 +105,7 @@ resposta, não pelo tráfego direto.
 | Cauda / GEO | diferença entre rash guard e lycra | sem volume medido | — | — | não | não |
 | Cauda / GEO | diferença entre neoprene e lycra | sem volume medido | — | — | não | não |
 
-Total com volume medido: **770 buscas/mês**.
+Total com volume medido: **18.870 buscas/mês**.
 
 **Checagem de dono** (`producao/registro/kw-donos.csv`, 50 linhas, consulta de
 2026-08-19): as oito acima estão livres.
