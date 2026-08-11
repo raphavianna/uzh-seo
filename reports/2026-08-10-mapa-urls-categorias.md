@@ -52,11 +52,17 @@ e o cluster de saída de praia é o segundo da fila da F3.
 | saída de praia | 14.800 | Semrush `phrase_this`, base BR | 2026-08-10 |
 | saída de praia | 60.500 | Semrush bulk, `data/2026-08-09-semrush-bulk-kws-br.csv` | 2026-08-09 |
 
-Quatro vezes de diferença para o mesmo termo em 24 horas. A explicação mais
-provável é grafia: a `analysis/11-matriz-kws.md` agrupa variantes gráficas, e
-"saida de praia" sem acento tende a registrar volume maior na base BR. **Não
-resolvido — verificar na recoleta** e registrar qual grafia responde por qual
-volume, porque a decisão de `<title>` e H1 depende disso.
+**RESOLVIDO em 2026-08-11.** Não é divergência: são duas keywords distintas,
+ambas presentes em `data/2026-08-10-matriz-kws-classificada.csv`.
+
+| Grafia | Volume | KD | Intenção |
+|---|---:|---:|---|
+| saida de praia (sem acento) | 60.500 | 26 | informacional + comercial |
+| saída de praia (com acento) | 14.800 | 18 | informacional |
+
+A grafia sem acento tem 4× o volume e KD 8 pontos maior. As duas apontam para
+a mesma SERP, então a página cobre as duas naturalmente; o `<title>` usa a
+forma correta em português e o corpo carrega as duas, sem forçar.
 
 A divergência **não muda a fila da F3**: saída de praia é o cluster nº 2 em
 qualquer dos dois números.
