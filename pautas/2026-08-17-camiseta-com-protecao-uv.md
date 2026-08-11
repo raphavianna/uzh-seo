@@ -7,8 +7,11 @@
 - **Dados**: `data/2026-08-10-matriz-kws-classificada.csv` (Semrush BR, coleta
   de 2026-08-09) · ficha técnica: `data/2026-08-10-ficha-tecnica-26-skus.csv`
   (BaseLinker, coleta de 2026-08-10)
-- **URL prevista**: `https://usezerohora.com.br/blog/camiseta-com-protecao-uv/`
-  (confirmado pelo usuário em 2026-08-11: a raiz do blog é https://usezerohora.com.br/blog/)
+- **URL prevista**: `https://usezerohora.com.br/blog/posts/camiseta-com-protecao-uv-{HASH}`
+  (padrão confirmado pelo usuário em 2026-08-11, com exemplo real:
+  `https://usezerohora.com.br/blog/posts/lycra-surf-feminina-bbc79bb33550`.
+  O hash de 12 caracteres é gerado pelo CMS na publicação, então o arquivo
+  carrega `{HASH}` e E5 substitui. **Este artigo linka para T1-01 e só pode ser publicado depois dele.**)
 
 ## Nota de ordem na fila
 
@@ -174,7 +177,7 @@ Citável como contexto:
 - **Para a categoria**: `/masculino/lycra-surf/` (âncoras: lycra surf, camiseta
   surf masculina), `/rash-guard/` (âncoras: camiseta uv, camisa uv, camiseta uv
   masculina)
-- **Para o conteúdo irmão**: `/blog/blusa-com-protecao-uv/` (T1-01), como hub
+- **Para o conteúdo irmão**: `/blog/posts/blusa-com-protecao-uv-{HASH}` (T1-01), como hub
   do mecanismo de proteção
 - **Para o produto**: **pendência.** Slugs não confirmados. CTA para categoria.
 - **Das peças irmãs para esta**: T1-01 ganha link na seção de manga quando o

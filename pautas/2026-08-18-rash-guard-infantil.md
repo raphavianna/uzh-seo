@@ -7,8 +7,11 @@
 - **Dados**: `data/2026-08-10-matriz-kws-classificada.csv` (Semrush BR, coleta
   de 2026-08-09) · ficha técnica: `data/2026-08-10-ficha-tecnica-26-skus.csv`
   (BaseLinker, coleta de 2026-08-10)
-- **URL prevista**: `https://usezerohora.com.br/blog/rash-guard-infantil/`
-  (confirmado pelo usuário em 2026-08-11: a raiz do blog é https://usezerohora.com.br/blog/)
+- **URL prevista**: `https://usezerohora.com.br/blog/posts/rash-guard-infantil-{HASH}`
+  (padrão confirmado pelo usuário em 2026-08-11, com exemplo real:
+  `https://usezerohora.com.br/blog/posts/lycra-surf-feminina-bbc79bb33550`.
+  O hash de 12 caracteres é gerado pelo CMS na publicação, então o arquivo
+  carrega `{HASH}` e E5 substitui. **Este artigo linka para T1-01 e só pode ser publicado depois dele.**)
 
 ## Oportunidade
 
@@ -166,7 +169,7 @@ Citável, sem link e sem virar alvo de keyword (ver decisão acima):
 
 - **Para a categoria**: `/rash-guard/` (âncoras: rash guard, camiseta uv
   infantil)
-- **Para o conteúdo irmão**: `/blog/blusa-com-protecao-uv/` (T1-01), para o
+- **Para o conteúdo irmão**: `/blog/posts/blusa-com-protecao-uv-{HASH}` (T1-01), para o
   mecanismo da proteção
 - **Sem link**: categoria de poncho, pelo motivo registrado acima
 - **Para o produto**: **pendência.** Slugs não confirmados.

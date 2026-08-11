@@ -13,39 +13,39 @@ lycra surf masculina,260,7,/masculino/lycra-surf/,content/masculino-lycra-surf.h
 camiseta surf masculina,480,13,/masculino/lycra-surf/,content/masculino-lycra-surf.html,T1,escrito
 lycra surf feminina,170,7,/feminino/lycra-surf/,content/feminino-lycra-surf.html,T1,escrito
 camiseta para surf feminina,210,9,/feminino/lycra-surf/,content/feminino-lycra-surf.html,T1,escrito
-blusa com proteção uv,1300,18,/blog/blusa-com-protecao-uv/,content/blusa-com-protecao-uv.html,T1,escrito
-camisa com proteção solar,480,16,/blog/blusa-com-protecao-uv/,content/blusa-com-protecao-uv.html,T1,escrito
-roupa com proteção solar,210,13,/blog/blusa-com-protecao-uv/,content/blusa-com-protecao-uv.html,T1,escrito
-roupa com proteção uv,170,15,/blog/blusa-com-protecao-uv/,content/blusa-com-protecao-uv.html,T1,escrito
-blusa de proteção solar feminina,140,14,/blog/blusa-com-protecao-uv/,content/blusa-com-protecao-uv.html,T1,escrito
-camisa de proteção solar feminina,110,13,/blog/blusa-com-protecao-uv/,content/blusa-com-protecao-uv.html,T1,escrito
-camisa de proteção solar masculina,70,,/blog/blusa-com-protecao-uv/,content/blusa-com-protecao-uv.html,T1,escrito
-o que é tecido com proteção uv,0,,/blog/blusa-com-protecao-uv/,content/blusa-com-protecao-uv.html,T1,escrito
+blusa com proteção uv,1300,18,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+camisa com proteção solar,480,16,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+roupa com proteção solar,210,13,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+roupa com proteção uv,170,15,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+blusa de proteção solar feminina,140,14,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+camisa de proteção solar feminina,110,13,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+camisa de proteção solar masculina,70,,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+o que é tecido com proteção uv,0,,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
 surf lycra,880,8,/masculino/lycra-surf/,content/masculino-lycra-surf.html,T1,variante-de-lycra-surf
 surf lycras,590,10,/masculino/lycra-surf/,content/masculino-lycra-surf.html,T1,variante-de-lycra-surf
-camisa de praia feminina,880,19,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camiseta uv feminina manga longa,320,12,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camisetas femininas surf,210,9,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camiseta surf feminina,170,11,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camiseta de praia feminina,140,,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camisa manga longa praia,140,18,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camisa termica praia,140,23,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camisa termica para praia,90,22,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camiseta lycra feminina,70,,/blog/camisa-de-praia-feminina/,content/camisa-de-praia-feminina.html,T1,escrito
-camiseta com proteção uv,880,13,/blog/camiseta-com-protecao-uv/,content/camiseta-com-protecao-uv.html,T1,escrito
-camiseta proteção solar,480,21,/blog/camiseta-com-protecao-uv/,content/camiseta-com-protecao-uv.html,T1,escrito
-camiseta para piscina,140,23,/blog/camiseta-com-protecao-uv/,content/camiseta-com-protecao-uv.html,T1,escrito
-camisa de lycra,110,10,/blog/camiseta-com-protecao-uv/,content/camiseta-com-protecao-uv.html,T1,escrito
-camiseta uv 50 masculina,110,10,/blog/camiseta-com-protecao-uv/,content/camiseta-com-protecao-uv.html,T1,escrito
-camiseta de lycra,90,8,/blog/camiseta-com-protecao-uv/,content/camiseta-com-protecao-uv.html,T1,escrito
-camiseta de praia masculina,90,17,/blog/camiseta-com-protecao-uv/,content/camiseta-com-protecao-uv.html,T1,escrito
-camiseta uv50,70,,/blog/camiseta-com-protecao-uv/,content/camiseta-com-protecao-uv.html,T1,escrito
-rash guard infantil,480,5,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
-roupa de natação infantil,590,21,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
-roupa para natação infantil,260,16,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
-rash guard para que serve,70,,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
-lycra surf infantil,20,,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
-camiseta uv para criança,0,,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
-lycra uv infantil,0,,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
-lycra manga longa infantil,,,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
-lycra infantil praia,,,/blog/rash-guard-infantil/,content/rash-guard-infantil.html,T1,escrito
+camisa de praia feminina,880,19,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta uv feminina manga longa,320,12,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camisetas femininas surf,210,9,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta surf feminina,170,11,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta de praia feminina,140,,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camisa manga longa praia,140,18,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camisa termica praia,140,23,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camisa termica para praia,90,22,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta lycra feminina,70,,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta com proteção uv,880,13,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta proteção solar,480,21,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta para piscina,140,23,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camisa de lycra,110,10,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta uv 50 masculina,110,10,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta de lycra,90,8,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta de praia masculina,90,17,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta uv50,70,,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+rash guard infantil,480,5,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+roupa de natação infantil,590,21,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+roupa para natação infantil,260,16,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+rash guard para que serve,70,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+lycra surf infantil,20,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+camiseta uv para criança,0,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+lycra uv infantil,0,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+lycra manga longa infantil,,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+lycra infantil praia,,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito

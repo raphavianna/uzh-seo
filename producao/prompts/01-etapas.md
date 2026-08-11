@@ -114,14 +114,32 @@ pendente não avança para E5.
 
 **Instrução, modo manual (hoje)**
 
-1. Cole a versão editor-safe no editor do blog na data agendada.
-2. Preencha title e meta description nos campos de SEO do CMS.
-3. Adicione o JSON-LD pelo campo de dados estruturados, com o conteúdo do
-   arquivo completo.
-4. Feche os links internos: do artigo para a categoria e o produto, e das
+A URL de post do blog é `https://usezerohora.com.br/blog/posts/<slug>-<hash>`,
+e o `<hash>` de 12 caracteres só existe depois da publicação. Por isso os
+arquivos de `content/` trazem o marcador `{HASH}`, e os passos 2, 5 e 6
+abaixo existem para substituí-lo.
+
+1. Confira no cabeçalho do `-editor.html` de quem este artigo depende. Artigo
+   que linka para um irmão só sobe **depois** do irmão, porque o link precisa
+   do hash do outro.
+2. Substitua no corpo do texto o `{HASH}` de cada link para irmão já
+   publicado, usando a URL real daquele post.
+3. Cole a versão editor-safe no editor do blog na data agendada e confirme que
+   o slug ficou igual ao nome do arquivo em `content/`.
+4. Preencha title e meta description nos campos de SEO do CMS.
+5. **Copie a URL final que o CMS gerou, com o hash.** Substitua `{HASH}` em
+   `content/<slug>.html` (canonical, `og:url`, `@id` do `BlogPosting` e
+   `BreadcrumbList`) e na coluna `url_dona` de
+   `producao/registro/kw-donos.csv`.
+6. Adicione o JSON-LD pelo campo de dados estruturados, com o conteúdo do
+   arquivo completo **já com o hash substituído**.
+7. Feche os links internos: do artigo para a categoria e o produto, e das
    peças irmãs já publicadas para o novo artigo. Conteúdo sem link de entrada
    demora o dobro para indexar.
-5. Registre `url_final` e a data na grade.
+8. Registre `url_final` e a data na grade.
+
+**Canonical publicado com `{HASH}` sem substituir quebra a indexação da
+página.** É o item mais caro de errar nesta etapa.
 
 **Instrução, modo automatizado (quando as travas caírem)**
 

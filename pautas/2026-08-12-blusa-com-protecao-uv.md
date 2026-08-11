@@ -7,8 +7,11 @@
 - **Dados**: `data/2026-08-10-matriz-kws-classificada.csv` (Semrush BR, coleta
   de 2026-08-09) · ficha técnica: `data/2026-08-10-ficha-tecnica-26-skus.csv`
   (BaseLinker, coleta de 2026-08-10)
-- **URL prevista**: `https://usezerohora.com.br/blog/blusa-com-protecao-uv/`
-  (confirmado pelo usuário em 2026-08-11: a raiz do blog é https://usezerohora.com.br/blog/)
+- **URL prevista**: `https://usezerohora.com.br/blog/posts/blusa-com-protecao-uv-{HASH}`
+  (padrão confirmado pelo usuário em 2026-08-11, com exemplo real:
+  `https://usezerohora.com.br/blog/posts/lycra-surf-feminina-bbc79bb33550`.
+  O hash de 12 caracteres é gerado pelo CMS na publicação, então o arquivo
+  carrega `{HASH}` e E5 substitui. Este artigo não depende de nenhum irmão do lote.)
 
 ## Oportunidade
 

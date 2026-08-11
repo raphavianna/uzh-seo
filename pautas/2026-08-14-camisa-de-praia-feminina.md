@@ -7,8 +7,11 @@
 - **Dados**: `data/2026-08-10-matriz-kws-classificada.csv` (Semrush BR, coleta
   de 2026-08-09) · ficha técnica: `data/2026-08-10-ficha-tecnica-26-skus.csv`
   (BaseLinker, coleta de 2026-08-10)
-- **URL prevista**: `https://usezerohora.com.br/blog/camisa-de-praia-feminina/`
-  (confirmado pelo usuário em 2026-08-11: a raiz do blog é https://usezerohora.com.br/blog/)
+- **URL prevista**: `https://usezerohora.com.br/blog/posts/camisa-de-praia-feminina-{HASH}`
+  (padrão confirmado pelo usuário em 2026-08-11, com exemplo real:
+  `https://usezerohora.com.br/blog/posts/lycra-surf-feminina-bbc79bb33550`.
+  O hash de 12 caracteres é gerado pelo CMS na publicação, então o arquivo
+  carrega `{HASH}` e E5 substitui. **Este artigo linka para T1-01 e só pode ser publicado depois dele.**)
 
 ## Oportunidade
 
@@ -58,8 +61,8 @@ facilidade. Entram como secundária e cauda, sem promessa de posição.
 | camiseta uv feminina | 1.900 | `/rash-guard/` |
 | camiseta para surf feminina | 210 | `/feminino/lycra-surf/` |
 | lycra surf feminina | 170 | `/feminino/lycra-surf/` |
-| blusa de proteção solar feminina | 140 | `/blog/blusa-com-protecao-uv/` (T1-01) |
-| camisa de proteção solar feminina | 110 | `/blog/blusa-com-protecao-uv/` (T1-01) |
+| blusa de proteção solar feminina | 140 | `/blog/posts/blusa-com-protecao-uv-{HASH}` (T1-01) |
+| camisa de proteção solar feminina | 110 | `/blog/posts/blusa-com-protecao-uv-{HASH}` (T1-01) |
 
 ## Anticanibalização
 
@@ -163,7 +166,7 @@ Citáveis como contexto, sem virar alvo de keyword:
 - **Para a categoria**: `/feminino/lycra-surf/` (âncoras: lycra surf feminina,
   camiseta para surf feminina), `/feminino/maio/`, `/rash-guard/` (âncoras:
   camiseta uv feminina, blusa uv feminina)
-- **Para o conteúdo irmão**: `/blog/blusa-com-protecao-uv/` (T1-01), com
+- **Para o conteúdo irmão**: `/blog/posts/blusa-com-protecao-uv-{HASH}` (T1-01), com
   âncora sobre proteção solar
 - **Para o produto**: **pendência.** Slugs de produto não confirmados. CTA
   aponta para categoria.

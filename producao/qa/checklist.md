@@ -16,7 +16,9 @@ Item que falha volta o artigo para `rascunho` com o motivo na pauta.
 
 - [ ] `<title>` com até 60 caracteres, com a KW primária
 - [ ] `<meta name="description">` com até 155 caracteres
-- [ ] `<link rel="canonical">` com a URL final prevista
+- [ ] `<link rel="canonical">` no padrão `https://usezerohora.com.br/blog/posts/<slug>-<hash>`, sem barra final
+- [ ] **Em E5, nenhum `{HASH}` sobrou** em canonical, `og:url`, `@id` do `BlogPosting`, `BreadcrumbList`, links do corpo ou `kw-donos.csv`. Canonical com o marcador quebra a indexação.
+- [ ] Artigo que linka para irmão só publica depois do irmão (o cabeçalho do `-editor.html` diz de quem ele depende)
 - [ ] Open Graph e Twitter Card preenchidos
 - [ ] Comentário de produção no topo: KW primária com volume e fonte, secundárias, intenção, URL, pauta, data
 

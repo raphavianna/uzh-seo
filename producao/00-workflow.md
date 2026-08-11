@@ -142,12 +142,35 @@ Um artigo reprovado volta para `rascunho` com o motivo registrado na pauta.
 
 ### E5 — Publicação
 
-**Raiz pública do blog**: `https://usezerohora.com.br/blog/`, informada pelo
-usuário em 2026-08-11. Toda URL canônica de artigo segue
-`https://usezerohora.com.br/blog/<slug>/`, e o `<slug>` do CMS precisa bater
-com o nome do arquivo em `content/`. Antes dessa confirmação, os artigos de
-T1 do lote de agosto traziam o caminho como premissa declarada; hoje ele é
-fato registrado e não volta a entrar como premissa.
+### O formato da URL de post, e por que ele muda o fluxo
+
+Informado pelo usuário em 2026-08-11, com exemplo real:
+
+```
+https://usezerohora.com.br/blog/posts/lycra-surf-feminina-bbc79bb33550
+```
+
+O padrão é `https://usezerohora.com.br/blog/posts/<slug>-<hash>`. Três
+detalhes, e cada um custou uma correção no lote de agosto:
+
+1. Tem o segmento **`/posts/`** entre o blog e o slug.
+2. Não tem **barra no final**.
+3. Termina num **hash de 12 caracteres que o CMS gera na publicação**.
+
+O terceiro item é o que muda a arquitetura da etapa. **A URL final de um post
+não existe antes de ele ser publicado**, então nenhum artigo pode nascer com
+canonical correto. Os arquivos de `content/` carregam o marcador `{HASH}` no
+lugar do hash, em quatro campos: `canonical`, `og:url`, `@id` do
+`BlogPosting` e o último item do `BreadcrumbList`.
+
+**Canonical publicado com `{HASH}` sem substituir quebra a indexação da
+página.** A checagem entrou em `producao/qa/checklist.md`.
+
+Consequência para a ordem de publicação: **artigo que linka para um irmão só
+pode subir depois do irmão**, porque o link precisa do hash do outro. No lote
+de agosto, T1-03, T1-04 e T1-05 linkam para T1-01, o que torna a ordem da
+grade uma dependência real, e não uma conveniência de calendário. O
+cabeçalho de cada arquivo `-editor.html` lista de quem ele depende.
 
 **A Blog API da Nuvemshop existe** e cobre criar, ler, atualizar e apagar
 post, mais upload de imagem de conteúdo e de capa, e o endpoint que devolve o
@@ -164,7 +187,13 @@ Duas travas antes de automatizar, ambas no repositório `integracao-nuvemshop`:
    o recurso de blog e as ferramentas MCP correspondentes.
 
 Enquanto as duas não caírem, E5 roda manual: o time cola a versão editor-safe
-no admin e registra a `url_final` na grade.
+no admin, substitui o `{HASH}` pela URL que o CMS gerou e registra a
+`url_final` na grade. O passo a passo está em `prompts/01-etapas.md`.
+
+Quando a automação entrar, o `{HASH}` some do fluxo: a Blog API devolve a URL
+do post na resposta de criação, e o script preenche canonical, `og:url`,
+schema e `kw-donos.csv` sem passar por mão humana. É o maior ganho da
+automação depois do tempo de publicação.
 
 ## Piloto de agosto
 
