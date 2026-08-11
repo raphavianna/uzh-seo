@@ -195,3 +195,32 @@ comentário, conforme E3.
    direto.
 5. Rodar `producao/qa/checklist.md` em E4, junto da passada de canibalização
    contra T1-04.
+
+## Correção de 2026-08-11: copy de link agnóstica ao destino
+
+O usuário informou que `https://usezerohora.com.br/feminino/lycra-surf/` é URL
+de produto, e não de categoria. O repositório vinha tratando as três URLs de
+destino como categoria desde 2026-08-08, sempre por suposição:
+
+| URL | Como o repo a tratava | Evidência de que era suposição |
+|---|---|---|
+| `/feminino/lycra-surf/` | categoria feminina de lycra | `content/feminino-lycra-surf.html` lista "confirmar slug da categoria feminina" como pendência aberta |
+| `/masculino/lycra-surf/` | categoria masculina de lycra | `reports/2026-08-08-semrush-kws-lycra-surf.md` a chama de categoria sem verificação |
+| `/rash-guard/` | categoria do cluster | `content/rash-guard.html` traz a URL marcada como PREMISSA |
+
+**O que mudou nos quatro artigos do lote**: os 14 links internos deixaram de
+prometer listagem. Saíram as construções "categoria de", "os modelos
+disponíveis", "a categoria completa, com os modelos masculino, feminino e
+infantil" e "todos os modelos de". A âncora e a frase ao redor agora leem
+certo tanto se o destino for uma peça única quanto se for uma listagem.
+
+O motivo é de conversão, não de estilo: prometer catálogo e entregar produto
+único gera clique que não converte, que é o mesmo defeito registrado em
+`producao/00-workflow.md` para `vestido de praia curto`.
+
+Todas as âncoras que carregam keyword de outro dono seguem no lugar, porque a
+função delas na anticanibalização não mudou.
+
+**Pendência aberta**: se existir uma URL de listagem de lycra feminina e
+masculina, ela é o destino melhor para os CTAs de fundo de funil. Enquanto o
+time não confirmar, os links apontam para as URLs conhecidas.
