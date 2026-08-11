@@ -43,6 +43,17 @@ Zona cinzenta — "vestido de verão", "vestido leve", "vestido soltinho",
 trouxer lojas de moda praia, entra; se trouxer fast fashion, fica fora com o
 motivo registrado.
 
+**Regra de comprimento**: o vestido da marca é longo. O
+`VESTIDO RESORT ALÇA CRUZADA` declara "Comprimento: Longo" na ficha técnica,
+com 96% viscose e 4% elastano, bolsos laterais, sem transparência, R$ 199,00 em
+10/08/2026. Por isso `vestido de praia curto` (320, KD 12) **sai da fila como
+alvo de página**: cluster sem produto tem fator de catálogo zero, e prometer
+curto para entregar longo gera visita que não compra e devolução quando compra.
+A comparação "curto ou longo" vira seção dentro do hub, e a demanda de
+comprimento curto tem outro destino no catálogo — a saia curta de saída de
+praia. Termos com "longo" sobem no desempate mesmo com volume menor, porque
+casam com o produto.
+
 Arquitetura: `vestido de praia` (2.900, KD 14) é o hub do sub-bunch e já está
 na grade-piloto como T2-03. Os spokes de comprimento, material, ocasião e
 público linkam para ele, e ele linka para a categoria de saída de praia. Sem
