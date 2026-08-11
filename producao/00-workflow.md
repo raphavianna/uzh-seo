@@ -15,11 +15,38 @@ paralelo, não em sequência.
 | ID | Território | Cluster da F2 | KWs livres | Ciclo de origem |
 |---|---|---|---:|---|
 | **T1** | Lycra, camiseta UV e rash guard | Lycra/UV/rash | 57 | 01 (ago) |
-| **T2** | Saída de praia e resort | Saída de praia | 42 | 02 (set) |
+| **T2** | Saída de praia, resort e **vestidos** | Saída de praia | 42 + a coletar | 02 (set) |
 | **T3** | Biquíni e top | Biquíni e top | 35 | 03 (out) |
 
 "KWs livres" = no escopo, sem variante gráfica, sem dono declarado em
 `registro/kw-donos.csv`. São 134 alvos distintos nos três territórios.
+
+### T2 tem dois sub-bunches
+
+**Saída de praia** é a categoria mãe, com `saída de praia` (60.500) como hub.
+
+**Vestidos** entra como sub-bunch filho, decidido em 2026-08-11. A matriz atual
+só tem 5 termos com "vestido", somando 3.690 buscas/mês, porque as variações de
+uso nunca entraram na coleta. O seed do lote está em
+`data/2026-08-11-seed-kws-vestidos.md`, com 78 keywords a coletar.
+
+**Recorte obrigatório**: o sub-bunch cobre vestido **qualificado por contexto de
+uso** — praia, verão, resort, piscina, mar, saída de praia — ou por material
+típico da categoria. Fica fora vestido de moda ampla, mesmo com volume alto:
+vestido, vestido longo, vestido de festa, vestido social, vestido de noiva.
+Quem busca esses termos quer festa ou trabalho, e a marca não tem produto nem
+autoridade nessa disputa. Esta regra vale para todos os lotes de T2, não só
+para o primeiro.
+
+Zona cinzenta — "vestido de verão", "vestido leve", "vestido soltinho",
+"vestido fluido" — só sobe depois de leitura de SERP: se a SERP brasileira
+trouxer lojas de moda praia, entra; se trouxer fast fashion, fica fora com o
+motivo registrado.
+
+Arquitetura: `vestido de praia` (2.900, KD 14) é o hub do sub-bunch e já está
+na grade-piloto como T2-03. Os spokes de comprimento, material, ocasião e
+público linkam para ele, e ele linka para a categoria de saída de praia. Sem
+essa hierarquia, o sub-bunch canibaliza a própria categoria mãe.
 
 ## A regra que sustenta a escala
 
