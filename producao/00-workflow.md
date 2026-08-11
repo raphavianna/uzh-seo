@@ -142,6 +142,39 @@ Um artigo reprovado volta para `rascunho` com o motivo registrado na pauta.
 
 ### E5 — Publicação
 
+### Os dois tipos de URL do site, e para onde cada link vai
+
+Confirmado pelo usuário em 2026-08-11:
+
+| Tipo | Forma | Exemplo |
+|---|---|---|
+| **Produto** | `usezerohora.com.br/<genero>/<peca>/` | `/feminino/lycra-surf/` |
+| **Post do blog** | `usezerohora.com.br/blog/posts/<slug>-<hash>` | `/blog/posts/lycra-surf-feminina-bbc79bb33550` |
+
+`/feminino/lycra-surf/` **é página de produto**, e não de categoria. O
+repositório vinha tratando as URLs desse formato como categoria desde
+2026-08-08, sempre por suposição, e a correção passou por 14 links no lote de
+agosto.
+
+**Regra de destino de link**, que vale para todos os lotes:
+
+| O link é… | Vai para |
+|---|---|
+| Âncora que carrega keyword de outro dono | a URL dona da keyword em `registro/kw-donos.csv` |
+| CTA de compra | a URL de produto |
+| Referência editorial a tema irmão | o post do blog que cobre o tema |
+
+O motivo: âncora com keyword apontando para URL que não é a dona manda o sinal
+para o lugar errado, que é a canibalização que o registro existe para evitar.
+E CTA apontando para listagem que não existe entrega clique que não compra.
+
+**`url_dona` no registro é a URL onde o conteúdo está publicado**, não a
+categoria de destino do CTA. Quando um artigo sai do rascunho e vira post, a
+coluna muda para a URL do post.
+
+Naturezas ainda **não confirmadas**: `/masculino/lycra-surf/`, `/rash-guard/`
+e `/feminino/maio/`. Confirmar antes do lote de setembro.
+
 ### O formato da URL de post, e por que ele muda o fluxo
 
 Informado pelo usuário em 2026-08-11, com exemplo real:

@@ -65,7 +65,7 @@ como alvo de posição.
 | camiseta uv | 3.600 | `/rash-guard/` |
 | blusa uv | 2.900 | `/rash-guard/` |
 | lycra surf | 880 | `/masculino/lycra-surf/` |
-| lycra surf feminina | 170 | `/feminino/lycra-surf/` |
+| lycra surf feminina | 170 | `/blog/posts/lycra-surf-feminina-bbc79bb33550` (post publicado) |
 
 ## Anticanibalização
 
@@ -168,9 +168,13 @@ comentário, conforme E3.
 
 ## Links internos
 
-- **Para a categoria**: `/rash-guard/` (âncoras: rash guard, camisa uv, blusa
-  uv feminina), `/masculino/lycra-surf/` (âncora: lycra surf),
-  `/feminino/lycra-surf/` (âncora: lycra surf feminina)
+- **Para o artigo dono da keyword**: `/blog/posts/lycra-surf-feminina-bbc79bb33550`
+  (âncora: lycra surf feminina). Post publicado, é o dono do termo.
+- **Para produto**: `/masculino/lycra-surf/` (âncora: lycra surf) e
+  `/feminino/lycra-surf/` no CTA. **As duas são URL de produto**, confirmado
+  pelo usuário em 2026-08-11, e não página de listagem.
+- **Para `/rash-guard/`**: âncoras rash guard, camisa uv, blusa uv feminina.
+  Natureza da URL (produto ou listagem) **a confirmar**.
 - **Para o produto**: **pendência.** O único slug de produto verificado no
   repositório é
   `/produtos/camiseta-lycra-surf-uv50-manga-longa-verde-liso/`

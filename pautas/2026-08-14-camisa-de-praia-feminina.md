@@ -59,8 +59,8 @@ facilidade. Entram como secundária e cauda, sem promessa de posição.
 |---|---:|---|
 | blusa uv feminina | 3.600 | `/rash-guard/` |
 | camiseta uv feminina | 1.900 | `/rash-guard/` |
-| camiseta para surf feminina | 210 | `/feminino/lycra-surf/` |
-| lycra surf feminina | 170 | `/feminino/lycra-surf/` |
+| camiseta para surf feminina | 210 | `/blog/posts/lycra-surf-feminina-bbc79bb33550` (post publicado) |
+| lycra surf feminina | 170 | `/blog/posts/lycra-surf-feminina-bbc79bb33550` (post publicado) |
 | blusa de proteção solar feminina | 140 | `/blog/posts/blusa-com-protecao-uv-{HASH}` (T1-01) |
 | camisa de proteção solar feminina | 110 | `/blog/posts/blusa-com-protecao-uv-{HASH}` (T1-01) |
 
@@ -163,9 +163,12 @@ Citáveis como contexto, sem virar alvo de keyword:
 
 ## Links internos
 
-- **Para a categoria**: `/feminino/lycra-surf/` (âncoras: lycra surf feminina,
-  camiseta para surf feminina), `/feminino/maio/`, `/rash-guard/` (âncoras:
-  camiseta uv feminina, blusa uv feminina)
+- **Para o artigo dono da keyword**: `/blog/posts/lycra-surf-feminina-bbc79bb33550`
+  (âncora: lycra surf feminina). Post publicado.
+- **Para produto**: `/feminino/lycra-surf/` no CTA. **É URL de produto**,
+  confirmado pelo usuário em 2026-08-11.
+- **Outras**: `/feminino/maio/` e `/rash-guard/` (âncoras: camiseta uv
+  feminina, blusa uv feminina). Natureza das duas **a confirmar**.
 - **Para o conteúdo irmão**: `/blog/posts/blusa-com-protecao-uv-{HASH}` (T1-01), com
   âncora sobre proteção solar
 - **Para o produto**: **pendência.** Slugs de produto não confirmados. CTA
