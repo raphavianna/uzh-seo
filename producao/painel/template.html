@@ -1,0 +1,1165 @@
+<title>Painel de Conteúdos — Use Zero Hora</title>
+<style>
+:root{
+  --ground:#EEF2F3; --surface:#FFFFFF; --surface-2:#F6F9F9; --surface-3:#E8EEEF;
+  --ink:#0E2028; --ink-2:#4E6670; --ink-3:#7C929B;
+  --line:#D6E0E3; --line-2:#C2D0D4;
+  --accent:#0B6E78; --accent-ink:#FFFFFF; --accent-soft:#DFEFF0;
+  --danger:#A32A2A; --danger-soft:#FBE9E9;
+  --warn:#9A6510; --ok:#1D6E48;
+  --raia-1:#6F8189; --raia-2:#B5761A; --raia-3:#7A5EA6; --raia-4:#1D6E48; --raia-5:#0B6E78;
+  --shadow:0 1px 2px rgba(14,32,40,.06), 0 8px 24px rgba(14,32,40,.06);
+  --shadow-lg:0 2px 8px rgba(14,32,40,.10), 0 24px 64px rgba(14,32,40,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular","JetBrains Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0A1317; --surface:#101E24; --surface-2:#16272E; --surface-3:#1B2F37;
+    --ink:#DFEBEE; --ink-2:#93A9B1; --ink-3:#6B838C;
+    --line:#22363E; --line-2:#2E454E;
+    --accent:#3FB8C2; --accent-ink:#06232A; --accent-soft:#0F2E33;
+    --danger:#E8837F; --danger-soft:#33191A;
+    --warn:#D9962F; --ok:#3E9B6F;
+    --raia-1:#8FA3AC; --raia-2:#D9962F; --raia-3:#A084D1; --raia-4:#3E9B6F; --raia-5:#3FB8C2;
+    --shadow:0 1px 2px rgba(0,0,0,.30), 0 8px 24px rgba(0,0,0,.30);
+    --shadow-lg:0 2px 8px rgba(0,0,0,.40), 0 24px 64px rgba(0,0,0,.55);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0A1317; --surface:#101E24; --surface-2:#16272E; --surface-3:#1B2F37;
+  --ink:#DFEBEE; --ink-2:#93A9B1; --ink-3:#6B838C;
+  --line:#22363E; --line-2:#2E454E;
+  --accent:#3FB8C2; --accent-ink:#06232A; --accent-soft:#0F2E33;
+  --danger:#E8837F; --danger-soft:#33191A;
+  --warn:#D9962F; --ok:#3E9B6F;
+  --raia-1:#8FA3AC; --raia-2:#D9962F; --raia-3:#A084D1; --raia-4:#3E9B6F; --raia-5:#3FB8C2;
+  --shadow:0 1px 2px rgba(0,0,0,.30), 0 8px 24px rgba(0,0,0,.30);
+  --shadow-lg:0 2px 8px rgba(0,0,0,.40), 0 24px 64px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:14px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  height:100vh; display:flex; flex-direction:column; overflow:hidden;
+}
+button,input,select,textarea{font:inherit; color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important}}
+
+.mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+.eyebrow{
+  font-size:10.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink-3);
+}
+
+/* ---------- barra superior ---------- */
+.topo{
+  flex:0 0 auto; background:var(--surface); border-bottom:1px solid var(--line);
+  display:flex; flex-direction:column;
+}
+.topo-l1{display:flex; align-items:center; gap:12px 18px; padding:10px 18px 8px; flex-wrap:wrap}
+.marca{display:flex; flex-direction:column; gap:1px; min-width:0}
+.marca h1{margin:0; font-size:15px; font-weight:650; letter-spacing:-.012em; white-space:nowrap}
+.marca .sub{font-size:11px; color:var(--ink-3)}
+.marca .sub b{color:var(--ink-2); font-weight:600}
+
+.aviso{
+  display:flex; align-items:center; gap:7px; margin-left:auto; flex:0 1 auto; min-width:0;
+  background:var(--danger-soft); color:var(--danger);
+  border:1px solid color-mix(in srgb, var(--danger) 28%, transparent);
+  border-radius:5px; padding:4px 10px; font-size:11.5px; font-weight:600; white-space:nowrap;
+}
+.aviso svg{flex:0 0 auto}
+
+.acoes{display:flex; gap:6px; align-items:center; flex-wrap:wrap}
+.btn{
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:5px;
+  padding:5px 11px; font-size:12.5px; font-weight:550; color:var(--ink); white-space:nowrap;
+  transition:background .12s, border-color .12s;
+}
+.btn:hover{background:var(--surface-3); border-color:var(--ink-3)}
+.btn.primario{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
+.btn.primario:hover{filter:brightness(1.08)}
+.btn.icone{padding:5px 8px; line-height:1}
+.btn:disabled{opacity:.45; cursor:not-allowed}
+.btn .n{font-family:var(--mono); font-size:11px; opacity:.75; margin-left:4px}
+
+.topo-l2{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  padding:0 18px 10px; border-top:1px solid transparent;
+}
+.busca{position:relative; flex:0 1 300px; min-width:190px}
+.busca input{
+  width:100%; background:var(--surface-2); border:1px solid var(--line-2); border-radius:5px;
+  padding:5px 10px 5px 29px; font-size:12.5px; font-family:var(--mono);
+}
+.busca input::placeholder{font-family:var(--sans); color:var(--ink-3)}
+.busca svg{position:absolute; left:9px; top:50%; transform:translateY(-50%); color:var(--ink-3)}
+.busca kbd{
+  position:absolute; right:7px; top:50%; transform:translateY(-50%);
+  font-family:var(--mono); font-size:10px; color:var(--ink-3);
+  border:1px solid var(--line-2); border-radius:3px; padding:0 4px; background:var(--surface);
+}
+.filtro{display:flex; align-items:center; gap:5px}
+.filtro label{font-size:11px; color:var(--ink-3); font-weight:550}
+.filtro select{
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:5px;
+  padding:4px 7px; font-size:12px;
+}
+.limpar{background:none; border:none; color:var(--accent); font-size:11.5px; font-weight:600; padding:4px}
+
+/* ---------- faixa de bloqueados ---------- */
+.bloqueados{
+  flex:0 0 auto; background:var(--surface-2); border-bottom:1px solid var(--line);
+  padding:8px 18px;
+}
+.bloqueados summary{
+  cursor:pointer; display:flex; align-items:center; gap:8px; list-style:none;
+  font-size:11.5px; color:var(--ink-2);
+}
+.bloqueados summary::-webkit-details-marker{display:none}
+.bloqueados summary .tag{
+  font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.06em;
+  background:var(--danger-soft); color:var(--danger); border-radius:3px; padding:2px 6px;
+}
+.bloq-lista{display:flex; flex-wrap:wrap; gap:10px; margin-top:9px}
+.bloq-item{
+  background:var(--surface); border:1px solid var(--line);
+  border-left:3px solid var(--danger); border-radius:5px;
+  padding:8px 12px; max-width:520px;
+}
+.bloq-item .cab{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap}
+.bloq-item .kw{font-weight:600; font-size:13px}
+.bloq-item p{margin:5px 0 0; font-size:11.5px; color:var(--ink-2); line-height:1.45}
+
+/* ---------- quadro ---------- */
+.quadro{flex:1 1 auto; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:1px; background:var(--line); min-height:0}
+.raia{background:var(--ground); display:flex; flex-direction:column; min-height:0; min-width:0}
+.raia.alvo{background:var(--accent-soft)}
+.raia-cab{
+  flex:0 0 auto; padding:9px 12px 8px; background:var(--surface);
+  border-bottom:1px solid var(--line); border-top:2px solid var(--cor);
+  display:flex; align-items:center; gap:8px;
+}
+.raia-cab .num{
+  font-family:var(--mono); font-size:10px; font-weight:700; color:var(--cor);
+  border:1px solid var(--cor); border-radius:3px; width:16px; height:16px;
+  display:grid; place-items:center; flex:0 0 auto;
+}
+.raia-cab h2{margin:0; font-size:12.5px; font-weight:640; letter-spacing:-.005em; flex:1 1 auto}
+.raia-cab .conta{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--ink-2)}
+.raia-cab .status{display:block; font-size:10px; color:var(--ink-3); font-family:var(--mono)}
+.raia-corpo{flex:1 1 auto; overflow-y:auto; overflow-x:hidden; padding:0 8px 24px}
+
+.dia{margin-top:12px}
+.dia-cab{
+  position:sticky; top:0; z-index:2; background:var(--ground);
+  padding:5px 4px 4px; display:flex; align-items:baseline; gap:6px;
+  border-bottom:1px solid var(--line-2);
+}
+.dia-cab .d{font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:-.01em}
+.dia-cab .ext{font-size:10.5px; color:var(--ink-3); flex:1 1 auto}
+.dia-cab .c{font-family:var(--mono); font-size:10.5px; color:var(--ink-3)}
+.cat-cab{
+  display:flex; align-items:baseline; gap:6px; padding:9px 4px 4px;
+}
+.cat-cab .p{width:6px; height:6px; border-radius:2px; background:var(--ink-3); flex:0 0 auto}
+.cat-cab .n{font-size:10.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-2)}
+.cat-cab .c{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); margin-left:auto}
+
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:6px;
+  border-left:3px solid var(--cor); padding:9px 10px; margin-bottom:6px;
+  box-shadow:var(--shadow); cursor:grab; transition:border-color .12s, transform .12s;
+  display:flex; flex-direction:column; gap:6px;
+}
+.card:hover{border-color:var(--line-2)}
+.card.sel{outline:2px solid var(--accent); outline-offset:1px}
+.card.arrastando{opacity:.4}
+.card-l1{display:flex; align-items:center; gap:6px}
+.card-l1 .id{font-family:var(--mono); font-size:10px; font-weight:700; color:var(--ink-3); letter-spacing:.02em}
+.card-l1 .selos{margin-left:auto; display:flex; gap:4px}
+.card h3{margin:0; font-size:13px; font-weight:600; line-height:1.3; letter-spacing:-.008em; text-wrap:balance}
+.card .slug{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); word-break:break-all}
+.card-l3{display:flex; align-items:center; gap:9px; flex-wrap:wrap; padding-top:1px}
+.metrica{display:flex; align-items:baseline; gap:3px}
+.metrica .r{font-size:9.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:.05em}
+.metrica .v{font-family:var(--mono); font-size:11.5px; font-weight:650; font-variant-numeric:tabular-nums}
+.intencao{font-size:10px; color:var(--ink-2); background:var(--surface-3); border-radius:3px; padding:1px 5px}
+.card .url{font-family:var(--mono); font-size:10px; color:var(--accent); word-break:break-all}
+.card .nota{font-size:11px; color:var(--ink-2); background:var(--surface-2); border-left:2px solid var(--warn); padding:4px 7px; border-radius:0 4px 4px 0}
+.card .nota b{color:var(--ink); font-weight:600}
+
+.selo{
+  font-family:var(--mono); font-size:9.5px; font-weight:700; letter-spacing:.03em;
+  border-radius:3px; padding:1px 5px; white-space:nowrap; border:1px solid transparent;
+}
+.selo.arq{background:var(--surface-3); color:var(--ink-2)}
+.selo.semarq{background:var(--danger-soft); color:var(--danger); border-color:color-mix(in srgb,var(--danger) 30%,transparent)}
+.selo.hash{background:color-mix(in srgb,var(--warn) 14%,transparent); color:var(--warn); border-color:color-mix(in srgb,var(--warn) 32%,transparent)}
+.selo.dep{background:color-mix(in srgb,var(--raia-3) 14%,transparent); color:var(--raia-3); border-color:color-mix(in srgb,var(--raia-3) 32%,transparent)}
+.selo.edit{background:var(--accent-soft); color:var(--accent); border-color:color-mix(in srgb,var(--accent) 34%,transparent)}
+.selo.canib{background:var(--danger-soft); color:var(--danger); border-color:color-mix(in srgb,var(--danger) 30%,transparent)}
+.selo.agendado{background:color-mix(in srgb,var(--raia-4) 14%,transparent); color:var(--raia-4); border-color:color-mix(in srgb,var(--raia-4) 32%,transparent)}
+
+.vazio{padding:18px 6px; font-size:11.5px; color:var(--ink-3); text-align:center; line-height:1.5}
+
+/* ---------- gaveta ---------- */
+.fundo{
+  position:fixed; inset:0; background:rgba(14,32,40,.45); z-index:40;
+  opacity:0; pointer-events:none; transition:opacity .16s;
+}
+.fundo.on{opacity:1; pointer-events:auto}
+.gaveta{
+  position:fixed; top:0; right:0; bottom:0; width:min(760px,94vw); z-index:41;
+  background:var(--surface); border-left:1px solid var(--line); box-shadow:var(--shadow-lg);
+  display:flex; flex-direction:column; transform:translateX(101%); transition:transform .18s ease-out;
+}
+.gaveta.on{transform:none}
+.gaveta[hidden]{display:none}
+.g-cab{flex:0 0 auto; padding:13px 16px 10px; border-bottom:1px solid var(--line)}
+.g-cab .l1{display:flex; align-items:flex-start; gap:12px}
+.g-cab h2{margin:2px 0 0; font-size:17px; font-weight:640; letter-spacing:-.018em; line-height:1.25; text-wrap:balance}
+.g-cab .fechar{background:none; border:none; color:var(--ink-3); font-size:20px; line-height:1; padding:2px 6px; margin-left:auto}
+.g-cab .fechar:hover{color:var(--ink)}
+.g-meta{display:flex; flex-wrap:wrap; gap:5px 14px; margin-top:9px}
+.g-meta .par{display:flex; align-items:baseline; gap:5px}
+.g-meta .par .r{font-size:9.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3)}
+.g-meta .par .v{font-family:var(--mono); font-size:11.5px; font-weight:600}
+
+.g-abas{flex:0 0 auto; display:flex; align-items:center; gap:2px; padding:0 16px; border-bottom:1px solid var(--line); background:var(--surface-2)}
+.aba{
+  background:none; border:none; border-bottom:2px solid transparent; padding:8px 11px;
+  font-size:12.5px; font-weight:600; color:var(--ink-3);
+}
+.aba[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--accent)}
+.aba .p{font-family:var(--mono); font-size:10px; color:var(--ink-3); margin-left:5px}
+.g-abas .dir{margin-left:auto; display:flex; gap:3px; padding:4px 0}
+.tog{
+  background:var(--surface); border:1px solid var(--line-2); border-radius:4px;
+  padding:3px 9px; font-size:11.5px; font-weight:600; color:var(--ink-2);
+}
+.tog[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
+
+.g-medidor{
+  flex:0 0 auto; display:flex; gap:16px; flex-wrap:wrap; align-items:center;
+  padding:7px 16px; border-bottom:1px solid var(--line); background:var(--surface-2);
+}
+.med{display:flex; align-items:baseline; gap:5px; font-size:11px}
+.med .r{color:var(--ink-3); text-transform:uppercase; letter-spacing:.06em; font-size:9.5px}
+.med .v{font-family:var(--mono); font-weight:700; font-size:12px}
+.med.ruim .v{color:var(--danger)}
+.med .lim{font-family:var(--mono); color:var(--ink-3); font-size:10.5px}
+.g-medidor .sujo{margin-left:auto; font-size:11px; font-weight:600; color:var(--warn)}
+
+.g-corpo{flex:1 1 auto; min-height:0; display:flex; flex-direction:column; overflow:hidden}
+.g-corpo textarea{
+  flex:1 1 auto; min-height:0; width:100%; overflow:auto; border:none; resize:none; padding:14px 16px;
+  font-family:var(--mono); font-size:12.5px; line-height:1.65; background:var(--surface);
+  tab-size:2;
+}
+.g-corpo textarea:focus{outline:none}
+.previa{flex:1 1 auto; min-height:0; overflow:auto; padding:20px 22px; background:var(--surface)}
+.g-corpo .estado-vazio{flex:1 1 auto; overflow:auto; padding:44px 24px; text-align:center; color:var(--ink-2); max-width:460px; margin:0 auto}
+.g-corpo .estado-vazio .tit{font-size:15px; font-weight:620; color:var(--ink); margin-bottom:7px}
+.g-corpo .estado-vazio p{font-size:12.5px; line-height:1.6; margin:0 0 9px}
+
+.g-lado{flex:0 0 auto; border-top:1px solid var(--line); background:var(--surface-2); padding:10px 16px; max-height:31vh; overflow:auto}
+.g-lado h3{margin:0 0 7px; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
+.kws{display:flex; flex-direction:column; gap:2px}
+.kw-l{display:flex; align-items:baseline; gap:8px; font-size:11.5px; padding:2px 0; border-bottom:1px solid var(--line)}
+.kw-l:last-child{border-bottom:none}
+.kw-l .k{flex:1 1 auto; font-family:var(--mono); word-break:break-word}
+.kw-l .v{font-family:var(--mono); font-size:11px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.kw-l .d{font-family:var(--mono); font-size:10px; color:var(--ink-3); flex:0 0 auto; max-width:44%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.alerta{
+  background:var(--danger-soft); border:1px solid color-mix(in srgb,var(--danger) 28%,transparent);
+  border-left-width:3px; border-radius:0 5px 5px 0; padding:8px 11px; margin-bottom:9px; font-size:11.5px; line-height:1.5;
+}
+.alerta b{color:var(--danger)}
+.alerta code{font-family:var(--mono); font-size:11px}
+
+.g-rodape{flex:0 0 auto; display:flex; align-items:center; gap:7px; padding:10px 16px; border-top:1px solid var(--line); flex-wrap:wrap}
+.g-rodape .mover{display:flex; align-items:center; gap:5px; margin-right:auto; flex-wrap:wrap}
+.g-rodape .mover .r{font-size:9.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); margin-right:2px}
+.mv{
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:4px;
+  padding:4px 9px; font-size:11.5px; font-weight:600; color:var(--ink-2);
+  border-left:3px solid var(--cor);
+}
+.mv:hover{background:var(--surface-3); color:var(--ink)}
+.mv[disabled]{opacity:.4}
+.mv.atual{background:var(--cor); border-color:var(--cor); color:#fff}
+
+/* ---------- modal ---------- */
+.modal{
+  position:fixed; inset:0; z-index:60; display:none; place-items:center; padding:20px;
+  background:rgba(14,32,40,.5);
+}
+.modal.on{display:grid}
+.modal-cx{
+  background:var(--surface); border:1px solid var(--line); border-radius:9px;
+  box-shadow:var(--shadow-lg); width:min(500px,100%); padding:18px 20px 16px;
+}
+.modal-cx h2{margin:0 0 5px; font-size:16px; font-weight:640; letter-spacing:-.015em}
+.modal-cx .expl{font-size:12.5px; color:var(--ink-2); line-height:1.55; margin:0 0 14px}
+.campo{display:flex; flex-direction:column; gap:4px; margin-bottom:12px}
+.campo label{font-size:10.5px; font-weight:650; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-2)}
+.campo input,.campo textarea{
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:5px;
+  padding:7px 9px; font-size:13px; font-family:var(--mono);
+}
+.campo textarea{font-family:var(--sans); min-height:62px; resize:vertical; line-height:1.5}
+.campo .dica{font-size:11px; color:var(--ink-3); font-family:var(--mono)}
+.campo.erro input,.campo.erro textarea{border-color:var(--danger)}
+.campo .msg{font-size:11.5px; color:var(--danger); display:none; line-height:1.45}
+.campo.erro .msg{display:block}
+.modal-acoes{display:flex; gap:7px; justify-content:flex-end; margin-top:4px}
+
+@media (max-width:1180px){
+  .quadro{grid-template-columns:1fr; gap:0}
+  .raia{display:none; border-top:none}
+  .raia.ativa{display:flex}
+  .seletor-raia{display:flex !important}
+}
+.seletor-raia{display:none; gap:4px; padding:0 18px 10px; flex-wrap:wrap}
+.sr{
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:5px;
+  padding:5px 10px; font-size:12px; font-weight:600; color:var(--ink-2);
+  border-top:2px solid var(--cor);
+}
+.sr[aria-pressed="true"]{background:var(--surface-3); color:var(--ink)}
+.sr .n{font-family:var(--mono); font-size:10.5px; margin-left:5px; color:var(--ink-3)}
+</style>
+
+<div class="topo">
+  <div class="topo-l1">
+    <div class="marca">
+      <h1>Painel de Conteúdos</h1>
+      <div class="sub">Use Zero Hora &middot; grade de <b id="s-mes">—</b> &middot; hoje <b class="mono" id="s-hoje">—</b></div>
+    </div>
+    <div class="aviso" title="O painel não escreve no repositório e não publica no blog.">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.4"/><path d="M8 4.8v3.9M8 11.1v.1"/></svg>
+      Não publica e não grava no repositório
+    </div>
+    <div class="acoes">
+      <button class="btn" id="b-importar">Importar grade</button>
+      <button class="btn" id="b-resumo">Copiar resumo</button>
+      <button class="btn primario" id="b-exportar">Exportar<span class="n" id="n-export"></span></button>
+      <button class="btn icone" id="b-tema" title="Alternar tema" aria-label="Alternar tema">◐</button>
+    </div>
+  </div>
+  <div class="topo-l2">
+    <div class="busca">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="7" r="4.6"/><path d="M10.4 10.4 14 14"/></svg>
+      <input id="f-busca" type="search" placeholder="Buscar keyword, slug ou id" aria-label="Buscar">
+      <kbd>/</kbd>
+    </div>
+    <div class="filtro"><label for="f-terr">Território</label><select id="f-terr"></select></div>
+    <div class="filtro"><label for="f-int">Intenção</label><select id="f-int"></select></div>
+    <div class="filtro"><label for="f-kd">KD</label><select id="f-kd">
+      <option value="">todos</option><option value="0-9">0 a 9</option><option value="10-19">10 a 19</option>
+      <option value="20-29">20 a 29</option><option value="30-100">30 ou mais</option>
+    </select></div>
+    <div class="filtro"><label for="f-dia">Agrupar por</label><select id="f-dia">
+      <option value="data_publicacao">data de publicação</option>
+      <option value="data_producao">data de produção</option>
+    </select></div>
+    <button class="limpar" id="b-limpar">limpar filtros</button>
+    <div class="filtro" style="margin-left:auto"><span class="eyebrow" id="s-total">—</span></div>
+  </div>
+  <div class="seletor-raia" id="seletor-raia"></div>
+</div>
+
+<details class="bloqueados" id="faixa-bloq">
+  <summary><span class="tag">BLOQUEADO</span> <span id="s-bloq"></span></summary>
+  <div class="bloq-lista" id="lista-bloq"></div>
+</details>
+
+<div class="quadro" id="quadro"></div>
+
+<div class="fundo" id="fundo"></div>
+<aside class="gaveta" id="gaveta" role="dialog" aria-modal="true" aria-labelledby="g-titulo" hidden>
+  <div class="g-cab">
+    <div class="l1">
+      <div style="min-width:0">
+        <span class="eyebrow" id="g-eyebrow">—</span>
+        <h2 id="g-titulo">—</h2>
+      </div>
+      <button class="fechar" id="g-fechar" aria-label="Fechar" title="Fechar (Esc)">×</button>
+    </div>
+    <div class="g-meta" id="g-meta"></div>
+  </div>
+  <div class="g-abas">
+    <button class="aba" id="aba-completo" role="tab" aria-selected="true">Versão completa<span class="p" id="p-completo"></span></button>
+    <button class="aba" id="aba-editor" role="tab" aria-selected="false">Versão editor<span class="p" id="p-editor"></span></button>
+    <div class="dir">
+      <button class="tog" id="v-codigo" aria-pressed="true">Código</button>
+      <button class="tog" id="v-previa" aria-pressed="false">Prévia</button>
+    </div>
+  </div>
+  <div class="g-medidor" id="g-medidor"></div>
+  <div class="g-corpo" id="g-corpo"></div>
+  <div class="g-lado" id="g-lado"></div>
+  <div class="g-rodape">
+    <div class="mover" id="g-mover"><span class="r">Mover para</span></div>
+    <button class="btn" id="b-desfazer">Desfazer edição</button>
+  </div>
+</aside>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-titulo">
+  <div class="modal-cx">
+    <h2 id="m-titulo">—</h2>
+    <p class="expl" id="m-expl">—</p>
+    <div id="m-campos"></div>
+    <div class="modal-acoes">
+      <button class="btn" id="m-cancelar">Cancelar</button>
+      <button class="btn primario" id="m-confirmar">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DADOS = /*__DADOS__*/;
+
+/* ---------------- constantes de domínio ---------------- */
+const RAIAS = [
+  {n:1, id:'criados',     nome:'Criados',     status:['rascunho'],              cor:'var(--raia-1)'},
+  {n:2, id:'revisao',     nome:'Revisão',     status:['em_revisao'],            cor:'var(--raia-2)'},
+  {n:3, id:'prorrogado',  nome:'Prorrogado',  status:['prorrogado'],            cor:'var(--raia-3)'},
+  {n:4, id:'aprovados',   nome:'Aprovados',   status:['aprovado','agendado'],   cor:'var(--raia-4)'},
+  {n:5, id:'online',      nome:'Online',      status:['publicado'],             cor:'var(--raia-5)'},
+];
+const STATUS_RAIA = {};
+RAIAS.forEach(r => r.status.forEach(s => STATUS_RAIA[s] = r));
+const DOMINIO = 'https://usezerohora.com.br';
+const CHAVE = 'uzh-painel-v1';
+const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const SEMANA = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+
+/* ---------------- estado ---------------- */
+let estado = {status:{}, aprovado_em:{}, data_publicacao:{}, motivo:{}, url_final:{}, textos:{}, notas:{}};
+let armazenaOk = true;
+let filtros = {busca:'', terr:'', int:'', kd:'', agrup:'data_publicacao'};
+let sel = null, aberto = null, aba = 'completo', vista = 'codigo', raiaAtiva = 'revisao';
+
+function carregar(){
+  try{
+    const cru = localStorage.getItem(CHAVE);
+    if(cru) estado = Object.assign(estado, JSON.parse(cru));
+  }catch(e){ armazenaOk = false; }
+}
+function salvar(){
+  try{ localStorage.setItem(CHAVE, JSON.stringify(estado)); }
+  catch(e){ armazenaOk = false; }
+}
+
+/* ---------------- acessores ---------------- */
+const art = id => DADOS.artigos.find(a => a.id === id);
+const statusDe   = a => estado.status[a.id]         ?? a.status;
+const dataPubDe  = a => estado.data_publicacao[a.id] ?? a.data_publicacao;
+const aprovEmDe  = a => estado.aprovado_em[a.id]    ?? a.aprovado_em;
+const urlFinalDe = a => estado.url_final[a.id]      ?? a.url_final;
+const chaveTexto = (slug, v) => slug + '|' + v;
+function textoDe(a, v){
+  const k = chaveTexto(a.slug, v);
+  if(estado.textos[k] != null) return estado.textos[k];
+  return a.arquivos[v] != null ? a.arquivos[v] : null;
+}
+const editado = (a, v) => estado.textos[chaveTexto(a.slug, v)] != null;
+const temEdicao = a => editado(a,'completo') || editado(a,'editor');
+function contaHash(a){
+  let n = 0;
+  ['completo','editor'].forEach(v => {
+    const t = textoDe(a, v);
+    if(t) n += (t.match(/\/blog\/posts\/[a-z0-9-]+-\{HASH\}/g) || []).length;
+  });
+  return n;
+}
+function dependencias(a){
+  const t = textoDe(a,'completo') || textoDe(a,'editor') || '';
+  const achados = new Set();
+  (t.match(/\/blog\/posts\/([a-z0-9-]+)-\{HASH\}/g) || []).forEach(m => {
+    const s = m.replace('/blog/posts/','').replace('-{HASH}','');
+    if(s !== a.slug) achados.add(s);
+  });
+  return [...achados].filter(s => {
+    const irmao = DADOS.artigos.find(x => x.slug === s);
+    return !irmao || statusDe(irmao) !== 'publicado';
+  });
+}
+function canibalizacao(a){
+  const dono = DADOS.donos.find(d => norm(d.keyword) === norm(a.kw_primaria));
+  if(!dono) return null;
+  if(dono.artigo === 'content/' + a.slug + '.html') return null;
+  return dono;
+}
+const norm = s => (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function porExtenso(iso){
+  if(!iso) return 'sem data';
+  const [A,M,D] = iso.split('-').map(Number);
+  const d = new Date(Date.UTC(A, M-1, D));
+  return SEMANA[d.getUTCDay()] + ', ' + D + ' de ' + MESES[M-1];
+}
+const curto = iso => iso ? iso.slice(8,10) + '/' + iso.slice(5,7) : '—';
+const territorioNome = t => DADOS.territorios[t] || null;
+
+/* ---------------- filtro ---------------- */
+const filtrando = () => !!(filtros.busca || filtros.terr || filtros.int || filtros.kd);
+function visiveis(){
+  const b = norm(filtros.busca);
+  return DADOS.artigos.filter(a => {
+    if(a.status === 'bloqueado') return false;
+    if(b && !(norm(a.kw_primaria).includes(b) || norm(a.slug).includes(b) || norm(a.id).includes(b))) return false;
+    if(filtros.terr && a.territorio !== filtros.terr) return false;
+    if(filtros.int && !(a.intencao||'').includes(filtros.int)) return false;
+    if(filtros.kd){
+      const [lo,hi] = filtros.kd.split('-').map(Number);
+      const k = Number(a.kd);
+      if(!(k >= lo && k <= hi)) return false;
+    }
+    return true;
+  });
+}
+
+/* ---------------- render do quadro ---------------- */
+function render(){
+  const lista = visiveis();
+  const q = document.getElementById('quadro');
+  q.innerHTML = '';
+  let totalGeral = 0;
+
+  RAIAS.forEach(r => {
+    const naRaia = lista.filter(a => r.status.includes(statusDe(a)));
+    totalGeral += naRaia.length;
+
+    const col = document.createElement('section');
+    col.className = 'raia' + (r.id === raiaAtiva ? ' ativa' : '');
+    col.style.setProperty('--cor', r.cor);
+    col.dataset.raia = r.id;
+
+    const cab = document.createElement('header');
+    cab.className = 'raia-cab';
+    cab.innerHTML = '<span class="num">' + r.n + '</span>'
+      + '<h2>' + r.nome + '<span class="status">' + r.status.join(' · ') + '</span></h2>'
+      + '<span class="conta">' + naRaia.length + '</span>';
+    col.appendChild(cab);
+
+    const corpo = document.createElement('div');
+    corpo.className = 'raia-corpo';
+    corpo.addEventListener('dragover', ev => { ev.preventDefault(); col.classList.add('alvo'); });
+    corpo.addEventListener('dragleave', () => col.classList.remove('alvo'));
+    corpo.addEventListener('drop', ev => {
+      ev.preventDefault(); col.classList.remove('alvo');
+      const id = ev.dataTransfer.getData('text/plain');
+      if(id) mover(id, r.id);
+    });
+
+    if(!naRaia.length){
+      corpo.innerHTML = '<div class="vazio">' + (filtrando()
+        ? 'Nenhum artigo nesta raia com os filtros atuais.'
+        : 'Nenhum artigo nesta raia.') + '</div>';
+    }else{
+      const porDia = {};
+      naRaia.forEach(a => {
+        const d = (filtros.agrup === 'data_producao' ? a.data_producao : dataPubDe(a)) || '';
+        (porDia[d] = porDia[d] || []).push(a);
+      });
+      Object.keys(porDia).sort().forEach(d => {
+        const bloco = document.createElement('div');
+        bloco.className = 'dia';
+        bloco.innerHTML = '<div class="dia-cab"><span class="d">' + (d ? curto(d) : '—') + '</span>'
+          + '<span class="ext">' + porExtenso(d) + '</span><span class="c">' + porDia[d].length + '</span></div>';
+        const porCat = {};
+        porDia[d].forEach(a => (porCat[a.territorio] = porCat[a.territorio] || []).push(a));
+        Object.keys(porCat).sort().forEach(t => {
+          const nome = territorioNome(t);
+          const cc = document.createElement('div');
+          cc.className = 'cat-cab';
+          cc.innerHTML = '<span class="p"></span><span class="n">' + esc(nome || t) + '</span>'
+            + (nome ? '' : '<span class="n" style="color:var(--warn)">território não mapeado</span>')
+            + '<span class="c">' + porCat[t].length + '</span>';
+          bloco.appendChild(cc);
+          porCat[t].sort((x,y) => Number(y.volume) - Number(x.volume))
+                   .forEach(a => bloco.appendChild(cartao(a, r)));
+        });
+        corpo.appendChild(bloco);
+      });
+    }
+    col.appendChild(corpo);
+    q.appendChild(col);
+  });
+
+  document.getElementById('s-total').textContent =
+    totalGeral + ' de ' + DADOS.artigos.filter(a => a.status !== 'bloqueado').length + ' artigos visíveis';
+  renderSeletor(lista);
+  const nEd = DADOS.artigos.filter(temEdicao).length;
+  document.getElementById('n-export').textContent = nEd ? '· ' + nEd + ' texto' + (nEd>1?'s':'') : '';
+}
+
+function cartao(a, r){
+  const el = document.createElement('article');
+  el.className = 'card' + (sel === a.id ? ' sel' : '');
+  el.style.setProperty('--cor', r.cor);
+  el.draggable = true;
+  el.tabIndex = 0;
+  el.dataset.id = a.id;
+
+  const selos = [];
+  if(!a.arquivos.completo && !a.arquivos.editor) selos.push('<span class="selo semarq">SEM ARQUIVO</span>');
+  else{
+    const p = [];
+    if(a.arquivos.completo != null) p.push('completo');
+    if(a.arquivos.editor   != null) p.push('editor');
+    selos.push('<span class="selo arq">' + p.join(' + ') + '</span>');
+  }
+  if(temEdicao(a)) selos.push('<span class="selo edit">EDITADO</span>');
+  const nh = contaHash(a);
+  if(nh) selos.push('<span class="selo hash" title="' + nh + ' marcador(es) {HASH} no texto">{HASH} ' + nh + '</span>');
+  if(canibalizacao(a)) selos.push('<span class="selo canib" title="Keyword primária já tem outra URL dona">DONO</span>');
+  if(statusDe(a) === 'agendado') selos.push('<span class="selo agendado">AGENDADO</span>');
+
+  const deps = dependencias(a);
+  const url = urlFinalDe(a);
+
+  el.innerHTML =
+    '<div class="card-l1"><span class="id">' + esc(a.id) + '</span><span class="selos">' + selos.join('') + '</span></div>'
+    + '<h3>' + esc(a.kw_primaria) + '</h3>'
+    + '<div class="slug">' + esc(a.slug) + '</div>'
+    + '<div class="card-l3">'
+      + '<span class="metrica"><span class="r">vol</span><span class="v">' + Number(a.volume).toLocaleString('pt-BR') + '</span></span>'
+      + '<span class="metrica"><span class="r">kd</span><span class="v">' + esc(a.kd) + '</span></span>'
+      + (a.intencao ? '<span class="intencao">' + esc(a.intencao) + '</span>' : '')
+    + '</div>'
+    + (url ? '<div class="url">' + esc(url) + '</div>' : '')
+    + (deps.length ? '<div class="nota"><b>Depende de:</b> ' + deps.map(esc).join(', ') + '. Publique esses antes.</div>' : '')
+    + (estado.motivo[a.id] ? '<div class="nota"><b>Motivo:</b> ' + esc(estado.motivo[a.id]) + '</div>' : '')
+    + (estado.notas[a.id] ? '<div class="nota"><b>Reprovado:</b> ' + esc(estado.notas[a.id]) + '</div>' : '');
+
+  el.addEventListener('click', () => abrir(a.id));
+  el.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); abrir(a.id); } });
+  el.addEventListener('focus', () => { sel = a.id; });
+  el.addEventListener('dragstart', ev => {
+    sel = a.id;
+    ev.dataTransfer.setData('text/plain', a.id);
+    ev.dataTransfer.effectAllowed = 'move';
+    el.classList.add('arrastando');
+  });
+  el.addEventListener('dragend', () => el.classList.remove('arrastando'));
+  return el;
+}
+
+function renderSeletor(lista){
+  const s = document.getElementById('seletor-raia');
+  s.innerHTML = '';
+  RAIAS.forEach(r => {
+    const n = lista.filter(a => r.status.includes(statusDe(a))).length;
+    const b = document.createElement('button');
+    b.className = 'sr'; b.style.setProperty('--cor', r.cor);
+    b.setAttribute('aria-pressed', r.id === raiaAtiva);
+    b.innerHTML = r.n + '. ' + r.nome + '<span class="n">' + n + '</span>';
+    b.onclick = () => { raiaAtiva = r.id; render(); };
+    s.appendChild(b);
+  });
+}
+
+function renderBloqueados(){
+  const bs = DADOS.artigos.filter(a => a.status === 'bloqueado');
+  const orf = DADOS.orfaos || [];
+  document.getElementById('s-bloq').innerHTML =
+    '<b>' + bs.length + '</b> fora do fluxo · <b>' + orf.length + '</b> conteúdo(s) sem linha na grade. Somente leitura.';
+  const cx = document.getElementById('lista-bloq');
+  cx.innerHTML = '';
+  bs.forEach(a => {
+    const d = document.createElement('div');
+    d.className = 'bloq-item';
+    d.innerHTML = '<div class="cab"><span class="mono" style="font-size:10px;color:var(--ink-3);font-weight:700">' + esc(a.id) + '</span>'
+      + '<span class="kw">' + esc(a.kw_primaria) + '</span>'
+      + '<span class="mono" style="font-size:10.5px;color:var(--ink-3)">vol ' + Number(a.volume).toLocaleString('pt-BR') + ' · kd ' + esc(a.kd) + '</span></div>'
+      + '<p>' + esc(a.motivo_bloqueio || 'Motivo não registrado na pauta.') + '</p>';
+    cx.appendChild(d);
+  });
+  orf.forEach(o => {
+    const d = document.createElement('div');
+    d.className = 'bloq-item';
+    d.style.borderLeftColor = 'var(--raia-3)';
+    d.innerHTML = '<div class="cab"><span class="mono" style="font-size:10px;color:var(--raia-3);font-weight:700">FORA DA GRADE</span>'
+      + '<span class="kw mono" style="font-size:12px">' + esc(o.slug) + '</span></div>'
+      + '<p>' + esc(o.nota) + '</p>';
+    cx.appendChild(d);
+  });
+}
+
+/* ---------------- transições ---------------- */
+function mover(id, raiaId){
+  const a = art(id);
+  const r = RAIAS.find(x => x.id === raiaId);
+  if(!a || !r) return;
+  const atual = statusDe(a);
+  if(r.status.includes(atual)) return;
+
+  if(raiaId === 'prorrogado')  return pedirProrrogacao(a);
+  if(raiaId === 'online')      return pedirPublicacao(a);
+  if(raiaId === 'criados' && (atual === 'em_revisao' || atual === 'aprovado' || atual === 'agendado'))
+    return pedirReprovacao(a);
+
+  aplicar(a, r.status[0]);
+}
+
+function aplicar(a, novoStatus, extra){
+  estado.status[a.id] = novoStatus;
+  if(novoStatus === 'aprovado' || novoStatus === 'agendado'){
+    estado.aprovado_em[a.id] = DADOS.hoje;
+  }else{
+    delete estado.aprovado_em[a.id];
+  }
+  if(novoStatus !== 'prorrogado') delete estado.motivo[a.id];
+  if(novoStatus !== 'rascunho')   delete estado.notas[a.id];
+  if(novoStatus !== 'publicado')  delete estado.url_final[a.id];
+  Object.assign(estado, extra || {});
+  salvar(); render(); renderBloqueados();
+  if(aberto === a.id) pintarGaveta();
+}
+
+function pedirProrrogacao(a){
+  modal({
+    titulo:'Prorrogar “' + a.kw_primaria + '”',
+    expl:'Prorrogar tira o artigo da fila do dia sem reprová-lo. O painel guarda o motivo e a data nova, e a grade exportada ganha a coluna motivo_prorrogacao.',
+    campos:[
+      {id:'motivo', rotulo:'Motivo da prorrogação', tipo:'textarea', dica:'Fica visível no card e vai para o CSV.'},
+      {id:'data',   rotulo:'Nova data de publicação', tipo:'date', valor:dataPubDe(a)}
+    ],
+    valida(v){
+      const e = {};
+      if(!v.motivo.trim()) e.motivo = 'O motivo é obrigatório. Sem ele o card vira limbo.';
+      if(!v.data) e.data = 'A nova data de publicação é obrigatória.';
+      else if(v.data <= dataPubDe(a)) e.data = 'A data precisa ser posterior a ' + dataPubDe(a) + '. Prorrogar é empurrar para frente.';
+      return e;
+    },
+    ok(v){
+      estado.motivo[a.id] = v.motivo.trim();
+      estado.data_publicacao[a.id] = v.data;
+      aplicar(a, 'prorrogado');
+    }
+  });
+}
+
+function pedirPublicacao(a){
+  const nh = contaHash(a);
+  modal({
+    titulo:'Publicar “' + a.kw_primaria + '”',
+    expl:'Cole a URL que o CMS gerou. O painel confere se o slug bate: canonical apontando para URL que não existe é o erro mais caro desta etapa.',
+    campos:[
+      {id:'url', rotulo:'URL final do post', tipo:'text', dica:DOMINIO + '/blog/posts/' + a.slug + '-<hash de 12 caracteres>'},
+      {id:'data', rotulo:'Data real de publicação', tipo:'date', valor:DADOS.hoje}
+    ],
+    valida(v){
+      const e = {};
+      if(nh) e.url = 'O texto ainda tem ' + nh + ' marcador {HASH}. Feche os marcadores antes de publicar.';
+      else{
+        const u = (v.url||'').trim().replace(/\/+$/,'');
+        const pre = DOMINIO + '/blog/posts/' + a.slug + '-';
+        if(!u) e.url = 'Cole a URL final do post.';
+        else if(!u.startsWith(pre)) e.url = 'A URL não bate com o slug "' + a.slug + '". Esperado começar com ' + pre;
+        else if(!/^[a-z0-9]{12}$/.test(u.slice(pre.length))) e.url = 'O hash precisa ter 12 caracteres alfanuméricos. Recebido: "' + u.slice(pre.length) + '".';
+      }
+      if(!v.data) e.data = 'A data real de publicação é obrigatória.';
+      return e;
+    },
+    ok(v){
+      estado.url_final[a.id] = v.url.trim().replace(/\/+$/,'');
+      estado.data_publicacao[a.id] = v.data;
+      aplicar(a, 'publicado');
+    }
+  });
+}
+
+function pedirReprovacao(a){
+  modal({
+    titulo:'Devolver “' + a.kw_primaria + '” para Criados',
+    expl:'O artigo volta para o início do fluxo. O motivo fica no card, e é ele que orienta a reescrita.',
+    campos:[{id:'motivo', rotulo:'Motivo da reprovação', tipo:'textarea', dica:'Registre também na pauta do artigo.'}],
+    valida(v){ return v.motivo.trim() ? {} : {motivo:'Diga o que precisa mudar. Devolver sem motivo trava a reescrita.'}; },
+    ok(v){ estado.notas[a.id] = v.motivo.trim(); aplicar(a, 'rascunho'); }
+  });
+}
+
+/* ---------------- modal ---------------- */
+let modalOk = null;
+function modal(cfg){
+  const cx = document.getElementById('m-campos');
+  document.getElementById('m-titulo').textContent = cfg.titulo;
+  document.getElementById('m-expl').textContent = cfg.expl;
+  cx.innerHTML = '';
+  cfg.campos.forEach(c => {
+    const d = document.createElement('div');
+    d.className = 'campo';
+    const entrada = c.tipo === 'textarea'
+      ? '<textarea id="mc-' + c.id + '"></textarea>'
+      : '<input id="mc-' + c.id + '" type="' + (c.tipo==='date'?'date':'text') + '" value="' + esc(c.valor||'') + '">';
+    d.innerHTML = '<label for="mc-' + c.id + '">' + esc(c.rotulo) + '</label>' + entrada
+      + (c.dica ? '<span class="dica">' + esc(c.dica) + '</span>' : '') + '<span class="msg"></span>';
+    cx.appendChild(d);
+  });
+  modalOk = () => {
+    const v = {};
+    cfg.campos.forEach(c => v[c.id] = document.getElementById('mc-' + c.id).value);
+    const err = cfg.valida ? cfg.valida(v) : {};
+    cfg.campos.forEach(c => {
+      const d = document.getElementById('mc-' + c.id).closest('.campo');
+      d.classList.toggle('erro', !!err[c.id]);
+      d.querySelector('.msg').textContent = err[c.id] || '';
+    });
+    if(Object.keys(err).length) return;
+    fecharModal(); cfg.ok(v);
+  };
+  document.getElementById('modal').classList.add('on');
+  const p = cx.querySelector('input,textarea'); if(p) p.focus();
+}
+function fecharModal(){ document.getElementById('modal').classList.remove('on'); modalOk = null; }
+
+/* ---------------- gaveta ---------------- */
+function abrir(id){
+  aberto = id; sel = id; aba = 'completo'; vista = 'codigo';
+  const g = document.getElementById('gaveta');
+  g.hidden = false;
+  requestAnimationFrame(() => { g.classList.add('on'); document.getElementById('fundo').classList.add('on'); });
+  pintarGaveta();
+}
+function fecharGaveta(){
+  document.getElementById('gaveta').classList.remove('on');
+  document.getElementById('fundo').classList.remove('on');
+  setTimeout(() => { document.getElementById('gaveta').hidden = true; }, 200);
+  aberto = null; render();
+}
+
+function pintarGaveta(){
+  const a = art(aberto); if(!a) return;
+  const r = STATUS_RAIA[statusDe(a)];
+  document.getElementById('g-eyebrow').textContent =
+    a.id + ' · ' + (territorioNome(a.territorio) || a.territorio) + ' · raia ' + (r ? r.n + '. ' + r.nome : statusDe(a));
+  document.getElementById('g-titulo').textContent = a.kw_primaria;
+
+  const url = urlFinalDe(a);
+  const pares = [
+    ['slug', a.slug], ['volume', Number(a.volume).toLocaleString('pt-BR')], ['kd', a.kd],
+    ['intenção', a.intencao || '—'],
+    ['produção', curto(a.data_producao)], ['publicação', curto(dataPubDe(a))],
+    ['aprovado em', aprovEmDe(a) ? curto(aprovEmDe(a)) : '—'],
+    ['url final', url || '—'], ['pauta', a.pauta || '—']
+  ];
+  document.getElementById('g-meta').innerHTML = pares.map(([r_,v]) =>
+    '<span class="par"><span class="r">' + esc(r_) + '</span><span class="v">' + esc(v) + '</span></span>').join('');
+
+  ['completo','editor'].forEach(v => {
+    const b = document.getElementById('aba-' + v);
+    b.setAttribute('aria-selected', aba === v);
+    b.onclick = () => { aba = v; vista = 'codigo'; pintarGaveta(); };
+    document.getElementById('p-' + v).textContent =
+      a.arquivos[v] == null ? 'ausente' : (editado(a,v) ? 'editado' : '');
+  });
+  document.getElementById('v-codigo').setAttribute('aria-pressed', vista === 'codigo');
+  document.getElementById('v-previa').setAttribute('aria-pressed', vista === 'previa');
+
+  const texto = textoDe(a, aba);
+  pintarMedidor(a, texto);
+  pintarCorpo(a, texto);
+  pintarLado(a);
+  pintarRodape(a);
+}
+
+function pintarMedidor(a, texto){
+  const m = document.getElementById('g-medidor');
+  if(texto == null){ m.innerHTML = '<span class="med"><span class="r">sem arquivo</span></span>'; return; }
+  const t = (texto.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [,''])[1].trim();
+  const d = (texto.match(/<meta[^>]+name=["']description["'][^>]*content=["']([\s\S]*?)["']/i) || [,''])[1].trim();
+  const corpo = texto.replace(/<!--[\s\S]*?-->/g,' ').replace(/<script[\s\S]*?<\/script>/gi,' ')
+                     .replace(/<style[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ');
+  const palavras = (corpo.match(/[\wÀ-ÿ]+/g) || []).length;
+  const cel = (rot, val, lim) =>
+    '<span class="med' + (lim && val > lim ? ' ruim' : '') + '"><span class="r">' + rot + '</span>'
+    + '<span class="v">' + val + '</span>' + (lim ? '<span class="lim">/' + lim + '</span>' : '') + '</span>';
+  m.innerHTML = cel('title', t.length, 60) + cel('meta description', d.length, 155) + cel('palavras', palavras, 0)
+    + (temEdicao(a) ? '<span class="sujo">editado, não exportado</span>' : '');
+}
+
+function pintarCorpo(a, texto){
+  const c = document.getElementById('g-corpo');
+  c.innerHTML = '';
+  if(texto == null){
+    const outra = aba === 'completo' ? 'editor' : 'completo';
+    c.innerHTML = '<div class="estado-vazio"><div class="tit">Este artigo não tem arquivo de conteúdo</div>'
+      + '<p>A grade tem a linha <span class="mono">' + esc(a.id) + '</span>, mas <span class="mono">content/' + esc(a.slug)
+      + (aba === 'editor' ? '-editor' : '') + '.html</span> não existe no repositório.</p>'
+      + '<p>O texto não sumiu: ele ainda não foi escrito. A redação é a etapa E3.'
+      + (a.arquivos[outra] != null ? ' A versão <b>' + outra + '</b> existe e está na outra aba.' : '') + '</p></div>';
+    return;
+  }
+  if(vista === 'codigo'){
+    const ta = document.createElement('textarea');
+    ta.value = texto; ta.spellcheck = false;
+    ta.setAttribute('aria-label', 'HTML da versão ' + aba);
+    let tid;
+    ta.addEventListener('input', () => {
+      clearTimeout(tid);
+      tid = setTimeout(() => {
+        estado.textos[chaveTexto(a.slug, aba)] = ta.value;
+        salvar(); pintarMedidor(a, ta.value); pintarRodape(a); render();
+      }, 260);
+    });
+    c.appendChild(ta);
+  }else{
+    const cx = document.createElement('div');
+    cx.className = 'previa';
+    const raiz = cx.attachShadow({mode:'open'});
+    raiz.innerHTML = '<style>'
+      + ':host{display:block; all:initial; contain:content} *{box-sizing:border-box}'
+      + 'div{font-family:Georgia,"Times New Roman",serif; font-size:16px; line-height:1.65; color:#16232a; background:#fff;'
+      + 'max-width:65ch; margin:0 auto; padding:26px 30px; border-radius:6px}'
+      + 'h1{font-size:1.85em; line-height:1.2; margin:0 0 .5em} h2{font-size:1.35em; margin:1.5em 0 .4em}'
+      + 'h3{font-size:1.1em; margin:1.2em 0 .3em} p,li{margin:0 0 .85em} ul,ol{padding-left:1.4em}'
+      + 'table{border-collapse:collapse; width:100%; font-size:.9em; margin:0 0 1em}'
+      + 'th,td{border:1px solid #d6e0e3; padding:6px 9px; text-align:left}'
+      + 'img{max-width:100%; height:auto} a{color:#0B6E78}'
+      + 'script,style,meta,link,title{display:none}'
+      + '</style><div></div>';
+    raiz.querySelector('div').innerHTML = texto;
+    c.appendChild(cx);
+  }
+}
+
+function pintarLado(a){
+  const l = document.getElementById('g-lado');
+  const kws = DADOS.donos.filter(d => d.artigo === 'content/' + a.slug + '.html');
+  const canib = canibalizacao(a);
+  const deps = dependencias(a);
+  let html = '';
+  if(canib){
+    html += '<div class="alerta"><b>Anticanibalização.</b> A keyword primária <code>' + esc(a.kw_primaria)
+      + '</code> já está registrada em kw-donos.csv com a URL dona <code>' + esc(canib.url_dona)
+      + '</code>. Isso não impede a edição, mas dois textos disputando a mesma intenção derrubam os dois.</div>';
+  }
+  if(deps.length){
+    html += '<div class="alerta" style="border-color:color-mix(in srgb,var(--warn) 30%,transparent);background:color-mix(in srgb,var(--warn) 10%,transparent)">'
+      + '<b style="color:var(--warn)">Dependência de publicação.</b> Este texto linka para '
+      + deps.map(s => '<code>' + esc(s) + '</code>').join(', ')
+      + ', que ainda não está no ar. Publique os irmãos primeiro, senão o link nasce quebrado.</div>';
+  }
+  html += '<h3>Keywords no registro (' + kws.length + ')</h3>';
+  html += kws.length
+    ? '<div class="kws">' + kws.map(d => '<div class="kw-l"><span class="k">' + esc(d.keyword)
+        + '</span><span class="v">' + Number(d.volume).toLocaleString('pt-BR') + ' · kd ' + esc(d.kd)
+        + '</span><span class="d" title="' + esc(d.url_dona) + '">' + esc(d.url_dona) + '</span></div>').join('') + '</div>'
+    : '<p style="font-size:11.5px;color:var(--ink-3);margin:0">Nenhuma keyword deste artigo em kw-donos.csv.</p>';
+  l.innerHTML = html;
+}
+
+function pintarRodape(a){
+  const m = document.getElementById('g-mover');
+  m.innerHTML = '<span class="r">Mover para</span>';
+  const atual = statusDe(a);
+  RAIAS.forEach(r => {
+    const b = document.createElement('button');
+    b.className = 'mv' + (r.status.includes(atual) ? ' atual' : '');
+    b.style.setProperty('--cor', r.cor);
+    b.textContent = r.n + '. ' + r.nome;
+    b.disabled = r.status.includes(atual);
+    b.onclick = () => mover(a.id, r.id);
+    m.appendChild(b);
+  });
+  const d = document.getElementById('b-desfazer');
+  d.disabled = !editado(a, aba);
+  d.textContent = 'Desfazer edição (' + aba + ')';
+  d.onclick = () => {
+    delete estado.textos[chaveTexto(a.slug, aba)];
+    salvar(); pintarGaveta(); render();
+  };
+}
+
+/* ---------------- exportar / importar / resumo ---------------- */
+function csvCampo(v){
+  v = v == null ? '' : String(v);
+  return /[",\n]/.test(v) ? '"' + v.replace(/"/g,'""') + '"' : v;
+}
+function gerarCSV(){
+  const cols = DADOS.colunas.concat(['motivo_prorrogacao']);
+  const linhas = [cols.join(',')];
+  DADOS.artigos.forEach(a => {
+    const l = a.bruto.slice();
+    const i = n => DADOS.colunas.indexOf(n);
+    l[i('status')]           = statusDe(a);
+    l[i('aprovado_em')]      = aprovEmDe(a) || '';
+    l[i('data_publicacao')]  = dataPubDe(a) || '';
+    l[i('url_final')]        = urlFinalDe(a) || '';
+    l.push(estado.motivo[a.id] || '');
+    linhas.push(l.map(csvCampo).join(','));
+  });
+  return linhas.join('\n') + '\n';
+}
+function baixar(nome, conteudo, tipo){
+  const b = new Blob([conteudo], {type:(tipo||'text/plain') + ';charset=utf-8'});
+  const u = URL.createObjectURL(b);
+  const l = document.createElement('a');
+  l.href = u; l.download = nome; document.body.appendChild(l); l.click(); l.remove();
+  setTimeout(() => URL.revokeObjectURL(u), 4000);
+}
+function exportar(){
+  baixar(DADOS.nome_grade, gerarCSV(), 'text/csv');
+  const alvos = [];
+  DADOS.artigos.forEach(a => ['completo','editor'].forEach(v => {
+    if(editado(a, v)) alvos.push([a.slug + (v === 'editor' ? '-editor' : '') + '.html', estado.textos[chaveTexto(a.slug, v)]]);
+  }));
+  alvos.forEach(([n, c], i) => setTimeout(() => baixar(n, c, 'text/html'), 420 * (i + 1)));
+  toast('Exportado: ' + DADOS.nome_grade + (alvos.length ? ' e ' + alvos.length + ' arquivo(s) de texto.' : '. Nenhum texto editado.'));
+}
+function resumo(){
+  const mudou = [], textos = [];
+  DADOS.artigos.forEach(a => {
+    const s = statusDe(a);
+    if(s !== a.status){
+      let l = '- ' + a.id + ' ' + a.slug + ': ' + a.status + ' -> ' + s;
+      if(estado.motivo[a.id])       l += ' (motivo: ' + estado.motivo[a.id] + ')';
+      if(estado.notas[a.id])        l += ' (reprovado: ' + estado.notas[a.id] + ')';
+      if(dataPubDe(a) !== a.data_publicacao) l += ' (publicação -> ' + dataPubDe(a) + ')';
+      if(urlFinalDe(a))             l += ' (url: ' + urlFinalDe(a) + ')';
+      if(aprovEmDe(a))              l += ' (aprovado_em: ' + aprovEmDe(a) + ')';
+      mudou.push(l);
+    }else if(dataPubDe(a) !== a.data_publicacao){
+      mudou.push('- ' + a.id + ' ' + a.slug + ': data de publicação -> ' + dataPubDe(a));
+    }
+    ['completo','editor'].forEach(v => {
+      if(editado(a, v)) textos.push('- content/' + a.slug + (v === 'editor' ? '-editor' : '') + '.html');
+    });
+  });
+  const t = 'Painel de conteúdos — resumo de ' + DADOS.hoje + '\n\n'
+    + 'MUDANÇAS DE ETAPA (' + mudou.length + ')\n' + (mudou.join('\n') || '- nenhuma') + '\n\n'
+    + 'TEXTOS EDITADOS (' + textos.length + ')\n' + (textos.join('\n') || '- nenhum') + '\n\n'
+    + 'Nada foi publicado e nada foi gravado no repositório.\n';
+  navigator.clipboard.writeText(t).then(
+    () => toast('Resumo copiado. Cole na sessão para o repositório ser atualizado.'),
+    () => { baixar('resumo-painel.txt', t); toast('Área de transferência bloqueada. Baixei o resumo como arquivo.'); }
+  );
+}
+function importar(){
+  modal({
+    titulo:'Importar a grade do repositório',
+    expl:'Cole o conteúdo de ' + DADOS.nome_grade + '. O painel relê status, datas e URLs a partir dele e descarta o estado local. Os textos editados são preservados.',
+    campos:[{id:'csv', rotulo:'Conteúdo do CSV', tipo:'textarea', dica:'A primeira linha precisa ser o cabeçalho de colunas.'}],
+    valida(v){ return v.csv.trim().startsWith('id,') ? {} : {csv:'A primeira linha precisa começar com "id,". Confira se colou o arquivo certo.'}; },
+    ok(v){
+      const linhas = v.csv.trim().split('\n');
+      const cols = linhas[0].split(',');
+      let n = 0;
+      linhas.slice(1).forEach(l => {
+        const c = partirCSV(l);
+        const g = nome => c[cols.indexOf(nome)] || '';
+        const a = art(g('id'));
+        if(!a) return;
+        estado.status[a.id] = g('status');
+        estado.data_publicacao[a.id] = g('data_publicacao');
+        estado.aprovado_em[a.id] = g('aprovado_em');
+        estado.url_final[a.id] = g('url_final');
+        const im = cols.indexOf('motivo_prorrogacao');
+        if(im > -1 && c[im]) estado.motivo[a.id] = c[im]; else delete estado.motivo[a.id];
+        n++;
+      });
+      salvar(); render(); renderBloqueados();
+      toast(n + ' linha(s) importada(s). Textos editados foram preservados.');
+    }
+  });
+}
+function partirCSV(l){
+  const out = []; let cur = '', asp = false;
+  for(let i = 0; i < l.length; i++){
+    const c = l[i];
+    if(asp){
+      if(c === '"' && l[i+1] === '"'){ cur += '"'; i++; }
+      else if(c === '"') asp = false;
+      else cur += c;
+    }else if(c === '"') asp = true;
+    else if(c === ','){ out.push(cur); cur = ''; }
+    else cur += c;
+  }
+  out.push(cur); return out;
+}
+
+let tid;
+function toast(msg){
+  let t = document.getElementById('toast');
+  if(!t){
+    t = document.createElement('div'); t.id = 'toast';
+    t.style.cssText = 'position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:80;'
+      + 'background:var(--ink);color:var(--ground);padding:9px 15px;border-radius:6px;font-size:12.5px;'
+      + 'font-weight:550;box-shadow:var(--shadow-lg);max-width:min(560px,92vw);text-align:center;line-height:1.45';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg; t.style.opacity = '1';
+  clearTimeout(tid); tid = setTimeout(() => t.style.opacity = '0', 4200);
+}
+
+/* ---------------- ligações ---------------- */
+function ligar(){
+  document.getElementById('s-mes').textContent = DADOS.mes;
+  document.getElementById('s-hoje').textContent = DADOS.hoje;
+
+  const ft = document.getElementById('f-terr');
+  ft.innerHTML = '<option value="">todos</option>' + [...new Set(DADOS.artigos.map(a => a.territorio))].sort()
+    .map(t => '<option value="' + t + '">' + esc(territorioNome(t) || t) + '</option>').join('');
+  const ints = [...new Set(DADOS.artigos.flatMap(a => (a.intencao||'').split(',').map(s => s.trim()).filter(Boolean)))].sort();
+  document.getElementById('f-int').innerHTML = '<option value="">todas</option>'
+    + ints.map(i => '<option value="' + esc(i) + '">' + esc(i) + '</option>').join('');
+
+  const liga = (id, campo) => document.getElementById(id).addEventListener('input', e => { filtros[campo] = e.target.value; render(); });
+  liga('f-busca','busca'); liga('f-terr','terr'); liga('f-int','int'); liga('f-kd','kd'); liga('f-dia','agrup');
+  document.getElementById('b-limpar').onclick = () => {
+    filtros = {busca:'', terr:'', int:'', kd:'', agrup:'data_publicacao'};
+    ['f-busca','f-terr','f-int','f-kd'].forEach(i => document.getElementById(i).value = '');
+    document.getElementById('f-dia').value = 'data_publicacao';
+    render();
+  };
+
+  document.getElementById('b-exportar').onclick = exportar;
+  document.getElementById('b-resumo').onclick = resumo;
+  document.getElementById('b-importar').onclick = importar;
+  document.getElementById('g-fechar').onclick = fecharGaveta;
+  document.getElementById('fundo').onclick = fecharGaveta;
+  document.getElementById('v-codigo').onclick = () => { vista = 'codigo'; pintarGaveta(); };
+  document.getElementById('v-previa').onclick = () => { vista = 'previa'; pintarGaveta(); };
+  document.getElementById('m-cancelar').onclick = fecharModal;
+  document.getElementById('m-confirmar').onclick = () => modalOk && modalOk();
+  document.getElementById('b-tema').onclick = () => {
+    const r = document.documentElement;
+    const escuro = r.getAttribute('data-theme') === 'dark'
+      || (!r.getAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches);
+    r.setAttribute('data-theme', escuro ? 'light' : 'dark');
+  };
+
+  document.addEventListener('keydown', ev => {
+    const emCampo = /^(INPUT|TEXTAREA|SELECT)$/.test(ev.target.tagName);
+    if(ev.key === '/' && !emCampo){ ev.preventDefault(); document.getElementById('f-busca').focus(); return; }
+    if(ev.key === 'Escape'){
+      if(document.getElementById('modal').classList.contains('on')) fecharModal();
+      else if(aberto) fecharGaveta();
+      return;
+    }
+    if(ev.key === 'Enter' && document.getElementById('modal').classList.contains('on') && ev.target.tagName !== 'TEXTAREA'){
+      ev.preventDefault(); modalOk && modalOk(); return;
+    }
+    if((ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') && !emCampo && sel){
+      const a = art(sel); if(!a) return;
+      const i = RAIAS.findIndex(r => r.status.includes(statusDe(a)));
+      const j = i + (ev.key === 'ArrowRight' ? 1 : -1);
+      if(j >= 0 && j < RAIAS.length){ ev.preventDefault(); mover(sel, RAIAS[j].id); }
+    }
+  });
+
+  if(!armazenaOk) toast('Este navegador bloqueou o armazenamento local. O trabalho não sobrevive a recarregar a página — exporte antes de sair.');
+}
+
+carregar(); ligar(); renderBloqueados(); render();
+</script>
