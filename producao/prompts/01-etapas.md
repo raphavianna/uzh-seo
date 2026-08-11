@@ -120,9 +120,14 @@ arquivos de `content/` trazem o marcador `{HASH}`.
 
 **Não substitua o `{HASH}` à mão.** No lote de agosto são 103 trocas em 11
 arquivos, e canonical publicado com o marcador sem substituir quebra a
-indexação da página. Use `scripts/publicar-fechar-urls.py`, que faz as trocas,
-corrige a data no schema e atualiza o registro e a grade de uma vez. Ele recusa
-gravar se a URL colada não bater com o slug do artigo.
+indexação da página. Há dois caminhos, e os dois chegam ao mesmo resultado:
+
+| Caminho | Quando usar |
+|---|---|
+| **Painel** (`producao/painel/`) | O normal. Mova o card para Online, cole a URL, e ele fecha o marcador em todo o lote, acerta a data do schema e atualiza o cabeçalho da versão editor. Depois exporte o patch e rode `scripts/aplicar-patch-painel.py`. |
+| **Terminal** (`scripts/publicar-fechar-urls.py`) | Quando preferir não passar pelo navegador. Cole as URLs em `producao/registro/urls-publicadas.csv` e rode o script. |
+
+Os dois recusam gravar se a URL colada não bater com o slug do artigo.
 
 ### O lote sobe em rodadas, não artigo por artigo
 

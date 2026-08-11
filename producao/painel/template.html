@@ -599,7 +599,11 @@ function render(){
     totalGeral + ' de ' + DADOS.artigos.filter(a => a.status !== 'bloqueado').length + ' artigos visíveis';
   renderSeletor(lista);
   const nEd = DADOS.artigos.filter(temEdicao).length;
-  document.getElementById('n-export').textContent = nEd ? '· ' + nEd + ' texto' + (nEd>1?'s':'') : '';
+  const nMov = DADOS.artigos.filter(a => statusDe(a) !== a.status).length;
+  const partes = [];
+  if(nMov) partes.push(nMov + ' etapa' + (nMov>1?'s':''));
+  if(nEd)  partes.push(nEd + ' texto' + (nEd>1?'s':''));
+  document.getElementById('n-export').textContent = partes.length ? '· ' + partes.join(' · ') : '';
 }
 
 function cartao(a, r){
@@ -639,7 +643,7 @@ function cartao(a, r){
     + (url ? '<div class="url">' + esc(url) + '</div>' : '')
     + (deps.length ? '<div class="nota"><b>Depende de:</b> ' + deps.map(esc).join(', ') + '. Publique esses antes.</div>' : '')
     + (estado.motivo[a.id] ? '<div class="nota"><b>Motivo:</b> ' + esc(estado.motivo[a.id]) + '</div>' : '')
-    + (estado.notas[a.id] ? '<div class="nota"><b>Reprovado:</b> ' + esc(estado.notas[a.id]) + '</div>' : '');
+    + (estado.notas[a.id] ? '<div class="nota"><b>Nota:</b> ' + esc(estado.notas[a.id]) + '</div>' : '');
 
   el.addEventListener('click', () => abrir(a.id));
   el.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); abrir(a.id); } });
@@ -703,8 +707,9 @@ function mover(id, raiaId){
   const atual = statusDe(a);
   if(r.status.includes(atual)) return;
 
-  if(raiaId === 'prorrogado')  return pedirProrrogacao(a);
-  if(raiaId === 'online')      return pedirPublicacao(a);
+  if(raiaId === 'online')     return pedirPublicacao(a);
+  if(atual === 'publicado')   return pedirDespublicacao(a, r);
+  if(raiaId === 'prorrogado') return pedirProrrogacao(a);
   if(raiaId === 'criados' && (atual === 'em_revisao' || atual === 'aprovado' || atual === 'agendado'))
     return pedirReprovacao(a);
 
@@ -713,13 +718,16 @@ function mover(id, raiaId){
 
 function aplicar(a, novoStatus, extra){
   estado.status[a.id] = novoStatus;
+  // aprovado_em é fato histórico: sobrevive à publicação e só se apaga quando
+  // o artigo volta para antes da aprovação.
   if(novoStatus === 'aprovado' || novoStatus === 'agendado'){
-    estado.aprovado_em[a.id] = DADOS.hoje;
-  }else{
-    delete estado.aprovado_em[a.id];
+    if(!aprovEmDe(a)) estado.aprovado_em[a.id] = DADOS.hoje;
+  }else if(novoStatus === 'rascunho' || novoStatus === 'em_revisao'){
+    estado.aprovado_em[a.id] = '';
   }
   if(novoStatus !== 'prorrogado') delete estado.motivo[a.id];
-  if(novoStatus !== 'rascunho')   delete estado.notas[a.id];
+  if(novoStatus === 'publicado' || novoStatus === 'aprovado' || novoStatus === 'agendado')
+    delete estado.notas[a.id];
   if(novoStatus !== 'publicado')  delete estado.url_final[a.id];
   Object.assign(estado, extra || {});
   salvar(); render(); renderBloqueados();
@@ -749,32 +757,135 @@ function pedirProrrogacao(a){
   });
 }
 
-function pedirPublicacao(a){
+function validaURL(slug, bruta){
+  const u = (bruta||'').trim().replace(/\/+$/,'');
+  const pre = DOMINIO + '/blog/posts/' + slug + '-';
+  if(!u) return 'Cole a URL final do post.';
+  if(!u.startsWith(pre)) return 'A URL não bate com o slug "' + slug + '". Esperado começar com ' + pre;
+  if(!/^[a-z0-9]{12}$/.test(u.slice(pre.length)))
+    return 'O hash precisa ter 12 caracteres alfanuméricos. Recebido: "' + u.slice(pre.length) + '".';
+  return null;
+}
+
+/* Fecha o marcador do artigo publicado em TODOS os textos do lote, na forma
+   absoluta e na relativa. É a mesma troca que scripts/publicar-fechar-urls.py
+   faz no repo, feita aqui para o editor não precisar do terminal. */
+function fecharHash(slug, url){
+  const rel = '/blog/posts/' + slug + '-{HASH}';
+  const abs = DOMINIO + rel;
+  const novoRel = url.replace(DOMINIO, '');
+  let n = 0, artigos = 0;
+  DADOS.artigos.forEach(a => {
+    let tocou = false;
+    ['completo','editor'].forEach(v => {
+      const antes = textoDe(a, v);
+      if(antes == null) return;
+      const conta = (antes.split(abs).length - 1) + (antes.split(rel).length - 1);
+      if(!conta) return;
+      estado.textos[chaveTexto(a.slug, v)] = antes.split(abs).join(url).split(rel).join(novoRel);
+      n += conta; tocou = true;
+    });
+    if(tocou){ artigos++; fecharAviso(a); }
+  });
+  return {trocas:n, artigos:artigos};
+}
+
+/* O cabeçalho da versão editor manda substituir o marcador e lista de quem o
+   texto depende. Fechados os marcadores, esse bloco vira instrução falsa
+   colada no CMS. Troca pelo estado real. */
+const BLOCO_AVISO = /[ \t]*={10,}\s*ATENCAO[\s\S]*?\n[ \t]*={20,}[ \t]*\n/;
+function fecharAviso(a){
+  const restante = ['completo','editor'].reduce((s, v) => {
+    const t = textoDe(a, v);
+    return s + (t == null ? 0 : (t.match(/\/blog\/posts\/[a-z0-9-]+-\{HASH\}/g) || []).length);
+  }, 0);
+  if(restante) return;                        // ainda depende de irmão: o aviso segue verdadeiro
+  const url = urlFinalDe(a);
+  const nota = url
+    ? '  ================== URLS FECHADAS ==================\n'
+      + '  Post no ar em: ' + url + '\n'
+      + '  Os marcadores de hash deste texto ja foram substituidos pela URL\n'
+      + '  real. Confira que o slug no CMS ficou "' + a.slug + '" antes de colar.\n'
+      + '  ===================================================\n'
+    : '  ================== LINKS FECHADOS ==================\n'
+      + '  Nenhum marcador pendente: todo link para post irmao ja aponta para\n'
+      + '  URL real. Este post ainda nao esta no ar; ao publicar, registre a\n'
+      + '  URL final pelo painel, que fecha o canonical e a data do schema.\n'
+      + '  ====================================================\n';
+  ['completo','editor'].forEach(v => {
+    const t = textoDe(a, v);
+    if(t == null || !BLOCO_AVISO.test(t)) return;
+    estado.textos[chaveTexto(a.slug, v)] = t.replace(BLOCO_AVISO, nota);
+  });
+}
+
+/* A data de publicação do schema nasce da grade e costuma estar no futuro.
+   Fecha junto com a URL, senão o post sobe com data errada. */
+function fecharData(a, data){
+  let n = 0;
+  ['completo','editor'].forEach(v => {
+    const antes = textoDe(a, v);
+    if(antes == null) return;
+    const depois = antes.replace(/"datePublished": "[0-9-]+"/g, '"datePublished": "' + data + '"')
+                        .replace(/"dateModified": "[0-9-]+"/g, '"dateModified": "' + data + '"');
+    if(depois !== antes){ estado.textos[chaveTexto(a.slug, v)] = depois; n++; }
+  });
+  return n;
+}
+
+function pedirPublicacao(a, corrigindo){
   const nh = contaHash(a);
+  const deps = dependencias(a);
   modal({
-    titulo:'Publicar “' + a.kw_primaria + '”',
-    expl:'Cole a URL que o CMS gerou. O painel confere se o slug bate: canonical apontando para URL que não existe é o erro mais caro desta etapa.',
+    titulo:(corrigindo ? 'Corrigir a URL de “' : 'Publicar “') + a.kw_primaria + '”',
+    expl:'Cole a URL que o CMS gerou. O painel confere se o slug bate, troca os '
+      + nh + ' marcador(es) {HASH} deste artigo em todo o lote, e acerta a data no schema.'
+      + (deps.length ? ' Atenção: este texto ainda linka para ' + deps.join(', ') + ', que não está no ar.' : ''),
     campos:[
-      {id:'url', rotulo:'URL final do post', tipo:'text', dica:DOMINIO + '/blog/posts/' + a.slug + '-<hash de 12 caracteres>'},
-      {id:'data', rotulo:'Data real de publicação', tipo:'date', valor:DADOS.hoje}
+      {id:'url', rotulo:'URL final do post', tipo:'text',
+       valor:corrigindo ? (urlFinalDe(a)||'') : '',
+       dica:DOMINIO + '/blog/posts/' + a.slug + '-' + 'xxxxxxxxxxxx'},
+      {id:'data', rotulo:'Data real de publicação', tipo:'date', valor:corrigindo ? dataPubDe(a) : DADOS.hoje}
     ],
     valida(v){
       const e = {};
-      if(nh) e.url = 'O texto ainda tem ' + nh + ' marcador {HASH}. Feche os marcadores antes de publicar.';
-      else{
-        const u = (v.url||'').trim().replace(/\/+$/,'');
-        const pre = DOMINIO + '/blog/posts/' + a.slug + '-';
-        if(!u) e.url = 'Cole a URL final do post.';
-        else if(!u.startsWith(pre)) e.url = 'A URL não bate com o slug "' + a.slug + '". Esperado começar com ' + pre;
-        else if(!/^[a-z0-9]{12}$/.test(u.slice(pre.length))) e.url = 'O hash precisa ter 12 caracteres alfanuméricos. Recebido: "' + u.slice(pre.length) + '".';
-      }
+      const erro = validaURL(a.slug, v.url);
+      if(erro) e.url = erro;
       if(!v.data) e.data = 'A data real de publicação é obrigatória.';
       return e;
     },
     ok(v){
-      estado.url_final[a.id] = v.url.trim().replace(/\/+$/,'');
+      const url = v.url.trim().replace(/\/+$/,'');
+      estado.url_final[a.id] = url;
       estado.data_publicacao[a.id] = v.data;
+      const r = fecharHash(a.slug, url);
+      const d = fecharData(a, v.data);
+      fecharAviso(a);
       aplicar(a, 'publicado');
+      toast(r.trocas
+        ? r.trocas + ' marcador(es) {HASH} fechados em ' + r.artigos + ' arquivo(s)'
+          + (d ? ' e data do schema acertada.' : '.') + ' Exporte para levar ao repositório.'
+        : 'URL registrada. Nenhum {HASH} restava neste slug.');
+    }
+  });
+}
+
+/* Tirar de Online apaga a url_final e desfaz o vínculo do registro com o post
+   no ar. Nunca em silêncio. */
+function pedirDespublicacao(a, raia){
+  const url = urlFinalDe(a);
+  modal({
+    titulo:'Tirar “' + a.kw_primaria + '” de Online',
+    expl:'O post está registrado em ' + (url || 'uma URL não registrada')
+      + '. Sair de Online apaga essa URL da grade. Para só trocar o endereço, use '
+      + 'Corrigir URL na gaveta e deixe o card onde está.',
+    campos:[{id:'motivo', rotulo:'Por que ele sai do ar', tipo:'textarea',
+             dica:'Ex.: post despublicado no CMS, URL trocada, texto voltou para reescrita.'}],
+    valida(v){ return v.motivo.trim() ? {} : {motivo:'Registre o motivo. Sem ele ninguém reconstrói por que a URL sumiu.'}; },
+    ok(v){
+      estado.notas[a.id] = 'fora do ar — ' + v.motivo.trim();
+      aplicar(a, raia.status[0]);
+      toast('Fora de Online. A URL saiu da grade; o texto e os links já fechados continuam como estão.');
     }
   });
 }
@@ -785,7 +896,7 @@ function pedirReprovacao(a){
     expl:'O artigo volta para o início do fluxo. O motivo fica no card, e é ele que orienta a reescrita.',
     campos:[{id:'motivo', rotulo:'Motivo da reprovação', tipo:'textarea', dica:'Registre também na pauta do artigo.'}],
     valida(v){ return v.motivo.trim() ? {} : {motivo:'Diga o que precisa mudar. Devolver sem motivo trava a reescrita.'}; },
-    ok(v){ estado.notas[a.id] = v.motivo.trim(); aplicar(a, 'rascunho'); }
+    ok(v){ estado.notas[a.id] = 'reprovado — ' + v.motivo.trim(); aplicar(a, 'rascunho'); }
   });
 }
 
@@ -950,7 +1061,43 @@ function pintarLado(a){
       + deps.map(s => '<code>' + esc(s) + '</code>').join(', ')
       + ', que ainda não está no ar. Publique os irmãos primeiro, senão o link nasce quebrado.</div>';
   }
-  html += '<h3>Keywords no registro (' + kws.length + ')</h3>';
+  const marcadores = ['completo','editor'].map(v => {
+    const t = textoDe(a, v);
+    return {v:v, n:t == null ? null : (t.match(/\/blog\/posts\/[a-z0-9-]+-\{HASH\}/g) || []).length};
+  }).filter(x => x.n);
+  const url = urlFinalDe(a);
+
+  html += '<h3>Links e placeholders</h3>';
+  if(url){
+    html += '<div class="kws" style="margin-bottom:9px"><div class="kw-l"><span class="k" style="color:var(--ok)">URL publicada</span>'
+      + '<span class="d" style="max-width:70%" title="' + esc(url) + '">' + esc(url) + '</span></div></div>';
+  }
+  if(marcadores.length){
+    const alvos = {};
+    ['completo','editor'].forEach(v => {
+      const t = textoDe(a, v); if(t == null) return;
+      (t.match(/\/blog\/posts\/([a-z0-9-]+)-\{HASH\}/g) || []).forEach(m => {
+        const sl = m.replace('/blog/posts/','').replace('-{HASH}','');
+        alvos[sl] = (alvos[sl] || 0) + 1;
+      });
+    });
+    html += '<p style="font-size:11.5px;color:var(--ink-2);margin:0 0 6px;line-height:1.5">'
+      + marcadores.map(x => x.n + ' em ' + x.v).join(', ')
+      + '. Cada marcador vira a URL real quando o artigo dono for publicado. '
+      + 'Publicar com {HASH} no canonical deindexa a página.</p>'
+      + '<div class="kws">' + Object.keys(alvos).sort().map(sl => {
+          const dono = DADOS.artigos.find(x => x.slug === sl);
+          const pub = dono && statusDe(dono) === 'publicado';
+          return '<div class="kw-l"><span class="k">' + esc(sl) + (sl === a.slug ? ' <i style="color:var(--ink-3);font-style:normal">(ele mesmo)</i>' : '')
+            + '</span><span class="v">' + alvos[sl] + '×</span>'
+            + '<span class="d" style="color:' + (pub ? 'var(--ok)' : 'var(--warn)') + '">'
+            + (pub ? 'no ar' : (dono ? statusDe(dono) : 'sem linha na grade')) + '</span></div>';
+        }).join('') + '</div>';
+  }else{
+    html += '<p style="font-size:11.5px;color:var(--ink-3);margin:0 0 4px">Nenhum {HASH} pendente neste artigo.</p>';
+  }
+
+  html += '<h3 style="margin-top:12px">Keywords no registro (' + kws.length + ')</h3>';
   html += kws.length
     ? '<div class="kws">' + kws.map(d => '<div class="kw-l"><span class="k">' + esc(d.keyword)
         + '</span><span class="v">' + Number(d.volume).toLocaleString('pt-BR') + ' · kd ' + esc(d.kd)
@@ -972,6 +1119,13 @@ function pintarRodape(a){
     b.onclick = () => mover(a.id, r.id);
     m.appendChild(b);
   });
+  if(statusDe(a) === 'publicado'){
+    const c = document.createElement('button');
+    c.className = 'mv'; c.style.setProperty('--cor', 'var(--raia-5)');
+    c.textContent = 'Corrigir URL';
+    c.onclick = () => pedirPublicacao(a, true);
+    m.appendChild(c);
+  }
   const d = document.getElementById('b-desfazer');
   d.disabled = !editado(a, aba);
   d.textContent = 'Desfazer edição (' + aba + ')';
@@ -1007,15 +1161,55 @@ function baixar(nome, conteudo, tipo){
   const l = document.createElement('a');
   l.href = u; l.download = nome; document.body.appendChild(l); l.click(); l.remove();
   setTimeout(() => URL.revokeObjectURL(u), 4000);
+  return 'baixado';
 }
-function exportar(){
-  baixar(DADOS.nome_grade, gerarCSV(), 'text/csv');
-  const alvos = [];
+
+/* O visualizador confirma cada gravação e pode recusar. Quando a capability
+   não estiver disponível, cai para o download do próprio navegador. */
+async function ofertar(nome, conteudo){
+  const d = window.claude && window.claude.downloads;
+  if(d){
+    try{ await d.save({filename:nome, data:conteudo}); return 'salvo'; }
+    catch(e){
+      const c = e && e.code;
+      if(c === 'declined')     return 'recusado';
+      if(c === 'rate_limited') return 'ocupado';
+      if(c === 'bad_request' || c === 'too_large') return 'erro';
+    }
+  }
+  return baixar(nome, conteudo, 'application/json');
+}
+
+/* Um arquivo só, e em .json de propósito: é o formato que scripts/
+   aplicar-patch-painel.py lê para escrever a grade e os textos de volta no
+   repositório sem ninguém copiar e colar arquivo a arquivo. */
+function patch(){
+  const arquivos = {};
   DADOS.artigos.forEach(a => ['completo','editor'].forEach(v => {
-    if(editado(a, v)) alvos.push([a.slug + (v === 'editor' ? '-editor' : '') + '.html', estado.textos[chaveTexto(a.slug, v)]]);
+    if(editado(a, v))
+      arquivos['content/' + a.slug + (v === 'editor' ? '-editor' : '') + '.html'] = estado.textos[chaveTexto(a.slug, v)];
   }));
-  alvos.forEach(([n, c], i) => setTimeout(() => baixar(n, c, 'text/html'), 420 * (i + 1)));
-  toast('Exportado: ' + DADOS.nome_grade + (alvos.length ? ' e ' + alvos.length + ' arquivo(s) de texto.' : '. Nenhum texto editado.'));
+  const publicadas = DADOS.artigos.filter(a => urlFinalDe(a))
+    .map(a => ({slug:a.slug, url:urlFinalDe(a), data_publicacao:dataPubDe(a)}));
+  return {
+    gerado_em: new Date().toISOString().slice(0, 19).replace('T', ' '),
+    grade: {caminho: 'producao/registro/' + DADOS.nome_grade, csv: gerarCSV()},
+    arquivos: arquivos,
+    urls_publicadas: publicadas
+  };
+}
+
+async function exportar(){
+  const p = patch();
+  const nArq = Object.keys(p.arquivos).length;
+  const r = await ofertar('patch-painel.json', JSON.stringify(p, null, 2));
+  if(r === 'recusado') return toast('Gravação recusada. Nada foi baixado.');
+  if(r === 'ocupado')  return toast('Já existe uma gravação em andamento. Tente de novo em instantes.');
+  if(r === 'erro')     return toast('O visualizador recusou o arquivo. Use Copiar resumo como alternativa.');
+  estado.exportado_em = p.gerado_em;
+  salvar(); render();
+  toast('patch-painel.json com a grade e ' + nArq + ' arquivo(s) de texto. '
+      + 'No repositório: python3 scripts/aplicar-patch-painel.py patch-painel.json');
 }
 function resumo(){
   const mudou = [], textos = [];
@@ -1024,7 +1218,7 @@ function resumo(){
     if(s !== a.status){
       let l = '- ' + a.id + ' ' + a.slug + ': ' + a.status + ' -> ' + s;
       if(estado.motivo[a.id])       l += ' (motivo: ' + estado.motivo[a.id] + ')';
-      if(estado.notas[a.id])        l += ' (reprovado: ' + estado.notas[a.id] + ')';
+      if(estado.notas[a.id])        l += ' (' + estado.notas[a.id] + ')';
       if(dataPubDe(a) !== a.data_publicacao) l += ' (publicação -> ' + dataPubDe(a) + ')';
       if(urlFinalDe(a))             l += ' (url: ' + urlFinalDe(a) + ')';
       if(aprovEmDe(a))              l += ' (aprovado_em: ' + aprovEmDe(a) + ')';
