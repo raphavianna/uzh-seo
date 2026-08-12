@@ -79,38 +79,50 @@ def registra_url(slug, url, data):
             w.writerow([r['slug'], r['url_real'], r.get('data_publicacao', '')])
 
 
+def candidatos(title, seo_title, meta, corpo, pub):
+    """Estruturas plausíveis do corpo, da mais provável para a menos. A API
+    exige metadata.language; o que varia é onde ficam os campos de conteúdo."""
+    item = {'language': 'pt', 'title': title, 'summary': meta,
+            'seo_title': seo_title[:70], 'seo_description': meta, 'content': corpo}
+    md = {'language': 'pt'}
+    flat = dict(item); flat['metadata'] = md
+    return [
+        ('achatada+metadata', {**item, 'metadata': md, **({'published_at': pub} if pub else {})}),
+        ('data-array+metadata', {'metadata': md, 'data': [item], **({'published_at': pub} if pub else {})}),
+        ('data-array c/ metadata no item', {'metadata': md, 'data': [flat], **({'published_at': pub} if pub else {})}),
+        ('data-objeto', {'metadata': md, 'data': item, **({'published_at': pub} if pub else {})}),
+    ]
+
+
 def publica(slug, sid, tok, ao_ar, dry):
     title, seo_title, meta, corpo = monta(slug)
     hoje = datetime.date.today().isoformat()
-    body = {
-        'metadata': {'language': 'pt'},
-        'published_at': f'{hoje}T12:00:00.000Z' if ao_ar else None,
-        'data': [{
-            'language': 'pt', 'title': title, 'summary': meta,
-            'seo_title': seo_title[:70], 'seo_description': meta, 'content': corpo,
-        }],
-    }
+    pub = f'{hoje}T12:00:00.000Z' if ao_ar else None
     estado = 'NO AR' if ao_ar else 'rascunho'
     print(f'[{slug}] {estado} — title {len(title)}, meta {len(meta)}, corpo {len(corpo)}b, {corpo.count("<img")} img')
     if dry:
         print('  [dry-run] não enviado.')
         return
     url = f'https://api.nuvemshop.com.br/2025-03/{sid}/blogs/{BLOG_ID}/posts'
-    req = urllib.request.Request(url, data=json.dumps(body).encode('utf-8'), method='POST',
-        headers={'Authentication': f'bearer {tok}', 'User-Agent': UA, 'Content-Type': 'application/json'})
-    try:
-        r = urllib.request.urlopen(req, timeout=45)
-        out = json.load(r)
-    except urllib.error.HTTPError as e:
-        print(f'  FALHOU HTTP {e.code}: {e.read().decode()[:300]}')
-        return
-    p = out.get('post') or out
-    handle = (p.get('data') or [{}])[0].get('handle')
-    post_url = f'{DOMINIO}/blog/posts/{handle}'
-    registra_url(slug, post_url, hoje if ao_ar else '')
-    print(f'  criado: post_id {p.get("post_id")}')
-    print(f'  URL:    {post_url}')
-    print(f'  publicado_em: {p.get("published_at")}')
+    for nome, body in candidatos(title, seo_title, meta, corpo, pub):
+        req = urllib.request.Request(url, data=json.dumps(body).encode('utf-8'), method='POST',
+            headers={'Authentication': f'bearer {tok}', 'User-Agent': UA, 'Content-Type': 'application/json'})
+        try:
+            r = urllib.request.urlopen(req, timeout=45)
+            out = json.load(r)
+        except urllib.error.HTTPError as e:
+            print(f'  [{nome}] HTTP {e.code}: {e.read().decode()[:150]}')
+            continue
+        p = out.get('post') or out
+        d = p.get('data')
+        handle = (d[0] if isinstance(d, list) else d or {}).get('handle')
+        post_url = f'{DOMINIO}/blog/posts/{handle}'
+        registra_url(slug, post_url, hoje if ao_ar else '')
+        print(f'  OK via "{nome}"')
+        print(f'  post_id {p.get("post_id")}  publicado_em {p.get("published_at")}')
+        print(f'  URL:    {post_url}')
+        return post_url
+    print('  nenhuma estrutura foi aceita — ver erros acima')
 
 
 def main():
