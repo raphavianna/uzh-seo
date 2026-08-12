@@ -1,0 +1,194 @@
+{
+ "/feminino/": {
+  "nome": "FEMININO",
+  "n_prod": 105
+ },
+ "/feminino/vestido-resort/": {
+  "nome": "VESTIDO RESORT",
+  "n_prod": 4
+ },
+ "/feminino/maio/": {
+  "nome": "MAIÔ",
+  "n_prod": 25
+ },
+ "/feminino/maio/manga-longa/": {
+  "nome": "Manga Longa",
+  "n_prod": 18
+ },
+ "/feminino/maio/gola-alta/": {
+  "nome": "Gola Alta",
+  "n_prod": 6
+ },
+ "/feminino/maio/alcas/": {
+  "nome": "Alças",
+  "n_prod": 2
+ },
+ "/feminino/maio/manga-3-4/": {
+  "nome": "Manga 3/4",
+  "n_prod": 2
+ },
+ "/feminino/maio/conjunto1/": {
+  "nome": "Conjunto",
+  "n_prod": 2
+ },
+ "/feminino/saida-de-praia/": {
+  "nome": "SAÍDA DE PRAIA",
+  "n_prod": 18
+ },
+ "/feminino/saida-de-praia/vestido-manga-longa/": {
+  "nome": "Vestido Manga Longa",
+  "n_prod": 6
+ },
+ "/feminino/saida-de-praia/vestido-regata/": {
+  "nome": "Vestido Regata",
+  "n_prod": 3
+ },
+ "/feminino/saida-de-praia/saia/": {
+  "nome": "Saia",
+  "n_prod": 7
+ },
+ "/feminino/saida-de-praia/conjunto-atoalhado/": {
+  "nome": "Conjunto Atoalhado",
+  "n_prod": 1
+ },
+ "/feminino/saida-de-praia/shorts/": {
+  "nome": "Shorts",
+  "n_prod": 1
+ },
+ "/feminino/biquini/": {
+  "nome": "BIQUINI",
+  "n_prod": 18
+ },
+ "/feminino/biquini/marquinha/": {
+  "nome": "Marquinha",
+  "n_prod": 9
+ },
+ "/feminino/biquini/asa-delta/": {
+  "nome": "Asa Delta",
+  "n_prod": 2
+ },
+ "/feminino/biquini/hot-pant/": {
+  "nome": "Hot Pant",
+  "n_prod": 4
+ },
+ "/feminino/biquini/sunkini/": {
+  "nome": "Sunkini",
+  "n_prod": 3
+ },
+ "/feminino/poncho1/": {
+  "nome": "PONCHO",
+  "n_prod": 17
+ },
+ "/feminino/lycra-surf1/": {
+  "nome": "LYCRA SURF",
+  "n_prod": 4
+ },
+ "/feminino/camiseta-uv1/": {
+  "nome": "CAMISETA UV50+",
+  "n_prod": 7
+ },
+ "/feminino/conjunto/": {
+  "nome": "CONJUNTO",
+  "n_prod": 0
+ },
+ "/feminino/moletom/": {
+  "nome": "MOLETOM",
+  "n_prod": 9
+ },
+ "/feminino/ioga-fitness/": {
+  "nome": "IOGA / FITNESS",
+  "n_prod": 7
+ },
+ "/feminino/ioga-fitness/calca/": {
+  "nome": "Calça",
+  "n_prod": 2
+ },
+ "/feminino/ioga-fitness/macaquinho/": {
+  "nome": "Macaquinho",
+  "n_prod": 1
+ },
+ "/feminino/ioga-fitness/macacao/": {
+  "nome": "Macacão",
+  "n_prod": 1
+ },
+ "/feminino/ioga-fitness/shorts1/": {
+  "nome": "Shorts",
+  "n_prod": 1
+ },
+ "/feminino/ioga-fitness/top/": {
+  "nome": "Top",
+  "n_prod": 2
+ },
+ "/feminino/aerolook/": {
+  "nome": "AEROLOOK",
+  "n_prod": 3
+ },
+ "/masculino/": {
+  "nome": "MASCULINO",
+  "n_prod": 49
+ },
+ "/masculino/lycra-surf/": {
+  "nome": "LYCRA SURF",
+  "n_prod": 15
+ },
+ "/masculino/poncho/": {
+  "nome": "PONCHO",
+  "n_prod": 17
+ },
+ "/masculino/camiseta-uv/": {
+  "nome": "CAMISETA UV50+",
+  "n_prod": 5
+ },
+ "/masculino/bermuda/": {
+  "nome": "BERMUDA",
+  "n_prod": 3
+ },
+ "/masculino/moletom1/": {
+  "nome": "MOLETOM",
+  "n_prod": 7
+ },
+ "/masculino/sunga/": {
+  "nome": "SUNGA",
+  "n_prod": 2
+ },
+ "/infantil1/": {
+  "nome": "INFANTIL",
+  "n_prod": 10
+ },
+ "/infantil1/camiseta-uv2/": {
+  "nome": "CAMISETA UV50+",
+  "n_prod": 4
+ },
+ "/infantil1/poncho2/": {
+  "nome": "PONCHO",
+  "n_prod": 4
+ },
+ "/infantil1/maio1/": {
+  "nome": "Maiô",
+  "n_prod": 2
+ },
+ "/surfnelas/": {
+  "nome": "SURFNELAS",
+  "n_prod": 8
+ },
+ "/surfnelas/lycra1/": {
+  "nome": "Lycra",
+  "n_prod": 0
+ },
+ "/outlet/": {
+  "nome": "OUTLET",
+  "n_prod": 41
+ },
+ "/outlet/feminino1/": {
+  "nome": "Feminino",
+  "n_prod": 31
+ },
+ "/outlet/masculino1/": {
+  "nome": "Masculino",
+  "n_prod": 9
+ },
+ "/neoprene/": {
+  "nome": "NEOPRENE",
+  "n_prod": 3
+ }
+}
