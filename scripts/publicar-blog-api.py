@@ -22,23 +22,37 @@ SEGURANÇA
 import argparse, csv, json, os, re, sys, urllib.request, urllib.error, datetime
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ENV = '/workspace/integracao-nuvemshop/.env'
 DOMINIO = 'https://usezerohora.com.br'
 BLOG_ID = '019f2858-20bc-7cca-9606-b08b2df67dcd'
 UA = 'integracao-nuvemshop (raphael.ferreira@nsx.bet)'
 # ordem de publicação: raiz -> dependentes -> hub
 LOTE = ['blusa-com-protecao-uv', 'camisa-de-praia-feminina',
         'camiseta-com-protecao-uv', 'rash-guard-infantil', 'o-que-e-rash-guard']
+# caminhos onde procurar o .env, em ordem. Funciona no remoto e no desktop.
+ENV_CANDIDATOS = [
+    os.path.join(BASE, '.env'),
+    os.path.join(BASE, '..', 'integracao-nuvemshop', '.env'),
+    os.path.expanduser('~/integracao-nuvemshop/.env'),
+    '/workspace/integracao-nuvemshop/.env',
+]
 
 
-def cred():
-    if not os.path.exists(ENV):
-        sys.exit(f'Falta {ENV} com NUVEMSHOP_STORE_ID e NUVEMSHOP_ACCESS_TOKEN.')
-    e = dict(re.findall(r'^(NUVEMSHOP_\w+)=(.*)$', open(ENV).read(), re.M))
-    sid, tok = e.get('NUVEMSHOP_STORE_ID'), e.get('NUVEMSHOP_ACCESS_TOKEN')
-    if not sid or not tok:
-        sys.exit('Credenciais incompletas no .env.')
-    return sid, tok
+def cred(env_path=None):
+    """Credencial por precedência: variáveis de ambiente > --env > .env conhecido.
+    No desktop, o mais simples é exportar as duas variáveis ou passar --env."""
+    sid = os.environ.get('NUVEMSHOP_STORE_ID')
+    tok = os.environ.get('NUVEMSHOP_ACCESS_TOKEN')
+    if sid and tok:
+        return sid, tok
+    caminhos = ([env_path] if env_path else []) + ENV_CANDIDATOS
+    for p in caminhos:
+        if p and os.path.exists(p):
+            e = dict(re.findall(r'^(NUVEMSHOP_\w+)=(.*)$', open(p).read(), re.M))
+            sid, tok = e.get('NUVEMSHOP_STORE_ID'), e.get('NUVEMSHOP_ACCESS_TOKEN')
+            if sid and tok:
+                return sid.strip(), tok.strip()
+    sys.exit('Sem credencial. Exporte NUVEMSHOP_STORE_ID e NUVEMSHOP_ACCESS_TOKEN, '
+             'ou passe --env <caminho do .env>. Procurei em: ' + ', '.join(ENV_CANDIDATOS))
 
 
 def monta(slug):
@@ -131,10 +145,11 @@ def main():
     ap.add_argument('--lote', action='store_true')
     ap.add_argument('--publicar', action='store_true', help='põe no ar; sem isso, rascunho')
     ap.add_argument('--dry-run', action='store_true')
+    ap.add_argument('--env', help='caminho do .env com as credenciais Nuvemshop')
     a = ap.parse_args()
     if not a.slug and not a.lote:
         sys.exit('Passe --slug <slug> ou --lote.')
-    sid, tok = cred()
+    sid, tok = cred(a.env)
     alvos = LOTE if a.lote else [a.slug]
     for slug in alvos:
         publica(slug, sid, tok, a.publicar, a.dry_run)
