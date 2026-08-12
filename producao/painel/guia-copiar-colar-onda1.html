@@ -3647,12 +3647,22 @@ sunkini esportivo de top fixo, que não se desloca no impacto. As peças esporti
 </div>
 <script>
 function dec(b){var bin=atob(b);var by=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)by[i]=bin.charCodeAt(i);return new TextDecoder('utf-8').decode(by);}
+function copyText(txt){
+  if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(txt);}
+  return new Promise(function(res,rej){
+    var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');
+    ta.style.position='fixed';ta.style.top='-1000px';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.focus();ta.select();
+    try{document.execCommand('copy')?res():rej();}catch(e){rej(e);}
+    document.body.removeChild(ta);
+  });
+}
 document.addEventListener('click',function(e){
   var b=e.target.closest('.copy');if(!b)return;
   var txt=dec(b.dataset.b64);
-  navigator.clipboard.writeText(txt).then(function(){
+  copyText(txt).then(function(){
     var old=b.textContent;b.textContent='Copiado ✓';b.classList.add('done');
     setTimeout(function(){b.textContent=old;b.classList.remove('done');},1400);
-  });
+  }).catch(function(){b.textContent='Selecione e copie';setTimeout(function(){b.textContent='Copiar';},1600);});
 });
 </script>
