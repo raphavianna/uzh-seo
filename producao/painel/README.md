@@ -104,6 +104,26 @@ Quando um card mostra `{HASH} 0`, ele está pronto para colar no CMS.
 `scripts/publicar-fechar-urls.py` continua valendo para quem preferir o
 terminal. Os dois fazem a mesma troca e chegam ao mesmo resultado.
 
+### Colher as URLs sem copiar e colar
+
+Depois de publicar, `scripts/colher-urls-blog.py` lê o blog público e preenche
+`producao/registro/urls-publicadas.csv` sozinho. Ele identifica post pelo
+formato da URL, não pelo markup do tema, e cruza o resultado com a grade para
+dizer o que é do lote e o que ficou faltando.
+
+```
+python3 scripts/colher-urls-blog.py --dry-run
+python3 scripts/colher-urls-blog.py
+```
+
+Precisa de rede que alcance `usezerohora.com.br`. **A sessão remota do Claude
+Code não alcança**: a política de egresso do ambiente bloqueia o domínio, e o
+script diz isso em vez de fingir que o blog está vazio.
+
+Isso vale só para post **já publicado**. Antes da publicação o hash não existe
+em lugar nenhum, e nenhuma ferramenta pode buscá-lo — nem API, nem conector,
+nem leitura do site.
+
 ## Travas embutidas
 
 - Publicar exige URL `/blog/posts/SLUG-HASH` com SLUG idêntico ao da linha e
