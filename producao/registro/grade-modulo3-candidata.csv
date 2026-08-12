@@ -1,0 +1,42 @@
+hub,ancora,kw,vol,kd,intent,terr,etapa
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,pilates,110000,51,Informational,pilates,?
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,yoga,40500,61,Informational,yoga,?
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,mindfulness,33100,46,Informational,yoga,Adjacente
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,hot yoga,14800,40,Informational,yoga,?
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,tapete de yoga,12100,22,Commercial,yoga,Equipamento
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,pilates emagrece,12100,25,Informational,pilates,Benefícios
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,ioga,8100,45,Informational,yoga,?
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,benefícios do pilates,6600,21,Informational,pilates,Benefícios
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,pilates solo,4400,14,Informational,pilates,Prática
+"Bem-estar (fitness apparel, 7 prod)",IOGA / FITNESS,hatha yoga,4400,29,Informational,yoga,Prática
+Natação (maiô),maiô / camiseta UV,natação,40500,43,Informational,natação piscina,?
+Natação (maiô),maiô / camiseta UV,hidroterapia,5400,29,Commercial,natação piscina,Adjacente
+Natação (maiô),maiô / camiseta UV,nado crawl,4400,18,Informational,natação piscina,Prática
+Natação (maiô),maiô / camiseta UV,maiô para natação,3600,22,Commercial,natação piscina,Equipamento
+Natação (maiô),maiô / camiseta UV,natação emagrece,2400,28,Informational,natação piscina,Benefícios
+Natação (maiô),maiô / camiseta UV,nado peito,2400,32,"Informational, Transactional",natação piscina,Prática
+Praia esportiva,sunga / biquíni / lycra,bola de futevôlei,12100,21,Commercial,futevôlei,Equipamento
+Praia esportiva,sunga / biquíni / lycra,quadra de futevôlei,1000,8,Informational,futevôlei,Local
+Praia esportiva,sunga / biquíni / lycra,bola de vôlei de praia,1000,21,Commercial,vôlei de praia,Equipamento
+Praia esportiva,sunga / biquíni / lycra,aula de futevôlei,880,21,Commercial,futevôlei,Local
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,protetor solar facial,110000,37,Informational,protetor solar,Adjacente-creme
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,protetor solar com cor,40500,24,Informational,protetor solar,Adjacente-creme
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,protetor solar infantil,18100,26,Informational,proteção infantil,Família
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,protetor solar corporal,14800,25,Commercial,protetor solar,Adjacente-creme
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,insolação sintomas,12100,33,Informational,pele e saúde,Saúde
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,sintomas de insolação,9900,30,Informational,pele e saúde,?
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,protetor solar para pele oleosa,8100,26,Informational,protetor solar,Adjacente-creme
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,protetor solar facial com cor,8100,28,"Informational, Commercial",protetor solar,?
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,protetor solar em spray,4400,25,Informational,protetor solar,Adjacente-creme
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,alergia ao sol,3600,24,Informational,pele e saúde,Saúde
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,protetor solar facial pele oleosa,3600,28,Informational,protetor solar,?
+Sol e pele (AUTORIDADE — proposta de valor),camiseta UV / lycra / infantil,melhor protetor solar,3600,31,Commercial,protetor solar,Adjacente-creme
+Surf e prancha (lycra),lycra surf / neoprene,skimboard,2900,17,Informational,surf,Adjacente
+Surf e prancha (lycra),lycra surf / neoprene,surf trip,2900,34,Navigational,surf,Descoberta
+Surf e prancha (lycra),lycra surf / neoprene,longboard surf,1300,7,Commercial,surf,Adjacente
+Surf e prancha (lycra),lycra surf / neoprene,prancha de wakeboard,1000,5,Commercial,wakeboard,Equipamento
+Surf e prancha (lycra),lycra surf / neoprene,aula de surf,720,19,Informational,surf,Iniciante
+Surf e prancha (lycra),lycra surf / neoprene,escola de surf,720,28,Commercial,surf,Local
+Verão e estação (beachwear),saída de praia / poncho / maiô,look de praia,1300,32,Informational,moda de verão,Look
+Verão e estação (beachwear),saída de praia / poncho / maiô,o que levar para a praia,720,14,Informational,dia de praia,Estação
+Verão e estação (beachwear),saída de praia / poncho / maiô,esportes de praia,390,13,Informational,verão e praia,Comportamento
