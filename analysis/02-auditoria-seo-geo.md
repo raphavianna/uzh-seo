@@ -7,7 +7,7 @@
 ## Sumário executivo — os 5 problemas de maior impacto em conversão
 
 1. **1.686 de 1.686 imagens sem `alt` (100% do catálogo).** A API devolve `alt: []` em todas as imagens de todos os produtos. Google Imagens é canal gratuito de descoberta para moda praia, e motores de resposta usam alt para entender produto. Receita em risco: todo o catálogo — os 5 maiores produtos (R$ 85,9k/12m somados) inclusive. Correção em massa via API (`PUT` por imagem), esforço baixo, cobertura total.
-2. **Imagens geradas por IA em produto físico — 119 imagens em 21 produtos, 16 delas como capa.** Nomes de arquivo `chatgpt-image-*` (104) e `virtual-try-on-*` (15) são evidência direta de origem; inspeção visual da amostra confirma (seção Eixo C). A FAQ do PONCHO RESORT PREMIUM (R$ 15,7k/12m) afirma on-page "as fotos sao reais, com um toque de IA" — contradição com o banner "FOTOS REAIS" usado nas descrições. Risco: quebra de confiança na compra (conversão) e de elegibilidade em Google Shopping/free listings, que exigem imagem fiel do produto. Produtos afetados incluem MAIO STORM (R$ 11,6k — capa IA) e a linha de maiôs body.
+2. **Imagens geradas por IA em produto físico — 119 imagens em 21 produtos, 16 delas como capa.** Nomes de arquivo `chatgpt-image-*` (104) e `virtual-try-on-*` (15) são evidência direta de origem; a inspeção visual da amostra (75 imagens) reforça: 56 com suspeita de geração por IA, 22 delas em confiança alta — incluindo defeitos anatômicos visíveis (dedos fundidos no MAIO STORM e no Poncho Infantil) e logos que se dissolvem. A FAQ do PONCHO RESORT PREMIUM (R$ 15,7k/12m) afirma on-page "as fotos sao reais, com um toque de IA" — contradição com o banner "FOTOS REAIS" usado nas descrições. Risco: quebra de confiança na compra (conversão) e de elegibilidade em Google Shopping/free listings, que exigem imagem fiel do produto. Produtos afetados incluem MAIO STORM (R$ 11,6k — capa IA) e a linha de maiôs body.
 3. **Descrições contradizendo a ficha real do produto (alucinação de ficha técnica) na amostra de maior receita.** MAIO MOANA vendido em verde claro/marrom/verde escuro com descrição "na cor lisa preta"; CAMISETA UV INFANTIL NEON com variantes de tamanho 2–10 anos descrita como "P, M, G" e "três cores lisas" (reais: Rosa e Azul); Poncho Premium (R$ 32,7k, nº 1 em receita) diz "disponível nas cores rosa e azul" com variantes Azul/Rosa/Verde/Preto e "tamanhos únicos" numa página que vende tamanho M; texto de **outra marca ("Surfnelas")** publicado em produto Use Zero Hora. Quem chega pronto para comprar encontra informação errada — é defeito direto de conversão e de confiança de motores de resposta.
 4. **29 produtos (20,7%) sem `seo_title` e sem `seo_description`; 48 de 48 categorias sem descrição.** Entre os sem meta tags estão 4 produtos do top 25 por receita (ex.: Poncho Clássico Azul Marinho, R$ 6,4k). Categorias — as páginas com maior potencial de rankear head terms ("poncho de surf", "lycra surf feminina", "maiô manga longa") — não têm uma linha de texto, e os slugs `/poncho1`, `/poncho2`, `/camiseta-uv1` desperdiçam a KW. Sem texto, nem Google nem IA têm o que citar.
 5. **92 produtos (65,7%) com descrições quase duplicadas + 11 produtos publicados com estoque zero.** A família de ponchos compartilha um único texto replicado (7+ produtos idênticos na amostra), o que impede qualquer página de ganhar o cluster e cria canibalização. Os 11 publicados sem estoque são soft-404 de intenção de compra. Consolidar/despublicar e diferenciar textos é pré-condição para o restante do trabalho de conteúdo render.
@@ -95,9 +95,30 @@ Padrões de catálogo inteiro:
 
 Fechos idênticos "Compre já!"/"Adquira já o seu!"/"Compre agora!" aparecem em 18 dos 21 `seo_description` presentes na amostra — padrão de geração em série.
 
-### Imagens (amostra priorizada: capa + 2 por produto, 75 imagens, inspeção visual)
+### Imagens (amostra priorizada: capa + 2 por produto = 75 imagens, inspeção visual em 2026-08-12)
 
-[PENDENTE — resultados dos 5 agentes de inspeção visual; preencher antes do commit]
+Resultado consolidado da inspeção visual (25 produtos):
+
+| Classificação | Imagens | % |
+|---|--:|--:|
+| Suspeita de geração por IA | **56** | 74,7% |
+| — confiança alta | 22 | 29,3% |
+| — confiança média | 32 | 42,7% |
+| — confiança baixa | 2 | 2,7% |
+| Edição pesada (arte gráfica sobre foto) | 14 | 18,7% |
+| Fotografia real | 5 | 6,7% |
+
+- **10 dos 25 produtos têm pelo menos uma imagem com suspeita de IA em confiança ALTA**: 252378126, 276833135, 276833145, 298141305, 298141312, 315738164, 316378400, 336513465, 349127985, 355991468. Somente 2 produtos (MAIO RINCON, BIQUINI FLORIPA) saíram sem nenhuma suspeita.
+- Achados de maior severidade (formato completo, um por linha):
+  - **349127985 MAIO STORM (R$ 11,6k, capa)** — SUSPEITA DE IA, confiança alta. Sinais: arquivo `chatgpt-image-10-de-ago-de-2026-21_18_41`; na img 2, dedos da mão esquerda fundidos/deformados e mão que se mistura à coxa; dentes do zíper irregulares; logo "OH" ambíguo.
+  - **298141312 Poncho Clássico Infantil (R$ 4,7k)** — SUSPEITA DE IA, confiança alta. Sinais: dedos do pé deformados em bloco (img 2); wordmark com glifos ilegíveis tipo "ΛGΘZΛ" (img 3), tell clássico de difusão em texto. Contra-evidência: anatomia da criança correta.
+  - **252378126 Poncho Premium P (R$ 12,7k)** — SUSPEITA DE IA, confiança alta. Sinais: halo de difusão no cabelo; dedos do pé esquerdo fundidos; logo dissolvido em blocos triangulares com pontos dourados aleatórios.
+  - **298141305 Poncho Clássico Adulto (R$ 10,7k, img 2)** — SUSPEITA DE IA, confiança alta. Sinais: arquivo `virtual-try-on-*`; tecido que se dissolve (bolso destoando do corpo da peça); pés sob a água sem refração; dimensão 832×1248 típica de gerador. A capa (img 1) é fotografia real, confiança alta.
+  - **336513465 PONCHO RESORT (R$ 15,7k, img 3)** — SUSPEITA DE IA, confiança alta. Sinal decisivo: a modelo tem cabelo e traços **diferentes** entre as imagens do mesmo set (inconsistência de identidade). Coerente com a FAQ on-page que admite "toque de IA".
+  - **303607414/303607422 Ponchos Azul Marinho e Azul Royal (R$ 11,8k somados)** — SUSPEITA, confiança média: mesma base recolorizada (pose e dobras pixel-idênticas entre produtos), wordmark ilegível, polegar anômalo.
+  - **252094324 Poncho Premium M (R$ 32,7k, nº 1 em receita)** — SUSPEITA, confiança média nas 3 imagens: pele/tecido pintados, marcas fantasma sobre o logo, tapete com padrão procedural. Contra-evidência: tatuagem consistente entre poses. Verificação humana prioritária.
+- Padrão transversal: fotos de "estúdio" com pele sem poros, tecido sem costura/trama e logos que se dissolvem em zoom; as artes gráficas (tabelas de medida, infográficos) são de design humano sobre essas bases. Nas peças com texto/logo visível, o zoom no wordmark foi o sinal mais discriminante.
+- Conforme regra de evidência nº 4: tudo acima é reportado como **suspeita com nível de confiança**, não como fato; itens de confiança média/baixa exigem verificação humana (fotos originais da sessão, RAW/EXIF) antes de qualquer remoção.
 
 **Check massivo (100% do catálogo, por nome de arquivo)**: 104 imagens `chatgpt-image-*`, 15 `virtual-try-on-*` → 119 imagens com evidência externa de origem IA, em 21 produtos, 16 como imagem de capa. Maiores concentrações: Maiô Body Gola Alta Saquarema (14), PONCHO SUPREME Algodão (12), Hot Pant Top Nadador (10), Maiô Bicolor Blackout (10), CAMISETA ITAMAMBUCA (10).
 
