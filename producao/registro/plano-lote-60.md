@@ -157,3 +157,20 @@ Começo pelos módulos 1 e 2 (59 artigos, todos com volume medido), em ondas por
 cluster. O módulo 3 entra assim que houver volume (Keyword Planner ou unidades
 Semrush) para ranquear por escala, ou já com moldura qualitativa declarada se
 o usuário aceitar.
+
+---
+
+# Regra de conteúdo (2026-08-12) — SEM PREÇO no corpo dos artigos
+
+Decisão do usuário: **não citar preço nos artigos**. O artigo fica no ar por
+meses; o preço muda rápido e vira informação errada, o que envelhece o conteúdo
+e quebra a confiança. Vale para **todas as ondas e todos os artigos**.
+
+- Onde havia preço, o artigo usa **link do produto** (canônica real do catálogo)
+  ou da categoria, e o atributo técnico que não muda (composição, UV50+, tecido,
+  modelagem, garantia). Ex.: em vez de "Maiô Storm por R$ 299,00", usar
+  "[Maiô Storm](url) com gola alta anatômica e zíper YKK®".
+- Atributo técnico e composição continuam entrando com a data da ficha
+  (regra de dados 7), porque mudam devagar; preço, promoção e frete saem.
+- Auditoria 2 (Dados) do lote fica: número e atributo da ficha, **sem preço**.
+- Aplicado retroativamente aos artigos 01–04 da Onda 1 em 2026-08-12.
