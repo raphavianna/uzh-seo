@@ -40,7 +40,7 @@ ARTIGOS = [
  ('short-de-praia-masculino','short de praia masculino',['short de praia','bermuda surf','boardshort','short de banho masculino'],'/masculino/bermuda/','sunga','Comercial','comercial'),
  ('poncho-de-surf','poncho surf',['poncho de surf','poncho surf masculino','roupao de surf','poncho atoalhado'],'/masculino/poncho/','poncho','Comercial','comercial'),
  ('poncho-toalha-infantil','poncho toalha infantil',['toalha com capuz infantil','poncho atoalhado infantil','roupão de praia infantil'],'/infantil1/poncho2/','poncho','Comercial','comercial'),
- ('biquini-infantil','biquini infantil',['biquini juvenil'],'/feminino/biquini/','biquini','Comercial','comercial'),
+ ('roupa-de-neoprene','roupa de neoprene',['roupa neoprene','roupas em neoprene','roupa de borracha','roupa de borracha surf','long john','wetsuit'],'/neoprene/','neoprene','Neoprene','comercial'),
  ('pilates','pilates',['benefícios do pilates','pilates emagrece','pilates solo','roupa de pilates'],'/feminino/ioga-fitness/','pilates','Bem-estar','autoridade-comercial'),
  ('yoga','yoga',['tipos de yoga','yoga para iniciantes','posições de yoga','hatha yoga','vinyasa yoga','ashtanga yoga','saudação ao sol'],'/feminino/ioga-fitness/','yoga','Bem-estar','autoridade-comercial'),
  ('natacao-guia','natação',['nado crawl','tipos de nado','como aprender a nadar','natação emagrece','maiô para natação'],'/feminino/maio/','natacao','Natacao','autoridade-comercial'),
@@ -65,9 +65,10 @@ with open(grade, 'w', newline='', encoding='utf-8') as f:
             v,k,i,fo = busca(s)
             w.writerow([slug,papel,hub,'secundaria',s,v,k,i,fo,url,terr])
 
-# trava anticanibalizacao no kw-donos
+# trava anticanibalizacao no kw-donos (idempotente: descarta onda1 antiga)
 donos_p = os.path.join(BASE, 'producao/registro/kw-donos.csv')
-existentes = list(csv.DictReader(open(donos_p, encoding='utf-8')))
+existentes = [r for r in csv.DictReader(open(donos_p, encoding='utf-8'))
+              if r.get('territorio') != 'onda1']
 ja = set((r['keyword'].strip().lower()) for r in existentes)
 novos = []
 for slug, prim, secs, url, terr, hub, papel in ARTIGOS:

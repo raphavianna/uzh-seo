@@ -37,8 +37,13 @@ poncho-toalha-infantil,comercial,Comercial,primaria,poncho toalha infantil,590.0
 poncho-toalha-infantil,comercial,Comercial,secundaria,toalha com capuz infantil,1000.0,10.0,Informational,matriz,/infantil1/poncho2/,poncho
 poncho-toalha-infantil,comercial,Comercial,secundaria,poncho atoalhado infantil,210.0,11.0,Informational,matriz,/infantil1/poncho2/,poncho
 poncho-toalha-infantil,comercial,Comercial,secundaria,roupão de praia infantil,140.0,12.0,Commercial,matriz,/infantil1/poncho2/,poncho
-biquini-infantil,comercial,Comercial,primaria,biquini infantil,6600.0,15.0,Commercial,matriz,/feminino/biquini/,biquini
-biquini-infantil,comercial,Comercial,secundaria,biquini juvenil,1600.0,16.0,"Informational, Commercial",matriz,/feminino/biquini/,biquini
+roupa-de-neoprene,comercial,Neoprene,primaria,roupa de neoprene,880.0,13.0,"Informational, Commercial",matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,roupa neoprene,1000.0,12.0,Commercial,matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,roupas em neoprene,720.0,10.0,"Informational, Commercial",matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,roupa de borracha,720.0,10.0,Commercial,matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,roupa de borracha surf,480.0,10.0,Commercial,matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,long john,2400.0,11.0,Commercial,matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,wetsuit,1600.0,15.0,Commercial,matriz,/neoprene/,neoprene
 pilates,autoridade-comercial,Bem-estar,primaria,pilates,110000,51,Informational,medido,/feminino/ioga-fitness/,pilates
 pilates,autoridade-comercial,Bem-estar,secundaria,benefícios do pilates,6600,21,Informational,medido,/feminino/ioga-fitness/,pilates
 pilates,autoridade-comercial,Bem-estar,secundaria,pilates emagrece,12100,25,Informational,medido,/feminino/ioga-fitness/,pilates
