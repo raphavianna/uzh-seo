@@ -53,6 +53,10 @@ def gera(slug):
     # corpo = do fim do </h1> ao fim do arquivo
     m = re.search(r'</h1>', s)
     corpo = s[m.end():].strip() if m else s
+    # remove fechamentos órfãos de wrapper de página (T1 usava <main><article>)
+    corpo = re.sub(r'\s*</article>\s*$', '', corpo)
+    corpo = re.sub(r'\s*</main>\s*$', '', corpo)
+    corpo = re.sub(r'\s*</article>\s*$', '', corpo).strip()
     out = CAB.format(titulo=titulo, seo=seo, meta=meta, url=url, slug=slug) + '\n' + corpo + '\n'
     open(os.path.join(BASE, f'content/{slug}-editor.html'), 'w', encoding='utf-8').write(out)
     print(f'  ok {slug}-editor.html  (titulo: {titulo[:50]})')
