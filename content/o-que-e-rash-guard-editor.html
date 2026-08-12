@@ -1,42 +1,24 @@
 <!--
-  VERSAO EDITOR DE BLOG: sem script/schema, sem breadcrumb, sem h1.
+  VERSAO EDITOR DE BLOG: sem head, sem schema, sem breadcrumb, sem h1.
   Titulo do post (campo do CMS): Rash guard: o que é, os três nomes da peça e qual é o seu
   Title SEO: Rash Guard: O Que é e Qual Escolher | Use Zero Hora
   Meta description: O que é rash guard, por que a peça tem três nomes no Brasil e qual é o seu. Guia da lycra com proteção UV50+ da Use Zero Hora.
 
   ================== ATENCAO: {HASH} PRECISA SER SUBSTITUIDO ==================
-  O blog da Nuvemshop monta a URL do post como
+  O blog da Nuvemshop monta a URL como
     https://usezerohora.com.br/blog/posts/<slug>-<hash>
-  e gera o <hash> so na hora de publicar. Exemplo real de 2026-08-11:
-    https://usezerohora.com.br/blog/posts/lycra-surf-feminina-bbc79bb33550
+  e gera o <hash> so na publicacao. URL prevista: https://usezerohora.com.br/blog/posts/o-que-e-rash-guard-{HASH}
+  Em E5: publique, copie a URL final com o hash, e troque {HASH} no arquivo
+  o-que-e-rash-guard.html (canonical, og:url, BlogPosting @id, BreadcrumbList) e na coluna
+  url_dona de producao/registro/kw-donos.csv. Canonical com o marcador quebra a
+  indexacao — nao publique com o placeholder.
 
-  URL prevista deste post: https://usezerohora.com.br/blog/posts/o-que-e-rash-guard-{HASH}
-
-  Passos obrigatorios em E5:
-  1. Crie o post e confirme que o slug ficou "o-que-e-rash-guard".
-  2. Copie a URL final que o CMS gerou, com o hash.
-  3. Troque {HASH} por esse hash aqui, no arquivo o-que-e-rash-guard.html (canonical,
-     og:url, BlogPosting @id e BreadcrumbList) e na coluna url_dona de
-     producao/registro/kw-donos.csv.
-  4. Registre a URL final em url_final na grade do mes.
-
-  Canonical apontando para {HASH} nao substituido quebra a indexacao da
-  pagina. Nao publique com o placeholder.
-
-  DEPENDE DE OUTRO POST JA PUBLICADO. O corpo tem 4 link(s) para:
-    - blusa-com-protecao-uv
-    - camisa-de-praia-feminina
-    - camiseta-com-protecao-uv
-    - rash-guard-infantil
-  Publique esse(s) post(s) primeiro, colha a URL real de cada um e
-  substitua o {HASH} correspondente ANTES de colar este texto.
-  ==============================================================================
-
-  Schema BlogPosting/BreadcrumbList/FAQPage: adicionar via campo de dados
-  estruturados do CMS, com o JSON do arquivo o-que-e-rash-guard.html, ja com o hash.
-  Imagens: midia-produtos vazio em 2026-08-12. Pontos de insercao seguem
-  marcados como comentario.
+  Schema BlogPosting/BreadcrumbList/FAQPage: colar via campo de dados
+  estruturados do CMS, com o JSON de o-que-e-rash-guard.html, ja com o hash.
+  Imagens: URLs do CDN da propria loja (acdn-us.mitiendanube.com), ja no corpo.
+  ARQUIVO GERADO por scripts/gerar-editor.py — nao editar a mao; edite o-que-e-rash-guard.html.
 -->
+
 <p>Rash guard é a camiseta técnica em malha sintética que nasceu no surf para
 evitar o atrito da pele com a prancha. O nome vem do inglês: <em>rash</em> é a
 assadura que a parafina e a prancha causam no peito, e <em>guard</em> é a

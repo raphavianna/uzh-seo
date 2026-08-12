@@ -1,39 +1,24 @@
 <!--
-  VERSAO EDITOR DE BLOG: sem script/schema, sem breadcrumb, sem h1.
+  VERSAO EDITOR DE BLOG: sem head, sem schema, sem breadcrumb, sem h1.
   Titulo do post (campo do CMS): Camisa de praia feminina: como escolher a sua
   Title SEO: Camisa de Praia Feminina: Como Escolher | Use Zero Hora
   Meta description: Camisa de praia feminina com proteção UV50+: veja como escolher manga, tecido e modelagem para surf, esporte e dia inteiro de sol.
 
   ================== ATENCAO: {HASH} PRECISA SER SUBSTITUIDO ==================
-  O blog da Nuvemshop monta a URL do post como
+  O blog da Nuvemshop monta a URL como
     https://usezerohora.com.br/blog/posts/<slug>-<hash>
-  e gera o <hash> so na hora de publicar. Exemplo real de 2026-08-11:
-    https://usezerohora.com.br/blog/posts/lycra-surf-feminina-bbc79bb33550
+  e gera o <hash> so na publicacao. URL prevista: https://usezerohora.com.br/blog/posts/camisa-de-praia-feminina-{HASH}
+  Em E5: publique, copie a URL final com o hash, e troque {HASH} no arquivo
+  camisa-de-praia-feminina.html (canonical, og:url, BlogPosting @id, BreadcrumbList) e na coluna
+  url_dona de producao/registro/kw-donos.csv. Canonical com o marcador quebra a
+  indexacao — nao publique com o placeholder.
 
-  URL prevista deste post: https://usezerohora.com.br/blog/posts/camisa-de-praia-feminina-{HASH}
-
-  Passos obrigatorios em E5:
-  1. Crie o post e confirme que o slug ficou "camisa-de-praia-feminina".
-  2. Copie a URL final que o CMS gerou, com o hash.
-  3. Troque {HASH} por esse hash aqui, no arquivo camisa-de-praia-feminina.html (canonical,
-     og:url, BlogPosting @id e BreadcrumbList) e na coluna url_dona de
-     producao/registro/kw-donos.csv.
-  4. Registre a URL final em url_final na grade do mes.
-
-  Canonical apontando para {HASH} nao substituido quebra a indexacao da
-  pagina. Nao publique com o placeholder.
-
-  DEPENDE DE OUTRO POST JA PUBLICADO. O corpo tem 1 link(s) para:
-    - blusa-com-protecao-uv
-  Publique esse(s) post(s) primeiro, colha a URL real de cada um e
-  substitua o {HASH} correspondente ANTES de colar este texto.
-  ==============================================================================
-
-  Schema BlogPosting/BreadcrumbList/FAQPage: adicionar via campo de dados
-  estruturados do CMS, com o JSON do arquivo camisa-de-praia-feminina.html, ja com o hash.
-  Imagens: midia-produtos vazio em 2026-08-12. Pontos de insercao seguem
-  marcados como comentario.
+  Schema BlogPosting/BreadcrumbList/FAQPage: colar via campo de dados
+  estruturados do CMS, com o JSON de camisa-de-praia-feminina.html, ja com o hash.
+  Imagens: URLs do CDN da propria loja (acdn-us.mitiendanube.com), ja no corpo.
+  ARQUIVO GERADO por scripts/gerar-editor.py — nao editar a mao; edite camisa-de-praia-feminina.html.
 -->
+
 <p>A camisa de praia feminina é a peça de cima que cobre o tronco e os braços
 do sol, com tecido que seca rápido e aguenta água salgada. A escolha se
 resolve em três pontos: comprimento da manga, tipo de tecido e modelagem. A
