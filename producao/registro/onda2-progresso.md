@@ -65,6 +65,23 @@ Achados sistêmicos (invisíveis por artigo, gritantes lado a lado):
 - 1 erro de concordância ("é o que fazem quem surfa" → "faz").
 Editores regenerados p/ os 40. Validador: 50/50 = 0 erro.
 
+## BLOCO 2 — auditoria adversarial anti-IA (rodada 2: de-duplicação cross-cluster) CONCLUÍDA
+7 revisores leram os 50 artigos agrupados por CLUSTER temático (protetor/sol, bem-estar,
+natação, biquíni/maiô, moda-f/saída, masculino/surf, sapatilha/canga) — lente que a rodada 1
+(por arquivo) não tinha. Acharam o defeito real da produção em lote: REPETIÇÃO QUASE-VERBATIM
+entre artigos do mesmo tema (spec-dump idêntico, ponte/CTA/descrição de produto clonada,
+ressalva de saúde e disclaimer verbatim, aberturas definicionais em série). 7 cluster-fixers
+reescreveram cada elemento repetido ÚNICO por artigo, ancorado no eixo de cada um, mantendo os
+FATOS reais. Exemplos de padrões removidos:
+- protetor: "divide o corpo em duas frentes", CTA e H2 "No corpo, a roupa com UV" clonados em 3–6.
+- natação: parágrafo-produto clonado em 3, argumento "biquíni sai" reduzido de 4 p/ 2.
+- bem-estar: "constância > intensidade" em 3, agenda "seg/qua/sex" em 3, ressalva verbatim em 2.
+- biquíni: pontes CTA quase iguais; linguagem corretiva de corpo → linguagem de destaque.
+- moda-f: descrição do tule copy-paste em 4–5; "da areia ao quiosque" reservado ao dono.
+- masculino: frase-template da lycra em 6 (dado variado em cada); ponte honesta desclonada.
+- 2 artigos confirmados limpos (canga, o-que-levar) e 2 (sunga-slip, loja-de-surf) não tocados.
+Editores regenerados (44 alterados). Validador: 50/50 = 0 erro. 2 rodadas de auditoria fechadas.
+
 ### Pendência FORA de escopo (Onda 1/T1, sessão anterior) — reportar, não reescrever aqui:
 - Links de post-irmão com {HASH} no corpo (cluster rash-guard/lycra/UV: blusa-com-protecao-uv,
   camisa-de-praia-feminina, camiseta-com-protecao-uv, o-que-e-rash-guard, rash-guard-infantil).
