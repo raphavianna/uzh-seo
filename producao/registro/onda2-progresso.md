@@ -29,7 +29,11 @@
   protetor-solar-spray, biquini-asa-delta, roupa-de-praia-feminina,
   short-de-praia-feminino, polo-aquatico, nado-peito, roupa-de-praia-masculina,
   moda-praia-feminina, loja-de-surf. Validador `scripts/validar-anti-ia.py`: 0 erro.
-- Onda 2C (10) — pendente.
+- **Onda 2C (10)** — DISPARADA (escritores em background, com auto-validação):
+  roupa-de-natacao, maio-manga-longa, moda-praia-masculina, melhor-protetor-solar-facial,
+  protetor-solar-bastao, sapatilha-beach-tennis, sapatilha-de-neoprene, sunkini,
+  roupa-de-surf, bermuda-de-praia-masculina. ESCRITA + validada (0 erro, 0 tic;
+  auto-validação dos escritores) + editor gerado.
 - Onda 2D (10) — pendente.
 - Onda 2E (10) — pendente.
 
