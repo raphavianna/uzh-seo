@@ -39,6 +39,8 @@
   o-que-levar-para-a-praia, pilates-para-iniciantes, yoga-para-ansiedade,
   pilates-dor-nas-costas, como-usar-saida-de-praia. Cluster bem-estar com guarda
   anticanibalização contra pilares yoga.html/pilates.html/mindfulness.html.
+  ESCRITA + validada (0 erro, 0 tic) + editor gerado. Nota: catálogo saída de praia
+  = tule (sem crochê/kimono real); "como usar" adaptou para 5 peças reais.
 - Onda 2E (10) — pendente (menor volume: yoga-em-casa, surf-para-iniciantes,
   como-se-proteger-do-sol, stand-up-paddle-iniciante, quanto-tempo-dura-protetor-solar,
   yoga-ou-pilates, quantas-vezes-pilates, como-escolher-biquini, maio-ou-biquini,
