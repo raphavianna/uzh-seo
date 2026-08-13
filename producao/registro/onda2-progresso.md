@@ -52,6 +52,25 @@
 Todos os 50 artigos da Onda 2 escritos, mecanicamente validados (validar-anti-ia.py: 0 erro),
 editores derivados, kw-donos com 74 KWs onda2 = "escrito", 5 commits (2A–2E) pushed.
 
+## BLOCO 2 — auditoria adversarial anti-IA (rodada 1) CONCLUÍDA
+7 editores adversariais (editor humano cético) leram os 50 artigos e corrigiram in loco o que
+a varredura mecânica NÃO pega. 40 dos 50 tiveram correção; 10 já eram genuinamente naturais.
+Achados sistêmicos (invisíveis por artigo, gritantes lado a lado):
+- Placa de abertura "Abaixo você vê/tem o passo a passo..." (super-sinalização) — vários.
+- Fórmula "não existe vencedor absoluto, existe..." / "não é X, é Y" nos comparativos.
+- Molde definicional repetido "X é a peça que..." em seções seguidas.
+- Ritmo metronômico (3 frases da mesma forma), aberturas em série "A"/"O".
+- Throat-clear "vale a franqueza/honestidade", vazamento de brief no corpo ("a franqueza que o brief pede").
+- 1 violação SEM PREÇO recuperada (loja-de-surf "o preço sem a margem do revendedor").
+- 1 erro de concordância ("é o que fazem quem surfa" → "faz").
+Editores regenerados p/ os 40. Validador: 50/50 = 0 erro.
+
+### Pendência FORA de escopo (Onda 1/T1, sessão anterior) — reportar, não reescrever aqui:
+- Links de post-irmão com {HASH} no corpo (cluster rash-guard/lycra/UV: blusa-com-protecao-uv,
+  camisa-de-praia-feminina, camiseta-com-protecao-uv, o-que-e-rash-guard, rash-guard-infantil).
+- feminino-lycra-surf e masculino-lycra-surf sem JSON-LD BlogPosting (usam schema de categoria).
+- Avisos "de verdade" em sunga-masculina, vestido-de-praia.
+
 ## Próximo: BLOCO 2 — auditoria adversarial anti-IA
 Depois dos 50 escritos, rodar revisores adversariais (subagentes) em rodadas sobre os
 50 artigos, lendo holisticamente (ritmo, frase genérica, "cheiro" de IA que o validador
