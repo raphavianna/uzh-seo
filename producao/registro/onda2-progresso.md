@@ -46,6 +46,11 @@
   quanto-tempo-dura-protetor-solar, yoga-ou-pilates, quantas-vezes-pilates,
   como-escolher-biquini, maio-ou-biquini, kitesurf-como-comecar. Guardas anti-canibalização
   densas (clusters protetor/bem-estar/biquíni/esporte já populados).
+  ESCRITA + validada (0 erro, 0 tic) + editor gerado.
+
+## 50/50 ESCRITOS — Bloco 1 concluído
+Todos os 50 artigos da Onda 2 escritos, mecanicamente validados (validar-anti-ia.py: 0 erro),
+editores derivados, kw-donos com 74 KWs onda2 = "escrito", 5 commits (2A–2E) pushed.
 
 ## Próximo: BLOCO 2 — auditoria adversarial anti-IA
 Depois dos 50 escritos, rodar revisores adversariais (subagentes) em rodadas sobre os
