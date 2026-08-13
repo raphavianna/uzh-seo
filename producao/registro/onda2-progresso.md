@@ -41,10 +41,17 @@
   anticanibalização contra pilares yoga.html/pilates.html/mindfulness.html.
   ESCRITA + validada (0 erro, 0 tic) + editor gerado. Nota: catálogo saída de praia
   = tule (sem crochê/kimono real); "como usar" adaptou para 5 peças reais.
-- Onda 2E (10) — pendente (menor volume: yoga-em-casa, surf-para-iniciantes,
-  como-se-proteger-do-sol, stand-up-paddle-iniciante, quanto-tempo-dura-protetor-solar,
-  yoga-ou-pilates, quantas-vezes-pilates, como-escolher-biquini, maio-ou-biquini,
-  kitesurf-como-comecar).
+- **Onda 2E (10)** — DISPARADA (escritores em background, auto-validação; última onda):
+  yoga-em-casa, surf-para-iniciantes, como-se-proteger-do-sol, stand-up-paddle-iniciante,
+  quanto-tempo-dura-protetor-solar, yoga-ou-pilates, quantas-vezes-pilates,
+  como-escolher-biquini, maio-ou-biquini, kitesurf-como-comecar. Guardas anti-canibalização
+  densas (clusters protetor/bem-estar/biquíni/esporte já populados).
+
+## Próximo: BLOCO 2 — auditoria adversarial anti-IA
+Depois dos 50 escritos, rodar revisores adversariais (subagentes) em rodadas sobre os
+50 artigos, lendo holisticamente (ritmo, frase genérica, "cheiro" de IA que o validador
+mecânico não pega), até zero sinal. Depois BLOCO 3: sweep final + guia copiar-colar
+regenerado p/ Onda 2 + relatório de fechamento.
 
 ## Regras fixas (não esquecer)
 - SEM PREÇO. Links de produto/categoria em `<strong><u>`. Marca: "Use Zero Hora,
