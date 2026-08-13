@@ -88,6 +88,15 @@ Editores regenerados (44 alterados). Validador: 50/50 = 0 erro. 2 rodadas de aud
 - feminino-lycra-surf e masculino-lycra-surf sem JSON-LD BlogPosting (usam schema de categoria).
 - Avisos "de verdade" em sunga-masculina, vestido-de-praia.
 
+## BLOCO 3 — fechamento CONCLUÍDO
+- Guia copiar-colar dos 50: `producao/painel/guia-copiar-colar-onda2.html`
+  (`scripts/gerar-guia-onda2.py`). Artefato publicado (link navegável).
+- Relatório de fechamento: `reports/2026-08-13-onda2-fechamento.md`.
+- RUN AUTÔNOMO COMPLETO: 50 artigos criativos volume-first (149.510 buscas/mês medidas
+  nas primárias, 74 KWs travadas) + 2 rodadas de auditoria anti-IA (por arquivo +
+  de-duplicação cross-cluster) = 50/50 com 0 sinal. Commits 2A–2E + rodada 1 + rodada 2
+  + fechamento, todos pushed.
+
 ## Próximo: BLOCO 2 — auditoria adversarial anti-IA
 Depois dos 50 escritos, rodar revisores adversariais (subagentes) em rodadas sobre os
 50 artigos, lendo holisticamente (ritmo, frase genérica, "cheiro" de IA que o validador
