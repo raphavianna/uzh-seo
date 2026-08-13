@@ -34,8 +34,15 @@
   protetor-solar-bastao, sapatilha-beach-tennis, sapatilha-de-neoprene, sunkini,
   roupa-de-surf, bermuda-de-praia-masculina. ESCRITA + validada (0 erro, 0 tic;
   auto-validação dos escritores) + editor gerado.
-- Onda 2D (10) — pendente.
-- Onda 2E (10) — pendente.
+- **Onda 2D (10)** — DISPARADA (escritores em background, auto-validação): look-de-praia,
+  academia-de-natacao, sunga-slip-ou-preta, bermuda-natacao, prancha-de-wakeboard,
+  o-que-levar-para-a-praia, pilates-para-iniciantes, yoga-para-ansiedade,
+  pilates-dor-nas-costas, como-usar-saida-de-praia. Cluster bem-estar com guarda
+  anticanibalização contra pilares yoga.html/pilates.html/mindfulness.html.
+- Onda 2E (10) — pendente (menor volume: yoga-em-casa, surf-para-iniciantes,
+  como-se-proteger-do-sol, stand-up-paddle-iniciante, quanto-tempo-dura-protetor-solar,
+  yoga-ou-pilates, quantas-vezes-pilates, como-escolher-biquini, maio-ou-biquini,
+  kitesurf-como-comecar).
 
 ## Regras fixas (não esquecer)
 - SEM PREÇO. Links de produto/categoria em `<strong><u>`. Marca: "Use Zero Hora,
