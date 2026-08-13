@@ -75,8 +75,11 @@ em qual modelo, qual tamanho, como veste.
 escolher errado, que é a única coisa entre a pessoa e o carrinho. É a
 editoria de conversão mais curta, e por isso abre todo ciclo.
 
-**Onde ela já rendeu**: `content/rash-guard.html`, publicado no ciclo 01, é
-E1 sobre o cluster de maior prioridade.
+**Exemplo do cluster**: o guia informacional de rash guard é o T1-06 do lote
+de agosto (`content/o-que-e-rash-guard.html`), E2 sobre o cluster de maior
+prioridade. O rascunho antigo `content/rash-guard.html` foi arquivado em
+2026-08-12: era a página de produto da URL `/rash-guard/`, que a coleta do
+catálogo (`reports/2026-08-12-catalogo-nuvemshop.md`) confirmou não existir.
 
 ### E2 — Proteção solar, água e pele
 

@@ -1,15 +1,232 @@
 keyword,volume,kd,url_dona,artigo,territorio,status
-rash guard,18100,10,/rash-guard/,content/rash-guard.html,T1,escrito
-camisa uv,8100,20,/rash-guard/,content/rash-guard.html,T1,escrito
-blusa uv feminina,3600,15,/rash-guard/,content/rash-guard.html,T1,escrito
-camiseta uv,3600,16,/rash-guard/,content/rash-guard.html,T1,escrito
-blusa uv,2900,15,/rash-guard/,content/rash-guard.html,T1,escrito
-camiseta uv masculina,2900,17,/rash-guard/,content/rash-guard.html,T1,escrito
-camiseta uv feminina,1900,16,/rash-guard/,content/rash-guard.html,T1,escrito
-camiseta uv infantil,720,11,/rash-guard/,content/rash-guard.html,T1,escrito
-camiseta uv masculina manga longa,590,12,/rash-guard/,content/rash-guard.html,T1,escrito
+rash guard,18100,10,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+camisa uv,8100,20,/masculino/lycra-surf/,,T1,escrito
+blusa uv feminina,3600,15,/feminino/lycra-surf1/,,T1,escrito
+camiseta uv,3600,16,/masculino/lycra-surf/,,T1,escrito
+blusa uv,2900,15,/masculino/lycra-surf/,,T1,escrito
+camiseta uv masculina,2900,17,/masculino/lycra-surf/,,T1,escrito
+camiseta uv feminina,1900,16,/feminino/lycra-surf1/,,T1,escrito
+camiseta uv infantil,720,11,/infantil1/camiseta-uv2/,,T1,escrito
+camiseta uv masculina manga longa,590,12,/masculino/lycra-surf/,,T1,escrito
 lycra surf,880,9,/masculino/lycra-surf/,content/masculino-lycra-surf.html,T1,escrito
 lycra surf masculina,260,7,/masculino/lycra-surf/,content/masculino-lycra-surf.html,T1,escrito
 camiseta surf masculina,480,13,/masculino/lycra-surf/,content/masculino-lycra-surf.html,T1,escrito
-lycra surf feminina,170,7,/feminino/lycra-surf/,content/feminino-lycra-surf.html,T1,escrito
-camiseta para surf feminina,210,9,/feminino/lycra-surf/,content/feminino-lycra-surf.html,T1,escrito
+lycra surf feminina,170,7,/blog/posts/lycra-surf-feminina-bbc79bb33550,content/feminino-lycra-surf.html,T1,publicado
+camiseta para surf feminina,210,9,/blog/posts/lycra-surf-feminina-bbc79bb33550,content/feminino-lycra-surf.html,T1,publicado
+blusa com proteção uv,1300,18,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+camisa com proteção solar,480,16,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+roupa com proteção solar,210,13,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+roupa com proteção uv,170,15,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+blusa de proteção solar feminina,140,14,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+camisa de proteção solar feminina,110,13,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+camisa de proteção solar masculina,70,,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+o que é tecido com proteção uv,0,,/blog/posts/blusa-com-protecao-uv-{HASH},content/blusa-com-protecao-uv.html,T1,escrito
+surf lycra,880,8,/masculino/lycra-surf/,content/masculino-lycra-surf.html,T1,variante-de-lycra-surf
+surf lycras,590,10,/masculino/lycra-surf/,content/masculino-lycra-surf.html,T1,variante-de-lycra-surf
+camisa de praia feminina,880,19,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta uv feminina manga longa,320,12,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camisetas femininas surf,210,9,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta surf feminina,170,11,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta de praia feminina,140,,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camisa manga longa praia,140,18,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camisa termica praia,140,23,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camisa termica para praia,90,22,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta lycra feminina,70,,/blog/posts/camisa-de-praia-feminina-{HASH},content/camisa-de-praia-feminina.html,T1,escrito
+camiseta com proteção uv,880,13,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta proteção solar,480,21,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta para piscina,140,23,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camisa de lycra,110,10,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta uv 50 masculina,110,10,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta de lycra,90,8,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta de praia masculina,90,17,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+camiseta uv50,70,,/blog/posts/camiseta-com-protecao-uv-{HASH},content/camiseta-com-protecao-uv.html,T1,escrito
+rash guard infantil,480,5,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+roupa de natação infantil,590,21,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+roupa para natação infantil,260,16,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+rash guard para que serve,70,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+lycra surf infantil,20,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+camiseta uv para criança,0,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+lycra uv infantil,0,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+lycra manga longa infantil,,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+lycra infantil praia,,,/blog/posts/rash-guard-infantil-{HASH},content/rash-guard-infantil.html,T1,escrito
+o que é rash guard,260,5,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+rash guard feminino,140,6,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+camisa uv surf,140,8,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+camisa de lycra surf,90,7,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+camisetas lycra surf,70,,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+rash guard masculino,70,,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+diferença entre rash guard e lycra,,,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+diferença entre neoprene e lycra,,,/blog/posts/o-que-e-rash-guard-{HASH},content/o-que-e-rash-guard.html,T1,escrito
+maio de praia,18100.0,27.0,/blog/posts/maio-de-praia-{HASH},content/maio-de-praia.html,onda1,escrito
+maio feminino,12100.0,25.0,/blog/posts/maio-de-praia-{HASH},content/maio-de-praia.html,onda1,escrito
+maio cavado,2900.0,27.0,/blog/posts/maio-de-praia-{HASH},content/maio-de-praia.html,onda1,escrito
+maio com bojo,2400.0,21.0,/blog/posts/maio-de-praia-{HASH},content/maio-de-praia.html,onda1,escrito
+maio para surfar,210.0,24.0,/blog/posts/maio-de-praia-{HASH},content/maio-de-praia.html,onda1,escrito
+saida de praia,60500.0,26.0,/blog/posts/saida-de-praia-guia-{HASH},content/saida-de-praia-guia.html,onda1,escrito
+saída de praia longa,2400.0,9.0,/blog/posts/saida-de-praia-guia-{HASH},content/saida-de-praia-guia.html,onda1,escrito
+saída de praia feminina,1300.0,16.0,/blog/posts/saida-de-praia-guia-{HASH},content/saida-de-praia-guia.html,onda1,escrito
+saída de praia curta,590.0,13.0,/blog/posts/saida-de-praia-guia-{HASH},content/saida-de-praia-guia.html,onda1,escrito
+saída de praia plus size,1300.0,20.0,/blog/posts/saida-de-praia-guia-{HASH},content/saida-de-praia-guia.html,onda1,escrito
+saída de praia branca,720.0,11.0,/blog/posts/saida-de-praia-guia-{HASH},content/saida-de-praia-guia.html,onda1,escrito
+vestido de praia,2900.0,14.0,/blog/posts/vestido-de-praia-{HASH},content/vestido-de-praia.html,onda1,escrito
+saia de praia,2900.0,19.0,/blog/posts/vestido-de-praia-{HASH},content/vestido-de-praia.html,onda1,escrito
+saia de praia longa,1900.0,14.0,/blog/posts/vestido-de-praia-{HASH},content/vestido-de-praia.html,onda1,escrito
+conjunto de praia feminino,880.0,29.0,/blog/posts/vestido-de-praia-{HASH},content/vestido-de-praia.html,onda1,escrito
+biquini cortininha,6600.0,19.0,/blog/posts/biquini-cortininha-{HASH},content/biquini-cortininha.html,onda1,escrito
+biquini preto,5400.0,20.0,/blog/posts/biquini-cortininha-{HASH},content/biquini-cortininha.html,onda1,escrito
+biquini tomara que caia,2400.0,9.0,/blog/posts/biquini-cortininha-{HASH},content/biquini-cortininha.html,onda1,escrito
+biquini com bojo,880.0,12.0,/blog/posts/biquini-cortininha-{HASH},content/biquini-cortininha.html,onda1,escrito
+biquini hot pants,1300.0,15.0,/blog/posts/biquini-cortininha-{HASH},content/biquini-cortininha.html,onda1,escrito
+sunga masculina,22200.0,22.0,/blog/posts/sunga-masculina-{HASH},content/sunga-masculina.html,onda1,escrito
+sunga,18100.0,27.0,/blog/posts/sunga-masculina-{HASH},content/sunga-masculina.html,onda1,escrito
+sunga boxer,2900.0,14.0,/blog/posts/sunga-masculina-{HASH},content/sunga-masculina.html,onda1,escrito
+sunga de praia,2400.0,18.0,/blog/posts/sunga-masculina-{HASH},content/sunga-masculina.html,onda1,escrito
+short de praia masculino,2400.0,16.0,/blog/posts/short-de-praia-masculino-{HASH},content/short-de-praia-masculino.html,onda1,escrito
+short de praia,2900.0,18.0,/blog/posts/short-de-praia-masculino-{HASH},content/short-de-praia-masculino.html,onda1,escrito
+bermuda surf,2400.0,12.0,/blog/posts/short-de-praia-masculino-{HASH},content/short-de-praia-masculino.html,onda1,escrito
+boardshort,2400.0,11.0,/blog/posts/short-de-praia-masculino-{HASH},content/short-de-praia-masculino.html,onda1,escrito
+short de banho masculino,1600.0,16.0,/blog/posts/short-de-praia-masculino-{HASH},content/short-de-praia-masculino.html,onda1,escrito
+poncho surf,590.0,8.0,/blog/posts/poncho-de-surf-{HASH},content/poncho-de-surf.html,onda1,escrito
+poncho de surf,170.0,7.0,/blog/posts/poncho-de-surf-{HASH},content/poncho-de-surf.html,onda1,escrito
+poncho surf masculino,110.0,7.0,/blog/posts/poncho-de-surf-{HASH},content/poncho-de-surf.html,onda1,escrito
+roupao de surf,90.0,8.0,/blog/posts/poncho-de-surf-{HASH},content/poncho-de-surf.html,onda1,escrito
+poncho atoalhado,170.0,11.0,/blog/posts/poncho-de-surf-{HASH},content/poncho-de-surf.html,onda1,escrito
+poncho toalha infantil,590.0,9.0,/blog/posts/poncho-toalha-infantil-{HASH},content/poncho-toalha-infantil.html,onda1,escrito
+toalha com capuz infantil,1000.0,10.0,/blog/posts/poncho-toalha-infantil-{HASH},content/poncho-toalha-infantil.html,onda1,escrito
+poncho atoalhado infantil,210.0,11.0,/blog/posts/poncho-toalha-infantil-{HASH},content/poncho-toalha-infantil.html,onda1,escrito
+roupão de praia infantil,140.0,12.0,/blog/posts/poncho-toalha-infantil-{HASH},content/poncho-toalha-infantil.html,onda1,escrito
+roupa de neoprene,880.0,13.0,/blog/posts/roupa-de-neoprene-{HASH},content/roupa-de-neoprene.html,onda1,escrito
+roupa neoprene,1000.0,12.0,/blog/posts/roupa-de-neoprene-{HASH},content/roupa-de-neoprene.html,onda1,escrito
+roupas em neoprene,720.0,10.0,/blog/posts/roupa-de-neoprene-{HASH},content/roupa-de-neoprene.html,onda1,escrito
+roupa de borracha,720.0,10.0,/blog/posts/roupa-de-neoprene-{HASH},content/roupa-de-neoprene.html,onda1,escrito
+roupa de borracha surf,480.0,10.0,/blog/posts/roupa-de-neoprene-{HASH},content/roupa-de-neoprene.html,onda1,escrito
+long john,2400.0,11.0,/blog/posts/roupa-de-neoprene-{HASH},content/roupa-de-neoprene.html,onda1,escrito
+wetsuit,1600.0,15.0,/blog/posts/roupa-de-neoprene-{HASH},content/roupa-de-neoprene.html,onda1,escrito
+pilates,110000,51,/blog/posts/pilates-{HASH},content/pilates.html,onda1,escrito
+benefícios do pilates,6600,21,/blog/posts/pilates-{HASH},content/pilates.html,onda1,escrito
+pilates emagrece,12100,25,/blog/posts/pilates-{HASH},content/pilates.html,onda1,escrito
+pilates solo,4400,14,/blog/posts/pilates-{HASH},content/pilates.html,onda1,escrito
+roupa de pilates,1300,19,/blog/posts/pilates-{HASH},content/pilates.html,onda1,escrito
+yoga,40500,61,/blog/posts/yoga-{HASH},content/yoga.html,onda1,escrito
+tipos de yoga,1300,14,/blog/posts/yoga-{HASH},content/yoga.html,onda1,escrito
+yoga para iniciantes,1300,31,/blog/posts/yoga-{HASH},content/yoga.html,onda1,escrito
+posições de yoga,2400,21,/blog/posts/yoga-{HASH},content/yoga.html,onda1,escrito
+hatha yoga,4400,29,/blog/posts/yoga-{HASH},content/yoga.html,onda1,escrito
+vinyasa yoga,1900,20,/blog/posts/yoga-{HASH},content/yoga.html,onda1,escrito
+ashtanga yoga,1900,19,/blog/posts/yoga-{HASH},content/yoga.html,onda1,escrito
+saudação ao sol,1300,21,/blog/posts/yoga-{HASH},content/yoga.html,onda1,escrito
+natação,40500,43,/blog/posts/natacao-guia-{HASH},content/natacao-guia.html,onda1,escrito
+nado crawl,4400,18,/blog/posts/natacao-guia-{HASH},content/natacao-guia.html,onda1,escrito
+tipos de nado,1000,15,/blog/posts/natacao-guia-{HASH},content/natacao-guia.html,onda1,escrito
+como aprender a nadar,1300,29,/blog/posts/natacao-guia-{HASH},content/natacao-guia.html,onda1,escrito
+natação emagrece,2400,28,/blog/posts/natacao-guia-{HASH},content/natacao-guia.html,onda1,escrito
+maiô para natação,3600,22,/blog/posts/natacao-guia-{HASH},content/natacao-guia.html,onda1,escrito
+protetor solar facial,110000,37,/blog/posts/protetor-solar-facial-{HASH},content/protetor-solar-facial.html,onda1,escrito
+protetor solar com cor,40500,24,/blog/posts/protetor-solar-facial-{HASH},content/protetor-solar-facial.html,onda1,escrito
+protetor solar corporal,14800,25,/blog/posts/protetor-solar-facial-{HASH},content/protetor-solar-facial.html,onda1,escrito
+protetor solar para pele oleosa,8100,26,/blog/posts/protetor-solar-facial-{HASH},content/protetor-solar-facial.html,onda1,escrito
+protetor solar fps 50,2400,21,/blog/posts/protetor-solar-facial-{HASH},content/protetor-solar-facial.html,onda1,escrito
+melhor protetor solar,3600,31,/blog/posts/protetor-solar-facial-{HASH},content/protetor-solar-facial.html,onda1,escrito
+protetor solar infantil,18100,26,/blog/posts/protetor-solar-infantil-{HASH},content/protetor-solar-infantil.html,onda1,escrito
+treino funcional em casa,1300,40,/blog/posts/treino-funcional-{HASH},content/treino-funcional.html,onda1,escrito
+circuito funcional,1300,24,/blog/posts/treino-funcional-{HASH},content/treino-funcional.html,onda1,escrito
+calistenia para iniciantes,2900,35,/blog/posts/treino-funcional-{HASH},content/treino-funcional.html,onda1,escrito
+mindfulness,33100,46,/blog/posts/mindfulness-{HASH},content/mindfulness.html,onda1,escrito
+o que é fps,1900,23,/blog/posts/o-que-e-fps-{HASH},content/o-que-e-fps.html,onda1,escrito
+insolação sintomas,12100,33,/blog/posts/insolacao-sintomas-{HASH},content/insolacao-sintomas.html,onda1,escrito
+sintomas de insolação,9900,30,/blog/posts/insolacao-sintomas-{HASH},content/insolacao-sintomas.html,onda1,escrito
+sintomas insolação leve,1300,23,/blog/posts/insolacao-sintomas-{HASH},content/insolacao-sintomas.html,onda1,escrito
+alergia ao sol,3600,24,/blog/posts/insolacao-sintomas-{HASH},content/insolacao-sintomas.html,onda1,escrito
+skimboard,2900,17,/blog/posts/skimboard-{HASH},content/skimboard.html,onda1,escrito
+longboard surf,1300,7,/blog/posts/skimboard-{HASH},content/skimboard.html,onda1,escrito
+aula de surf,720,19,/blog/posts/skimboard-{HASH},content/skimboard.html,onda1,escrito
+escola de surf,720,28,/blog/posts/skimboard-{HASH},content/skimboard.html,onda1,escrito
+surf trip,2900,34,/blog/posts/skimboard-{HASH},content/skimboard.html,onda1,escrito
+bola de futevôlei,12100,21,/blog/posts/bola-de-futevolei-{HASH},content/bola-de-futevolei.html,onda1,escrito
+quadra de futevôlei,1000,8,/blog/posts/bola-de-futevolei-{HASH},content/bola-de-futevolei.html,onda1,escrito
+aula de futevôlei,880,21,/blog/posts/bola-de-futevolei-{HASH},content/bola-de-futevolei.html,onda1,escrito
+bola de vôlei de praia,1000,21,/blog/posts/bola-de-futevolei-{HASH},content/bola-de-futevolei.html,onda1,escrito
+protetor solar facial com cor,8100,28,/blog/posts/protetor-solar-com-cor-{HASH},content/protetor-solar-com-cor.html,onda2,escrito
+protetor solar em spray,4400,25,/blog/posts/protetor-solar-spray-{HASH},content/protetor-solar-spray.html,onda2,escrito
+protetor solar facial pele oleosa,3600,28,/blog/posts/protetor-solar-pele-oleosa-{HASH},content/protetor-solar-pele-oleosa.html,onda2,escrito
+protetor solar facial para pele oleosa,2400,24,/blog/posts/protetor-solar-pele-oleosa-{HASH},content/protetor-solar-pele-oleosa.html,onda2,escrito
+melhor protetor solar facial,1600,19,/blog/posts/melhor-protetor-solar-facial-{HASH},content/melhor-protetor-solar-facial.html,onda2,escrito
+protetor solar facial bastao,1600,21,/blog/posts/protetor-solar-bastao-{HASH},content/protetor-solar-bastao.html,onda2,escrito
+quanto tempo dura o protetor solar,,,/blog/posts/quanto-tempo-dura-protetor-solar-{HASH},content/quanto-tempo-dura-protetor-solar.html,onda2,escrito
+como se proteger do sol na praia,20,0,/blog/posts/como-se-proteger-do-sol-{HASH},content/como-se-proteger-do-sol.html,onda2,escrito
+hot yoga,14800,40,/blog/posts/hot-yoga-{HASH},content/hot-yoga.html,onda2,escrito
+tapete de yoga,12100,22,/blog/posts/tapete-de-yoga-{HASH},content/tapete-de-yoga.html,onda2,escrito
+yoga ou pilates,,,/blog/posts/yoga-ou-pilates-{HASH},content/yoga-ou-pilates.html,onda2,escrito
+pilates para iniciantes,390,31,/blog/posts/pilates-para-iniciantes-{HASH},content/pilates-para-iniciantes.html,onda2,escrito
+quantas vezes por semana fazer pilates,,,/blog/posts/quantas-vezes-pilates-{HASH},content/quantas-vezes-pilates.html,onda2,escrito
+pilates para dor nas costas,140,9,/blog/posts/pilates-dor-nas-costas-{HASH},content/pilates-dor-nas-costas.html,onda2,escrito
+yoga para ansiedade,170,16,/blog/posts/yoga-para-ansiedade-{HASH},content/yoga-para-ansiedade.html,onda2,escrito
+yoga em casa para iniciantes,50,0,/blog/posts/yoga-em-casa-{HASH},content/yoga-em-casa.html,onda2,escrito
+maio natação feminino,5400.0,24.0,/blog/posts/maio-natacao-feminino-{HASH},content/maio-natacao-feminino.html,onda2,escrito
+maio para natação,1600.0,19.0,/blog/posts/maio-natacao-feminino-{HASH},content/maio-natacao-feminino.html,onda2,escrito
+maio para hidroginastica,1600.0,24.0,/blog/posts/maio-natacao-feminino-{HASH},content/maio-natacao-feminino.html,onda2,escrito
+hidroterapia,5400,29,/blog/posts/hidroterapia-{HASH},content/hidroterapia.html,onda2,escrito
+polo aquático,2400,35,/blog/posts/polo-aquatico-{HASH},content/polo-aquatico.html,onda2,escrito
+nado peito,2400,32,/blog/posts/nado-peito-{HASH},content/nado-peito.html,onda2,escrito
+roupa de natação,1900.0,16.0,/blog/posts/roupa-de-natacao-{HASH},content/roupa-de-natacao.html,onda2,escrito
+academia de natação,1000,45,/blog/posts/academia-de-natacao-{HASH},content/academia-de-natacao.html,onda2,escrito
+sapatilha aquatica,12100.0,20.0,/blog/posts/sapatilha-aquatica-{HASH},content/sapatilha-aquatica.html,onda2,escrito
+sapatilha aquática,3600.0,23.0,/blog/posts/sapatilha-aquatica-{HASH},content/sapatilha-aquatica.html,onda2,escrito
+sapatilha nautica,2400.0,23.0,/blog/posts/sapatilha-aquatica-{HASH},content/sapatilha-aquatica.html,onda2,escrito
+sapatilha para praia,1600.0,25.0,/blog/posts/sapatilha-aquatica-{HASH},content/sapatilha-aquatica.html,onda2,escrito
+sapatilha aquatica feminina,1600.0,25.0,/blog/posts/sapatilha-aquatica-{HASH},content/sapatilha-aquatica.html,onda2,escrito
+sapatilhas para praia,1000.0,28.0,/blog/posts/sapatilha-aquatica-{HASH},content/sapatilha-aquatica.html,onda2,escrito
+sapatilha beach tennis,1600.0,14.0,/blog/posts/sapatilha-beach-tennis-{HASH},content/sapatilha-beach-tennis.html,onda2,escrito
+sapatilha para beach tennis,1600.0,15.0,/blog/posts/sapatilha-beach-tennis-{HASH},content/sapatilha-beach-tennis.html,onda2,escrito
+sapatilha neoprene,1600.0,29.0,/blog/posts/sapatilha-de-neoprene-{HASH},content/sapatilha-de-neoprene.html,onda2,escrito
+neoprene sapatilha,1300.0,17.0,/blog/posts/sapatilha-de-neoprene-{HASH},content/sapatilha-de-neoprene.html,onda2,escrito
+sapatilha em neoprene,1300.0,17.0,/blog/posts/sapatilha-de-neoprene-{HASH},content/sapatilha-de-neoprene.html,onda2,escrito
+canga de praia,14800.0,19.0,/blog/posts/como-amarrar-canga-{HASH},content/como-amarrar-canga.html,onda2,escrito
+roupa de mergulho,6600.0,24.0,/blog/posts/roupa-de-mergulho-{HASH},content/roupa-de-mergulho.html,onda2,escrito
+roupas de mergulho feminina,1000.0,16.0,/blog/posts/roupa-de-mergulho-{HASH},content/roupa-de-mergulho.html,onda2,escrito
+biquini fio dental,6600.0,14.0,/blog/posts/biquini-fio-dental-{HASH},content/biquini-fio-dental.html,onda2,escrito
+biquini asa delta,2900.0,14.0,/blog/posts/biquini-asa-delta-{HASH},content/biquini-asa-delta.html,onda2,escrito
+sunkini,1600.0,13.0,/blog/posts/sunkini-{HASH},content/sunkini.html,onda2,escrito
+sunkini feminino,720.0,21.0,/blog/posts/sunkini-{HASH},content/sunkini.html,onda2,escrito
+como escolher biquini para o corpo,,,/blog/posts/como-escolher-biquini-{HASH},content/como-escolher-biquini.html,onda2,escrito
+maio manga longa,1900.0,12.0,/blog/posts/maio-manga-longa-{HASH},content/maio-manga-longa.html,onda2,escrito
+maiô manga longa,1300.0,11.0,/blog/posts/maio-manga-longa-{HASH},content/maio-manga-longa.html,onda2,escrito
+maio ou biquini,,,/blog/posts/maio-ou-biquini-{HASH},content/maio-ou-biquini.html,onda2,escrito
+como usar saída de praia,70,0,/blog/posts/como-usar-saida-de-praia-{HASH},content/como-usar-saida-de-praia.html,onda2,escrito
+saída de praia de crochê,6600.0,33.0,/blog/posts/saida-de-praia-croche-{HASH},content/saida-de-praia-croche.html,onda2,escrito
+roupa de praia feminina,2900.0,36.0,/blog/posts/roupa-de-praia-feminina-{HASH},content/roupa-de-praia-feminina.html,onda2,escrito
+roupa de praia masculina,2400.0,21.0,/blog/posts/roupa-de-praia-masculina-{HASH},content/roupa-de-praia-masculina.html,onda2,escrito
+moda praia feminina,2400.0,49.0,/blog/posts/moda-praia-feminina-{HASH},content/moda-praia-feminina.html,onda2,escrito
+moda praia 2026,880.0,18.0,/blog/posts/moda-praia-feminina-{HASH},content/moda-praia-feminina.html,onda2,escrito
+moda praia masculina,1900.0,29.0,/blog/posts/moda-praia-masculina-{HASH},content/moda-praia-masculina.html,onda2,escrito
+roupa de surf,1600.0,21.0,/blog/posts/roupa-de-surf-{HASH},content/roupa-de-surf.html,onda2,escrito
+roupa de surf masculina,590.0,11.0,/blog/posts/roupa-de-surf-{HASH},content/roupa-de-surf.html,onda2,escrito
+roupa de surfista,590.0,11.0,/blog/posts/roupa-de-surf-{HASH},content/roupa-de-surf.html,onda2,escrito
+loja de surf,2400.0,50.0,/blog/posts/loja-de-surf-{HASH},content/loja-de-surf.html,onda2,escrito
+surf shop,880.0,33.0,/blog/posts/loja-de-surf-{HASH},content/loja-de-surf.html,onda2,escrito
+surf shop brasil,,,/blog/posts/loja-de-surf-{HASH},content/loja-de-surf.html,onda2,escrito
+short de praia feminino,2900.0,9.0,/blog/posts/short-de-praia-feminino-{HASH},content/short-de-praia-feminino.html,onda2,escrito
+sunga slip,1000.0,14.0,/blog/posts/sunga-slip-ou-preta-{HASH},content/sunga-slip-ou-preta.html,onda2,escrito
+sunga preta,1000.0,14.0,/blog/posts/sunga-slip-ou-preta-{HASH},content/sunga-slip-ou-preta.html,onda2,escrito
+bermuda de praia masculina,1600.0,25.0,/blog/posts/bermuda-de-praia-masculina-{HASH},content/bermuda-de-praia-masculina.html,onda2,escrito
+boardshort masculino,1300.0,10.0,/blog/posts/bermuda-de-praia-masculina-{HASH},content/bermuda-de-praia-masculina.html,onda2,escrito
+bermuda natação,1000.0,9.0,/blog/posts/bermuda-natacao-{HASH},content/bermuda-natacao.html,onda2,escrito
+bermuda natação masculina,1000.0,9.0,/blog/posts/bermuda-natacao-{HASH},content/bermuda-natacao.html,onda2,escrito
+prancha de wakeboard,1000,5,/blog/posts/prancha-de-wakeboard-{HASH},content/prancha-de-wakeboard.html,onda2,escrito
+look de praia,1300,32,/blog/posts/look-de-praia-{HASH},content/look-de-praia.html,onda2,escrito
+surf para iniciantes,30,0,/blog/posts/surf-para-iniciantes-{HASH},content/surf-para-iniciantes.html,onda2,escrito
+como comecar a surfar,,,/blog/posts/surf-para-iniciantes-{HASH},content/surf-para-iniciantes.html,onda2,escrito
+stand up paddle para iniciantes,20,0,/blog/posts/stand-up-paddle-iniciante-{HASH},content/stand-up-paddle-iniciante.html,onda2,escrito
+o que levar para a praia,720,14,/blog/posts/o-que-levar-para-a-praia-{HASH},content/o-que-levar-para-a-praia.html,onda2,escrito
+kitesurf como começar,,,/blog/posts/kitesurf-como-comecar-{HASH},content/kitesurf-como-comecar.html,onda2,escrito
+kitesurf o que é,,,/blog/posts/kitesurf-como-comecar-{HASH},content/kitesurf-como-comecar.html,onda2,escrito
+poncho surf feminino,90.0,4.0,/blog/posts/poncho-surf-feminino-{HASH},content/poncho-surf-feminino.html,onda-poncho,escrito
+como usar poncho de surf,dado-indisponivel,0.0,/blog/posts/como-usar-poncho-surf-{HASH},content/como-usar-poncho-surf.html,onda-poncho,escrito
+poncho surf tamanho,dado-indisponivel,0.0,/blog/posts/poncho-surf-tamanho-{HASH},content/poncho-surf-tamanho.html,onda-poncho,escrito
+poncho de surf vale a pena,dado-indisponivel,0.0,/blog/posts/poncho-surf-vale-a-pena-{HASH},content/poncho-surf-vale-a-pena.html,onda-poncho,escrito
+poncho natacao,110.0,16.0,/blog/posts/poncho-natacao-{HASH},content/poncho-natacao.html,onda-poncho,escrito
+roupao de praia,110.0,19.0,/blog/posts/roupao-de-praia-{HASH},content/roupao-de-praia.html,onda-poncho,escrito
+poncho surf menino,dado-indisponivel,0.0,/blog/posts/poncho-surf-menino-{HASH},content/poncho-surf-menino.html,onda-poncho,escrito
+como lavar poncho de surf,dado-indisponivel,0.0,/blog/posts/como-cuidar-poncho-surf-{HASH},content/como-cuidar-poncho-surf.html,onda-poncho,escrito
+poncho de praia,50.0,0.0,/blog/posts/poncho-de-praia-{HASH},content/poncho-de-praia.html,onda-poncho,escrito
+poncho surf crianca,dado-indisponivel,0.0,/blog/posts/poncho-infantil-por-faixa-{HASH},content/poncho-infantil-por-faixa.html,onda-poncho,escrito

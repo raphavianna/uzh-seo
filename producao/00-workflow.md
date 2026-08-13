@@ -142,6 +142,69 @@ Um artigo reprovado volta para `rascunho` com o motivo registrado na pauta.
 
 ### E5 — Publicação
 
+### Os dois tipos de URL do site, e para onde cada link vai
+
+Confirmado pelo usuário em 2026-08-11:
+
+| Tipo | Forma | Exemplo |
+|---|---|---|
+| **Produto** | `usezerohora.com.br/<genero>/<peca>/` | `/feminino/lycra-surf/` |
+| **Post do blog** | `usezerohora.com.br/blog/posts/<slug>-<hash>` | `/blog/posts/lycra-surf-feminina-bbc79bb33550` |
+
+`/feminino/lycra-surf/` **é página de produto**, e não de categoria. O
+repositório vinha tratando as URLs desse formato como categoria desde
+2026-08-08, sempre por suposição, e a correção passou por 14 links no lote de
+agosto.
+
+**Regra de destino de link**, que vale para todos os lotes:
+
+| O link é… | Vai para |
+|---|---|
+| Âncora que carrega keyword de outro dono | a URL dona da keyword em `registro/kw-donos.csv` |
+| CTA de compra | a URL de produto |
+| Referência editorial a tema irmão | o post do blog que cobre o tema |
+
+O motivo: âncora com keyword apontando para URL que não é a dona manda o sinal
+para o lugar errado, que é a canibalização que o registro existe para evitar.
+E CTA apontando para listagem que não existe entrega clique que não compra.
+
+**`url_dona` no registro é a URL onde o conteúdo está publicado**, não a
+categoria de destino do CTA. Quando um artigo sai do rascunho e vira post, a
+coluna muda para a URL do post.
+
+Naturezas ainda **não confirmadas**: `/masculino/lycra-surf/`, `/rash-guard/`
+e `/feminino/maio/`. Confirmar antes do lote de setembro.
+
+### O formato da URL de post, e por que ele muda o fluxo
+
+Informado pelo usuário em 2026-08-11, com exemplo real:
+
+```
+https://usezerohora.com.br/blog/posts/lycra-surf-feminina-bbc79bb33550
+```
+
+O padrão é `https://usezerohora.com.br/blog/posts/<slug>-<hash>`. Três
+detalhes, e cada um custou uma correção no lote de agosto:
+
+1. Tem o segmento **`/posts/`** entre o blog e o slug.
+2. Não tem **barra no final**.
+3. Termina num **hash de 12 caracteres que o CMS gera na publicação**.
+
+O terceiro item é o que muda a arquitetura da etapa. **A URL final de um post
+não existe antes de ele ser publicado**, então nenhum artigo pode nascer com
+canonical correto. Os arquivos de `content/` carregam o marcador `{HASH}` no
+lugar do hash, em quatro campos: `canonical`, `og:url`, `@id` do
+`BlogPosting` e o último item do `BreadcrumbList`.
+
+**Canonical publicado com `{HASH}` sem substituir quebra a indexação da
+página.** A checagem entrou em `producao/qa/checklist.md`.
+
+Consequência para a ordem de publicação: **artigo que linka para um irmão só
+pode subir depois do irmão**, porque o link precisa do hash do outro. No lote
+de agosto, T1-03, T1-04 e T1-05 linkam para T1-01, o que torna a ordem da
+grade uma dependência real, e não uma conveniência de calendário. O
+cabeçalho de cada arquivo `-editor.html` lista de quem ele depende.
+
 **A Blog API da Nuvemshop existe** e cobre criar, ler, atualizar e apagar
 post, mais upload de imagem de conteúdo e de capa, e o endpoint que devolve o
 blog ID. Base: `https://api.nuvemshop.com.br/2025-03/{store_id}`.
@@ -157,7 +220,13 @@ Duas travas antes de automatizar, ambas no repositório `integracao-nuvemshop`:
    o recurso de blog e as ferramentas MCP correspondentes.
 
 Enquanto as duas não caírem, E5 roda manual: o time cola a versão editor-safe
-no admin e registra a `url_final` na grade.
+no admin, substitui o `{HASH}` pela URL que o CMS gerou e registra a
+`url_final` na grade. O passo a passo está em `prompts/01-etapas.md`.
+
+Quando a automação entrar, o `{HASH}` some do fluxo: a Blog API devolve a URL
+do post na resposta de criação, e o script preenche canonical, `og:url`,
+schema e `kw-donos.csv` sem passar por mão humana. É o maior ganho da
+automação depois do tempo de publicação.
 
 ## Piloto de agosto
 

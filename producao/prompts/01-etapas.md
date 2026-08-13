@@ -114,14 +114,58 @@ pendente não avança para E5.
 
 **Instrução, modo manual (hoje)**
 
-1. Cole a versão editor-safe no editor do blog na data agendada.
+A URL de post do blog é `https://usezerohora.com.br/blog/posts/<slug>-<hash>`,
+e o `<hash>` de 12 caracteres só existe depois da publicação. Por isso os
+arquivos de `content/` trazem o marcador `{HASH}`.
+
+**Não substitua o `{HASH}` à mão.** No lote de agosto são 103 trocas em 11
+arquivos, e canonical publicado com o marcador sem substituir quebra a
+indexação da página. Há dois caminhos, e os dois chegam ao mesmo resultado:
+
+| Caminho | Quando usar |
+|---|---|
+| **Painel** (`producao/painel/`) | O normal. Mova o card para Online, cole a URL, e ele fecha o marcador em todo o lote, acerta a data do schema e atualiza o cabeçalho da versão editor. Depois exporte o patch e rode `scripts/aplicar-patch-painel.py`. |
+| **Terminal** (`scripts/publicar-fechar-urls.py`) | Quando preferir não passar pelo navegador. Cole as URLs em `producao/registro/urls-publicadas.csv` e rode o script. |
+
+Os dois recusam gravar se a URL colada não bater com o slug do artigo.
+
+### O lote sobe em rodadas, não artigo por artigo
+
+Artigo que linka para um irmão precisa do hash daquele irmão. Isso agrupa a
+publicação por camada de dependência, e a conta costuma dar menos rodadas do
+que artigos. No lote de agosto, cinco artigos cabem em **três rodadas**:
+
+| Rodada | Sobe | Por quê |
+|---|---|---|
+| 1 | o artigo que não linka para nenhum irmão | é a raiz de todas as dependências |
+| 2 | todos os que dependem só da rodada 1 | podem ir juntos |
+| 3 | o hub, que linka para todos | precisa do hash de todos |
+
+O cabeçalho de cada `-editor.html` lista de quem aquele artigo depende.
+
+### Passo a passo de cada rodada
+
+1. Cole a versão editor-safe no editor do blog e confirme que **o slug ficou
+   igual ao nome do arquivo** em `content/`. Slug diferente deixa o canonical
+   apontando para URL que não existe.
 2. Preencha title e meta description nos campos de SEO do CMS.
-3. Adicione o JSON-LD pelo campo de dados estruturados, com o conteúdo do
-   arquivo completo.
-4. Feche os links internos: do artigo para a categoria e o produto, e das
-   peças irmãs já publicadas para o novo artigo. Conteúdo sem link de entrada
-   demora o dobro para indexar.
-5. Registre `url_final` e a data na grade.
+3. Copie a URL final que o CMS gerou, com o hash, para
+   `producao/registro/urls-publicadas.csv`, junto da data real de publicação.
+4. Rode `python3 scripts/publicar-fechar-urls.py --dry-run` para conferir, e
+   depois sem a flag para gravar.
+5. Adicione o JSON-LD pelo campo de dados estruturados, com o conteúdo do
+   arquivo completo **já fechado pelo script**.
+6. Repita para a próxima rodada. O script diz quantos `{HASH}` ainda faltam.
+
+### Depois da última rodada
+
+7. Feche os links de entrada: das páginas de produto e categoria para os novos
+   posts, e das peças irmãs já publicadas. Conteúdo sem link de entrada demora
+   o dobro para indexar.
+8. Submeta as URLs no Search Console. É o caminho mais curto entre publicar e
+   indexar, e sem isso o lote depende do rastreamento espontâneo.
+9. Confirme que `url_final` e `status` estão preenchidos na grade. O script já
+   faz isso; a conferência é para pegar artigo que ficou de fora do CSV.
 
 **Instrução, modo automatizado (quando as travas caírem)**
 

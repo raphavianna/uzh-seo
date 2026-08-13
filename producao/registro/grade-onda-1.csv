@@ -1,0 +1,90 @@
+slug,papel,hub,tipo_kw,keyword,vol,kd,intent,fonte,url_cta,territorio
+maio-de-praia,comercial,Comercial,primaria,maio de praia,18100.0,27.0,Commercial,matriz,/feminino/maio/,maio
+maio-de-praia,comercial,Comercial,secundaria,maio feminino,12100.0,25.0,Commercial,matriz,/feminino/maio/,maio
+maio-de-praia,comercial,Comercial,secundaria,maio cavado,2900.0,27.0,Commercial,matriz,/feminino/maio/,maio
+maio-de-praia,comercial,Comercial,secundaria,maio com bojo,2400.0,21.0,Informational,matriz,/feminino/maio/,maio
+maio-de-praia,comercial,Comercial,secundaria,maio para surfar,210.0,24.0,Commercial,matriz,/feminino/maio/,maio
+saida-de-praia-guia,comercial,Comercial,primaria,saida de praia,60500.0,26.0,"Informational, Commercial",matriz,/feminino/saida-de-praia/,saida
+saida-de-praia-guia,comercial,Comercial,secundaria,saída de praia longa,2400.0,9.0,Commercial,matriz,/feminino/saida-de-praia/,saida
+saida-de-praia-guia,comercial,Comercial,secundaria,saída de praia feminina,1300.0,16.0,"Informational, Transactional",matriz,/feminino/saida-de-praia/,saida
+saida-de-praia-guia,comercial,Comercial,secundaria,saída de praia curta,590.0,13.0,Informational,matriz,/feminino/saida-de-praia/,saida
+saida-de-praia-guia,comercial,Comercial,secundaria,saída de praia plus size,1300.0,20.0,Informational,matriz,/feminino/saida-de-praia/,saida
+saida-de-praia-guia,comercial,Comercial,secundaria,saída de praia branca,720.0,11.0,Commercial,matriz,/feminino/saida-de-praia/,saida
+vestido-de-praia,comercial,Comercial,primaria,vestido de praia,2900.0,14.0,"Informational, Commercial",matriz,/feminino/saida-de-praia/vestido-manga-longa/,saida
+vestido-de-praia,comercial,Comercial,secundaria,saia de praia,2900.0,19.0,Informational,matriz,/feminino/saida-de-praia/vestido-manga-longa/,saida
+vestido-de-praia,comercial,Comercial,secundaria,saia de praia longa,1900.0,14.0,Informational,matriz,/feminino/saida-de-praia/vestido-manga-longa/,saida
+vestido-de-praia,comercial,Comercial,secundaria,conjunto de praia feminino,880.0,29.0,"Informational, Commercial",matriz,/feminino/saida-de-praia/vestido-manga-longa/,saida
+biquini-cortininha,comercial,Comercial,primaria,biquini cortininha,6600.0,19.0,Commercial,matriz,/feminino/biquini/,biquini
+biquini-cortininha,comercial,Comercial,secundaria,biquini preto,5400.0,20.0,Commercial,matriz,/feminino/biquini/,biquini
+biquini-cortininha,comercial,Comercial,secundaria,biquini tomara que caia,2400.0,9.0,Informational,matriz,/feminino/biquini/,biquini
+biquini-cortininha,comercial,Comercial,secundaria,biquini com bojo,880.0,12.0,"Informational, Commercial",matriz,/feminino/biquini/,biquini
+biquini-cortininha,comercial,Comercial,secundaria,biquini hot pants,1300.0,15.0,Commercial,matriz,/feminino/biquini/,biquini
+sunga-masculina,comercial,Comercial,primaria,sunga masculina,22200.0,22.0,Commercial,matriz,/masculino/sunga/,sunga
+sunga-masculina,comercial,Comercial,secundaria,sunga,18100.0,27.0,Informational,matriz,/masculino/sunga/,sunga
+sunga-masculina,comercial,Comercial,secundaria,sunga boxer,2900.0,14.0,Commercial,matriz,/masculino/sunga/,sunga
+sunga-masculina,comercial,Comercial,secundaria,sunga de praia,2400.0,18.0,Commercial,matriz,/masculino/sunga/,sunga
+short-de-praia-masculino,comercial,Comercial,primaria,short de praia masculino,2400.0,16.0,Commercial,matriz,/masculino/bermuda/,sunga
+short-de-praia-masculino,comercial,Comercial,secundaria,short de praia,2900.0,18.0,Commercial,matriz,/masculino/bermuda/,sunga
+short-de-praia-masculino,comercial,Comercial,secundaria,bermuda surf,2400.0,12.0,Commercial,matriz,/masculino/bermuda/,sunga
+short-de-praia-masculino,comercial,Comercial,secundaria,boardshort,2400.0,11.0,Commercial,matriz,/masculino/bermuda/,sunga
+short-de-praia-masculino,comercial,Comercial,secundaria,short de banho masculino,1600.0,16.0,"Informational, Commercial",matriz,/masculino/bermuda/,sunga
+poncho-de-surf,comercial,Comercial,primaria,poncho surf,590.0,8.0,"Informational, Commercial",matriz,/masculino/poncho/,poncho
+poncho-de-surf,comercial,Comercial,secundaria,poncho de surf,170.0,7.0,"Informational, Commercial",matriz,/masculino/poncho/,poncho
+poncho-de-surf,comercial,Comercial,secundaria,poncho surf masculino,110.0,7.0,Commercial,matriz,/masculino/poncho/,poncho
+poncho-de-surf,comercial,Comercial,secundaria,roupao de surf,90.0,8.0,Commercial,matriz,/masculino/poncho/,poncho
+poncho-de-surf,comercial,Comercial,secundaria,poncho atoalhado,170.0,11.0,Commercial,matriz,/masculino/poncho/,poncho
+poncho-toalha-infantil,comercial,Comercial,primaria,poncho toalha infantil,590.0,9.0,Commercial,matriz,/infantil1/poncho2/,poncho
+poncho-toalha-infantil,comercial,Comercial,secundaria,toalha com capuz infantil,1000.0,10.0,Informational,matriz,/infantil1/poncho2/,poncho
+poncho-toalha-infantil,comercial,Comercial,secundaria,poncho atoalhado infantil,210.0,11.0,Informational,matriz,/infantil1/poncho2/,poncho
+poncho-toalha-infantil,comercial,Comercial,secundaria,roupão de praia infantil,140.0,12.0,Commercial,matriz,/infantil1/poncho2/,poncho
+roupa-de-neoprene,comercial,Neoprene,primaria,roupa de neoprene,880.0,13.0,"Informational, Commercial",matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,roupa neoprene,1000.0,12.0,Commercial,matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,roupas em neoprene,720.0,10.0,"Informational, Commercial",matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,roupa de borracha,720.0,10.0,Commercial,matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,roupa de borracha surf,480.0,10.0,Commercial,matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,long john,2400.0,11.0,Commercial,matriz,/neoprene/,neoprene
+roupa-de-neoprene,comercial,Neoprene,secundaria,wetsuit,1600.0,15.0,Commercial,matriz,/neoprene/,neoprene
+pilates,autoridade-comercial,Bem-estar,primaria,pilates,110000,51,Informational,medido,/feminino/ioga-fitness/,pilates
+pilates,autoridade-comercial,Bem-estar,secundaria,benefícios do pilates,6600,21,Informational,medido,/feminino/ioga-fitness/,pilates
+pilates,autoridade-comercial,Bem-estar,secundaria,pilates emagrece,12100,25,Informational,medido,/feminino/ioga-fitness/,pilates
+pilates,autoridade-comercial,Bem-estar,secundaria,pilates solo,4400,14,Informational,medido,/feminino/ioga-fitness/,pilates
+pilates,autoridade-comercial,Bem-estar,secundaria,roupa de pilates,1300,19,Commercial,medido,/feminino/ioga-fitness/,pilates
+yoga,autoridade-comercial,Bem-estar,primaria,yoga,40500,61,Informational,medido,/feminino/ioga-fitness/,yoga
+yoga,autoridade-comercial,Bem-estar,secundaria,tipos de yoga,1300,14,Informational,medido,/feminino/ioga-fitness/,yoga
+yoga,autoridade-comercial,Bem-estar,secundaria,yoga para iniciantes,1300,31,Informational,medido,/feminino/ioga-fitness/,yoga
+yoga,autoridade-comercial,Bem-estar,secundaria,posições de yoga,2400,21,Informational,medido,/feminino/ioga-fitness/,yoga
+yoga,autoridade-comercial,Bem-estar,secundaria,hatha yoga,4400,29,Informational,medido,/feminino/ioga-fitness/,yoga
+yoga,autoridade-comercial,Bem-estar,secundaria,vinyasa yoga,1900,20,Informational,medido,/feminino/ioga-fitness/,yoga
+yoga,autoridade-comercial,Bem-estar,secundaria,ashtanga yoga,1900,19,Informational,medido,/feminino/ioga-fitness/,yoga
+yoga,autoridade-comercial,Bem-estar,secundaria,saudação ao sol,1300,21,Informational,medido,/feminino/ioga-fitness/,yoga
+natacao-guia,autoridade-comercial,Natacao,primaria,natação,40500,43,Informational,medido,/feminino/maio/,natacao
+natacao-guia,autoridade-comercial,Natacao,secundaria,nado crawl,4400,18,Informational,medido,/feminino/maio/,natacao
+natacao-guia,autoridade-comercial,Natacao,secundaria,tipos de nado,1000,15,Informational,medido,/feminino/maio/,natacao
+natacao-guia,autoridade-comercial,Natacao,secundaria,como aprender a nadar,1300,29,Informational,medido,/feminino/maio/,natacao
+natacao-guia,autoridade-comercial,Natacao,secundaria,natação emagrece,2400,28,Informational,medido,/feminino/maio/,natacao
+natacao-guia,autoridade-comercial,Natacao,secundaria,maiô para natação,3600,22,Commercial,medido,/feminino/maio/,natacao
+protetor-solar-facial,autoridade-ponte,Sol e pele,primaria,protetor solar facial,110000,37,Informational,medido,/feminino/camiseta-uv1/,protetor solar
+protetor-solar-facial,autoridade-ponte,Sol e pele,secundaria,protetor solar com cor,40500,24,Informational,medido,/feminino/camiseta-uv1/,protetor solar
+protetor-solar-facial,autoridade-ponte,Sol e pele,secundaria,protetor solar corporal,14800,25,Commercial,medido,/feminino/camiseta-uv1/,protetor solar
+protetor-solar-facial,autoridade-ponte,Sol e pele,secundaria,protetor solar para pele oleosa,8100,26,Informational,medido,/feminino/camiseta-uv1/,protetor solar
+protetor-solar-facial,autoridade-ponte,Sol e pele,secundaria,protetor solar fps 50,2400,21,Informational,medido,/feminino/camiseta-uv1/,protetor solar
+protetor-solar-facial,autoridade-ponte,Sol e pele,secundaria,melhor protetor solar,3600,31,Commercial,medido,/feminino/camiseta-uv1/,protetor solar
+protetor-solar-infantil,autoridade-ponte,Sol e pele,primaria,protetor solar infantil,18100,26,Informational,medido,/infantil1/camiseta-uv2/,protecao infantil
+treino-funcional,autoridade-comercial,Bem-estar,primaria,treino funcional em casa,1300,40,"Informational, Transactional",medido,/feminino/ioga-fitness/,treino funcional
+treino-funcional,autoridade-comercial,Bem-estar,secundaria,circuito funcional,1300,24,Informational,medido,/feminino/ioga-fitness/,treino funcional
+treino-funcional,autoridade-comercial,Bem-estar,secundaria,calistenia para iniciantes,2900,35,Informational,medido,/feminino/ioga-fitness/,treino funcional
+mindfulness,autoridade-ponte,Bem-estar,primaria,mindfulness,33100,46,Informational,medido,/feminino/ioga-fitness/,yoga
+o-que-e-fps,autoridade-ponte,Sol e pele,primaria,o que é fps,1900,23,Informational,medido,/feminino/camiseta-uv1/,protecao solar
+insolacao-sintomas,autoridade-ponte,Sol e pele,primaria,insolação sintomas,12100,33,Informational,medido,/feminino/camiseta-uv1/,pele e saude
+insolacao-sintomas,autoridade-ponte,Sol e pele,secundaria,sintomas de insolação,9900,30,Informational,medido,/feminino/camiseta-uv1/,pele e saude
+insolacao-sintomas,autoridade-ponte,Sol e pele,secundaria,sintomas insolação leve,1300,23,Informational,medido,/feminino/camiseta-uv1/,pele e saude
+insolacao-sintomas,autoridade-ponte,Sol e pele,secundaria,alergia ao sol,3600,24,Informational,medido,/feminino/camiseta-uv1/,pele e saude
+skimboard,comercial,Surf,primaria,skimboard,2900,17,Informational,medido,/masculino/lycra-surf/,surf
+skimboard,comercial,Surf,secundaria,longboard surf,1300,7,Commercial,medido,/masculino/lycra-surf/,surf
+skimboard,comercial,Surf,secundaria,aula de surf,720,19,Informational,medido,/masculino/lycra-surf/,surf
+skimboard,comercial,Surf,secundaria,escola de surf,720,28,Commercial,medido,/masculino/lycra-surf/,surf
+skimboard,comercial,Surf,secundaria,surf trip,2900,34,Navigational,medido,/masculino/lycra-surf/,surf
+bola-de-futevolei,comercial,Praia esportiva,primaria,bola de futevôlei,12100,21,Commercial,medido,/masculino/sunga/,futevolei
+bola-de-futevolei,comercial,Praia esportiva,secundaria,quadra de futevôlei,1000,8,Informational,medido,/masculino/sunga/,futevolei
+bola-de-futevolei,comercial,Praia esportiva,secundaria,aula de futevôlei,880,21,Commercial,medido,/masculino/sunga/,futevolei
+bola-de-futevolei,comercial,Praia esportiva,secundaria,bola de vôlei de praia,1000,21,Commercial,medido,/masculino/sunga/,futevolei
