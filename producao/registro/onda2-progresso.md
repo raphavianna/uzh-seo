@@ -25,7 +25,10 @@
   hot-yoga, sapatilha-aquatica, tapete-de-yoga, protetor-solar-com-cor,
   biquini-fio-dental, roupa-de-mergulho, saida-de-praia-croche,
   maio-natacao-feminino, hidroterapia.
-- Onda 2B (10) — pendente.
+- **Onda 2B (10)** — ESCRITA + validada + editor gerado: protetor-solar-pele-oleosa,
+  protetor-solar-spray, biquini-asa-delta, roupa-de-praia-feminina,
+  short-de-praia-feminino, polo-aquatico, nado-peito, roupa-de-praia-masculina,
+  moda-praia-feminina, loja-de-surf. Validador `scripts/validar-anti-ia.py`: 0 erro.
 - Onda 2C (10) — pendente.
 - Onda 2D (10) — pendente.
 - Onda 2E (10) — pendente.
